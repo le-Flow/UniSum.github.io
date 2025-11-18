@@ -1,6 +1,15 @@
 site_name: UniSum
 site_url: 'https://UniSum.github.io' 
 
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 theme:
   name: material
   features:
@@ -28,3 +37,28 @@ theme:
 
 nav:
   - 'Home': 'index.md'
+  - 'Prozessrechentechnik':
+    - '1. Einleitung': 'Prozessrechentechnik/1.Einleitung.md'
+    - '2. Begriffe und Grundlagen': 'Prozessrechentechnik/2.Begriffe_und_Grundlagen.md'
+    - '3. Aufbau eingebetteter Systeme': 'Prozessrechentechnik/3.Aufbau_eingebetteter_Systeme.md'
+    - '4. Steuerung und Regelung': 'Prozessrechentechnik/4.Steuerung_und_Regelung.md'
+    - '5. Modelierungstechniken': 'Prozessrechentechnik/5.Modellierungstechniken.md'
+    - '6. SW-Entwicklung für ES': 'Prozessrechentechnik/6.SW-Entwicklung_für_ES.md'
+    - 'Praktikum': 'Prozessrechentechnik/SummaryExercises.md'
+    - 'Quiz': 'Prozessrechentechnik/SolutionsExamTraining.md'
+  - 'Verteilte Systeme':
+    - 'Vorlesung':
+      - '1. Einführung': 'Verteilte Systeme/Vorlesung/1. Einführung.md'
+      - '2. Architekturen': 'Verteilte Systeme/Vorlesung/2. Architekturen.md'
+      - '3. Technologische Grundlagen': 'Verteilte Systeme/Vorlesung/3. Technologische Grundlagen.md'
+      - '4. Kommunikation': 'Verteilte Systeme/Vorlesung/4. Kommunikation.md'
+      - '5. Koordination': 'Verteilte Systeme/Vorlesung/5. Koordination.md'
+      - '6. Namen in Verteilten Systemen': 'Verteilte Systeme/Vorlesung/6. Namen in Verteilten Systemen.md'
+      - '7. Konsistenz und Replikation': 'Verteilte Systeme/Vorlesung/7. Konsistenz und Replikation.md'
+      - '8. Fehlertolleranz': 'Verteilte Systeme/Vorlesung/8. Fehlertolleranz.md'
+    - 'Praktikum':
+      - '1. Praktikum': 'Verteilte Systeme/Praktikum/1. Praktikum.md'
+      - '2. Praktikum': 'Verteilte Systeme/Praktikum/2. Praktikum.md'
+      - '3. Praktikum': 'Verteilte Systeme/Praktikum/3. Praktikum.md'
+  - 'Internettechnologien (WIP)': 'index.md'
+  - 'Compiler (WIP)': 'index.md'

@@ -1,0 +1,2 @@
+Resizable images:
+![My Image](image.png){ style="width: 300px; display: block;" }
