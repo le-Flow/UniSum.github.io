@@ -71,4 +71,5 @@ nav:
     - 'Roadmap': 'Compiler/Roadmap.md'
     - 'Vorlesung':
       - '1. Einführung': 'Compiler/Vorlesung/1. Einführung.md'
+      - '2. Lexikalische Analyse': 'Compiler/Vorlesung/2. Lexikalische Analyse.md'
   - 'Internettechnologien (WIP)': 'index.md'

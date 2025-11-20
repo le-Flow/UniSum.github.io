@@ -15,16 +15,18 @@
 
 ### 2. Lexikalische Analyse:
 
-- [ ] Kontextfreie Grammatiken
-- [ ] Parsebaum (konkreter Syntaxbaum)
-- [ ] Abstrakter Syntaxbaum
-- [ ] Generelle Prinzipien (Terminale/Token, nextToken, Fehlerbehandlung, Maximal Munch...)
-- [ ] Regex?
+- [x] Kontextfreie Grammatiken
+- [x] Parsebaum
+  - [x] konkreter Syntaxbaum
+  - [x] Abstrakter Syntaxbaum
+- [x] Lexer
+- [x] Jflex (Regex etc)
 - [ ] Übergangsdiagramme
 - [ ] Regex zu NFA (McNaughthon-Yamada-Thompson Algorithmus)
 - [ ] DFA und NFA
 - [ ] NFA in DFA Übersetzen (Büchi-Algorithmus)
 - [ ] DFA zu Tabellen getriebener Implementierung
+- TODO: Kapitel 3.3 + Übungen 3.3.2 und 3.3.5
 
 ## Kapitel 3 (Syntaktische Analyse)
 
