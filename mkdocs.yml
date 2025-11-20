@@ -70,3 +70,5 @@ nav:
   - 'Internettechnologien (WIP)': 'index.md'
   - 'Compiler': 
     - 'Roadmap': 'Compiler/Roadmap.md'
+    - 'Vorlesung':
+      - '1. Einführung': 'Compiler/Vorlesung/1. Einführung.md'
