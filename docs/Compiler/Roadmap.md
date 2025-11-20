@@ -2,14 +2,14 @@
 
 ### 1. Einführung
 
-- [X] Compiler vs Interpreter
-- [X] Sprachimplementierung
-- [X] Anforderungen an Compiler
-- [X] Aufbau
-  - [X] Übersetzungsschritte
-  - [X] Compilerphasen
-- [X] Two-Pass Compiler
-- [X] Compilerbau Werkzeuge
+- [X] [Compiler vs Interpreter](Vorlesung/1.%20Einführung.md#compiler-vs-interpreter)
+- [X] [Sprachimplementierung](Vorlesung/1.%20Einführung.md#sprachimplementierung)
+- [X] [Anforderungen an Compiler](Vorlesung/1.%20Einführung.md#anforderungen-an-compiler)
+- [X] [Aufbau](Vorlesung/1.%20Einführung.md#aufbau)
+  - [X] [Übersetzungsschritte](Vorlesung/1.%20Einführung.md#ubersetzungsschritte)
+  - [X] [Compilerphasen](Vorlesung/1.%20Einführung.md#compilerphasen)
+- [X] [Two-Pass Compiler](Vorlesung/1.%20Einführung.md#two-pass-compiler)
+- [X] [Compilerbau Werkzeuge](Vorlesung/1.%20Einführung.md#compilerbau-werkzeuge)
 
 ## Kapitel 2 (Lexikalische Analyse)
 

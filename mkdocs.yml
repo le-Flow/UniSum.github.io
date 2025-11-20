@@ -67,8 +67,8 @@ nav:
       - '2. Praktikum': 'Verteilte Systeme/Praktikum/2. Praktikum.md'
       - '3. Praktikum': 'Verteilte Systeme/Praktikum/3. Praktikum.md'
       - '4. Praktikum': 'Verteilte Systeme/Praktikum/4. Praktikum.md'
-  - 'Internettechnologien (WIP)': 'index.md'
   - 'Compiler': 
     - 'Roadmap': 'Compiler/Roadmap.md'
     - 'Vorlesung':
       - '1. Einführung': 'Compiler/Vorlesung/1. Einführung.md'
+  - 'Internettechnologien (WIP)': 'index.md'
