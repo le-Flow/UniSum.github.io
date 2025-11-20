@@ -5,6 +5,12 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - attr_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: 
+  - mdx_truly_sane_lists:
+      nested_indent: 2
+      truly_sane: true
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -62,4 +68,5 @@ nav:
       - '3. Praktikum': 'Verteilte Systeme/Praktikum/3. Praktikum.md'
       - '4. Praktikum': 'Verteilte Systeme/Praktikum/4. Praktikum.md'
   - 'Internettechnologien (WIP)': 'index.md'
-  - 'Compiler (WIP)': 'index.md'
+  - 'Compiler': 
+    - 'Roadmap': 'Compiler/Roadmap.md'

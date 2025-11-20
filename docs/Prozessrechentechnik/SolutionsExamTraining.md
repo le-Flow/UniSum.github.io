@@ -4,11 +4,11 @@
 
 * Ein Eingebettetes System (ES) ist ein Rechensystem, das in einen technischen Kontext (z.B. ein Auto, eine Waschmaschine) "eingebettet" ist, um dort Mess-, Steuer- oder Regelungsaufgaben zu erfüllen.
 * **Charakteristische Eigenschaften**:
-    * **Enge Kopplung** mit der physikalischen Umwelt (über Sensoren und Aktuatoren).
-    * **Reaktive Systeme:** Sie reagieren kontinuierlich auf (oft asynchrone) Ereignisse aus der Umgebung, statt Daten zu transformieren.
-    * **Echtzeitanforderungen:** Die korrekte Funktion hängt oft von der Einhaltung zeitlicher Fristen (Deadlines) ab.
-    * **Ressourcenbeschränkungen:** Sie sind oft hinsichtlich Kosten, Energieverbrauch, Speicher und Rechenleistung stark optimiert (effizient).
-    * **Verlässlichkeit:** Sie müssen hohe Anforderungen an Zuverlässigkeit und Funktionale Sicherheit erfüllen (z.B. ISO 26262).
+  * **Enge Kopplung** mit der physikalischen Umwelt (über Sensoren und Aktuatoren).
+  * **Reaktive Systeme:** Sie reagieren kontinuierlich auf (oft asynchrone) Ereignisse aus der Umgebung, statt Daten zu transformieren.
+  * **Echtzeitanforderungen:** Die korrekte Funktion hängt oft von der Einhaltung zeitlicher Fristen (Deadlines) ab.
+  * **Ressourcenbeschränkungen:** Sie sind oft hinsichtlich Kosten, Energieverbrauch, Speicher und Rechenleistung stark optimiert (effizient).
+  * **Verlässlichkeit:** Sie müssen hohe Anforderungen an Zuverlässigkeit und Funktionale Sicherheit erfüllen (z.B. ISO 26262).
 
 **2. Nennen Sie einige wichtige Unterschiede zwischen ES- und IT-Systemen.**
 
@@ -97,8 +97,8 @@
 * Eine **H-Brücke** ist eine Schaltung aus vier Schaltern (Transistoren). Durch paarweises Schließen der diagonalen Schalter kann die **Polung** am Motor umgekehrt werden.
 * Ein **PWM-Signal** (Pulsweiten-Modulation) wird an die H-Brücke angelegt. Das Tastverhältnis (Duty Cycle) der PWM bestimmt die mittlere Spannung am Motor.
 * Gesteuert werden:
-    1.  **Drehrichtung** (durch Umpolen der H-Brücke).
-    2.  **Drehzahl / Drehmoment** (durch das Tastverhältnis der PWM).
+  1.  **Drehrichtung** (durch Umpolen der H-Brücke).
+  2.  **Drehzahl / Drehmoment** (durch das Tastverhältnis der PWM).
 
 **18. Was sind die Vorteile und Nachteile von Schrittmotoren?**
 
@@ -118,7 +118,7 @@
 **21. Was besagt das Nyquist-Shannon-Abtasttheorem?**
 
 * Die Abtastfrequenz ($f_a$) muss **mindestens doppelt so hoch** sein wie die höchste im Signal enthaltene Frequenz ($f_g$), um das Signal exakt rekonstruieren zu können.
-    
+  
 $$f_a > 2 \cdot f_g$$
 
 **22. Was sind Alias-Effekte, wann entstehen sie und was muss man zu deren Vermeidung beachten?**
@@ -146,20 +146,20 @@ $$f_a > 2 \cdot f_g$$
 
 * **PWM** ist ein digitales (Rechteck-)Signal mit konstanter Frequenz, aber **variablem Tastverhältnis** (Verhältnis von "EIN"-Zeit zu "AUS"-Zeit).
 * **Verwendung:**
-    1.  Effiziente Ansteuerung von Aktuatoren (z.B. **Motor-Drehzahlsteuerung**, **LED-Dimmung**).
-    2.  Als energiesparende Alternative zu einem D/A-Wandler (wenn ein Tiefpassfilter nachgeschaltet wird).
+  1.  Effiziente Ansteuerung von Aktuatoren (z.B. **Motor-Drehzahlsteuerung**, **LED-Dimmung**).
+  2.  Als energiesparende Alternative zu einem D/A-Wandler (wenn ein Tiefpassfilter nachgeschaltet wird).
 
 **27. Welche 3 Technologien gibt es bei den Verarbeitungseinheiten von ES und was sind deren Vor- und Nachteile?**
 
 1.  **Prozessoren ($\mu P$, $\mu C$, DSPs):**
-    * Vorteil: **Höchste Flexibilität** (Software).
-    * Nachteil: Geringste Energieeffizienz (Operationen/Watt).
+  * Vorteil: **Höchste Flexibilität** (Software).
+  * Nachteil: Geringste Energieeffizienz (Operationen/Watt).
 2.  **ASICs (Application-Specific Integrated Circuits):**
-    * Vorteil: **Höchste Energieeffizienz** (fest verdrahtet).
-    * Nachteil: **Unflexibel**, extrem hohe Entwicklungskosten.
+  * Vorteil: **Höchste Energieeffizienz** (fest verdrahtet).
+  * Nachteil: **Unflexibel**, extrem hohe Entwicklungskosten.
 3.  **Rekonfigurierbare Logik (FPGAs):**
-    * Vorteil: Ein **Kompromiss** zwischen Effizienz und Flexibilität.
-    * Nachteil: Komplex in der Programmierung (z.B. VHDL).
+  * Vorteil: Ein **Kompromiss** zwischen Effizienz und Flexibilität.
+  * Nachteil: Komplex in der Programmierung (z.B. VHDL).
 
 **28. Was sind ASICs und wann kommen sie zum Einsatz?**
 
@@ -249,13 +249,13 @@ $$f_a > 2 \cdot f_g$$
 **44. Was sind die Unterschiede zw. einem FIR-Filter und einem IIR-Filter?**
 
 * **FIR (Finite Impulse Response):**
-    * **Nicht-rekursiv** (keine Rückkopplung des Ausgangs). Formel: $y_n = \sum b_k \cdot x_{n-k}$
-    * Die Impulsantwort hat eine *endliche* Länge.
-    * Sind **immer stabil** und können linearphasig (konstante Gruppenlaufzeit) sein.
+  * **Nicht-rekursiv** (keine Rückkopplung des Ausgangs). Formel: $y_n = \sum b_k \cdot x_{n-k}$
+  * Die Impulsantwort hat eine *endliche* Länge.
+  * Sind **immer stabil** und können linearphasig (konstante Gruppenlaufzeit) sein.
 * **IIR (Infinite Impulse Response):**
-    * **Rekursiv** (verwendet vergangene Ausgangswerte). Formel: $y_n = \sum b_k \cdot x_{n-k} + \sum a_j \cdot y_{n-j}$
-    * Die Impulsantwort ist *unendlich* lang.
-    * Benötigen viel weniger Rechenaufwand (Ordnung) für dieselbe Steilheit, **können aber instabil werden**.
+  * **Rekursiv** (verwendet vergangene Ausgangswerte). Formel: $y_n = \sum b_k \cdot x_{n-k} + \sum a_j \cdot y_{n-j}$
+  * Die Impulsantwort ist *unendlich* lang.
+  * Benötigen viel weniger Rechenaufwand (Ordnung) für dieselbe Steilheit, **können aber instabil werden**.
 
 **45. Was ist die Ordnung eines digitalen Filters? Was beeinflusst die Ordnung?**
 
@@ -270,10 +270,10 @@ $$f_a > 2 \cdot f_g$$
 **47. Skizzieren Sie einen allgemeinen Regelkreis.**
 
 * Ein Regelkreis besteht aus:
-    * **Summierstelle:** Bildet die Regelabweichung $e = w - x$ (Soll-Wert $w$, Ist-Wert $x$).
-    * **Regler:** Erzeugt die Stellgröße $y$ aus $e$.
-    * **Regelstrecke:** Der Prozess, der von $y$ (und Störgröße $z$) beeinflusst wird und den Ist-Wert $x$ liefert.
-    * **Rückführung:** Führt $x$ (oft über einen Sensor) zur Summierstelle zurück.
+  * **Summierstelle:** Bildet die Regelabweichung $e = w - x$ (Soll-Wert $w$, Ist-Wert $x$).
+  * **Regler:** Erzeugt die Stellgröße $y$ aus $e$.
+  * **Regelstrecke:** Der Prozess, der von $y$ (und Störgröße $z$) beeinflusst wird und den Ist-Wert $x$ liefert.
+  * **Rückführung:** Führt $x$ (oft über einen Sensor) zur Summierstelle zurück.
 
 **48. Welche Kenngrößen gibt es für die dynamische Regelgüte?**
 
@@ -412,9 +412,9 @@ $$f_a > 2 \cdot f_g$$
 **72. Was ist der typische Verlauf der Ausfallrate als Funktion der Nutzungszeit? Begründen Sie den Verlauf.**
 
 * Dies ist die **"Badewannenkurve"**:
-    1.  **Frühausfälle:** Hohe, aber sinkende Ausfallrate (Produktionsfehler).
-    2.  **Konsolidierungsphase:** Konstante, niedrige Ausfallrate (Zufallsausfälle).
-    3.  **Altersausfälle:** Steigende Ausfallrate (Verschleiß, Alterung).
+  1.  **Frühausfälle:** Hohe, aber sinkende Ausfallrate (Produktionsfehler).
+  2.  **Konsolidierungsphase:** Konstante, niedrige Ausfallrate (Zufallsausfälle).
+  3.  **Altersausfälle:** Steigende Ausfallrate (Verschleiß, Alterung).
 
 **73. Erklären Sie die Begriffe Risiko und Grenzrisiko.**
 
@@ -449,19 +449,19 @@ $$f_a > 2 \cdot f_g$$
 
 * (Mit $R_i$ = Zuverlässigkeit der Komponente i)
 * **Serielle Kopplung** (System fällt aus, wenn 1 Komponente ausfällt):
-    
+  
 $$R_{ges} = R_1 \cdot R_2 \cdot \ldots \cdot R_n$$
 
 * **Parallele Kopplung** (System funktioniert, wenn mind. 1 Komponente funktioniert):
-    
+  
 $$R_{ges} = 1 - [(1-R_1) \cdot (1-R_2) \cdot \ldots \cdot (1-R_n)]$$
 
 **80. Welche konstruktiven Maßnahmen gibt es beim Reliability Engineering?**
 
 * Die wichtigste Maßnahme ist der Einsatz von **Redundanz**:
-    * Hardware-Redundanz
-    * Software-Redundanz
-    * Informations-Redundanz (z.B. Paritätsbits, Prüfsummen)
+  * Hardware-Redundanz
+  * Software-Redundanz
+  * Informations-Redundanz (z.B. Paritätsbits, Prüfsummen)
 
 **81. Was ist der Unterschied zw. statischer und dynamischer Redundanz bei Hardware?**
 
@@ -489,9 +489,9 @@ $$R_{ges} = 1 - [(1-R_1) \cdot (1-R_2) \cdot \ldots \cdot (1-R_n)]$$
 **85. Warum hat das im Praktikum verwendete Board (z.B. MPC560xB) mehrere Taktquellen?**
 
 * Es hat mehrere Quellen für unterschiedliche Zwecke:
-    1.  Einen **internen RC-Oszillator (FIRC)** (16 MHz), der als schneller, aber ungenauer Standard-Takt nach dem Reset dient.
-    2.  Einen **externen Oszillator (FXOSC)** (4-16 MHz), der als präzise Basis für die PLL dient.
-    3.  Low-Power-Oszillatoren (SIRC/SXOSC) für Sleep-Modi.
+  1.  Einen **internen RC-Oszillator (FIRC)** (16 MHz), der als schneller, aber ungenauer Standard-Takt nach dem Reset dient.
+  2.  Einen **externen Oszillator (FXOSC)** (4-16 MHz), der als präzise Basis für die PLL dient.
+  3.  Low-Power-Oszillatoren (SIRC/SXOSC) für Sleep-Modi.
 
 **86. Was ist der Vorteil des Externen Oszillators (Quarz-Kristall) gegenüber dem Internen RC-Oszillator?**
 
@@ -500,9 +500,9 @@ $$R_{ges} = 1 - [(1-R_1) \cdot (1-R_2) \cdot \ldots \cdot (1-R_n)]$$
 **87. Warum ist eine genaue Taktquelle wichtig?**
 
 * Eine genaue Taktquelle (wie ein Kristall) ist unerlässlich für:
-    * **Synchrone Kommunikation:** Bussysteme wie CAN oder LIN benötigen exakte Baudraten.
-    * **Präzise Zeitmessung:** Alle Timer-Funktionen (EMIOS, PIT) hängen von der Genauigkeit des Taktes ab.
-    * **Echtzeit-Verhalten:** Die Einhaltung von Deadlines erfordert eine deterministische Zeitbasis.
+  * **Synchrone Kommunikation:** Bussysteme wie CAN oder LIN benötigen exakte Baudraten.
+  * **Präzise Zeitmessung:** Alle Timer-Funktionen (EMIOS, PIT) hängen von der Genauigkeit des Taktes ab.
+  * **Echtzeit-Verhalten:** Die Einhaltung von Deadlines erfordert eine deterministische Zeitbasis.
 
 **88. Was ist die Phase-Locked Loop (PLL)? Wofür wird sie verwendet?**
 
@@ -548,13 +548,13 @@ $$R_{ges} = 1 - [(1-R_1) \cdot (1-R_2) \cdot \ldots \cdot (1-R_n)]$$
 **96. Im Praktikum haben wir die Output-Funktionalität „Pulse Width Modulation Buffered“ verwendet.**
 
 * **Frage 1:** Woraus ergibt sich die Periodenlänge T des PWM-Signals?
-    * Im Modus "Pulse Width Modulation Buffered" (OPWMB) wird als Taktquelle ein **externer Modulo-Counter** (ein anderer EMIOS-Kanal, der als MCB konfiguriert ist) verwendet. Dieser Modulo-Counter definiert die feste Periodenlänge des PWM-Signals.
+  * Im Modus "Pulse Width Modulation Buffered" (OPWMB) wird als Taktquelle ein **externer Modulo-Counter** (ein anderer EMIOS-Kanal, der als MCB konfiguriert ist) verwendet. Dieser Modulo-Counter definiert die feste Periodenlänge des PWM-Signals.
 * **Frage 2:** Wie wird der Duty-Cycle tein des PWM-Signals eingestellt?
-    * Der Duty-Cycle wird durch zwei Registerwerte innerhalb der Periode frei positioniert:
-        * **Register A1** (bzw. UCA[n]) definiert den Startpunkt (z.B. die steigende Flanke).
-        * **Register B1** (bzw. UCB[n]) definiert den Endpunkt (z.B. die fallende Flanke).
+  * Der Duty-Cycle wird durch zwei Registerwerte innerhalb der Periode frei positioniert:
+    * **Register A1** (bzw. UCA[n]) definiert den Startpunkt (z.B. die steigende Flanke).
+    * **Register B1** (bzw. UCB[n]) definiert den Endpunkt (z.B. die fallende Flanke).
 * **Frage 3:** Wo wurde ein PWM-Signal im Praktikum verwendet?
-    * (Typischerweise wird PWM im NXP-Cup-Praktikum für die Ansteuerung der **Motoren** (über die H-Brücke) und des **Lenk-Servos** verwendet.)
+  * (Typischerweise wird PWM im NXP-Cup-Praktikum für die Ansteuerung der **Motoren** (über die H-Brücke) und des **Lenk-Servos** verwendet.)
 
 **97. Im Praktikum haben wir die Output-Funktionalität „Pulse Width Modulation with Trigger“ verwendet. Zu welchem Zweck wurde diese Output-Funktionalität verwendet?**
 
@@ -586,11 +586,11 @@ $$R_{ges} = 1 - [(1-R_1) \cdot (1-R_2) \cdot \ldots \cdot (1-R_n)]$$
 **103. Was ist beim MPC560xB der Unterschied zwischen dem Software Vector Mode und dem Hardware Vector Mode?**
 
 * **Software Vector Mode:**
-    * Optimiert für **minimale Code-Größe**.
-    * Alle IRs landen in einem gemeinsamen Handler (z.B. IVOR 4). Die Software muss dann manuell (durch Lesen des IACKR-Registers) die genaue Quelle ermitteln und über eine Sprungtabelle zur richtigen ISR springen.
+  * Optimiert für **minimale Code-Größe**.
+  * Alle IRs landen in einem gemeinsamen Handler (z.B. IVOR 4). Die Software muss dann manuell (durch Lesen des IACKR-Registers) die genaue Quelle ermitteln und über eine Sprungtabelle zur richtigen ISR springen.
 * **Hardware Vector Mode:**
-    * Optimiert für **minimale Latenz** (Reaktionszeit).
-    * Jede IR-Quelle hat einen **eigenen Vektor** (Einsprungadresse) in der Hardware-Tabelle. Die Hardware springt direkt zur richtigen ISR, ohne dass die Software die Quelle suchen muss.
+  * Optimiert für **minimale Latenz** (Reaktionszeit).
+  * Jede IR-Quelle hat einen **eigenen Vektor** (Einsprungadresse) in der Hardware-Tabelle. Die Hardware springt direkt zur richtigen ISR, ohne dass die Software die Quelle suchen muss.
 
 **104. Was ist beim ADC-Modul der Scan Mode?**
 
@@ -627,8 +627,8 @@ $$R_{ges} = 1 - [(1-R_1) \cdot (1-R_2) \cdot \ldots \cdot (1-R_n)]$$
 * (Basierend auf dem TSL1401-Kamera-Timing):
 * Das **SI-Signal** (Serial Input) ist ein einzelner Puls.
 * Er löst zwei Dinge aus:
-    1.  Er startet den **Belichtungszyklus (Integration)** der 128 Pixel.
-    2.  Er startet den **Auslesevorgang** (Vorbereitung zur Ausgabe von Pixel 1 beim nächsten Takt).
+  1.  Er startet den **Belichtungszyklus (Integration)** der 128 Pixel.
+  2.  Er startet den **Auslesevorgang** (Vorbereitung zur Ausgabe von Pixel 1 beim nächsten Takt).
 
 **110. Was kann man mit einem DMA-Request erreichen?**
 
@@ -669,13 +669,13 @@ $$R_{ges} = 1 - [(1-R_1) \cdot (1-R_2) \cdot \ldots \cdot (1-R_n)]$$
 
 **117. Nennen Sie 4 unterschiedliche Typen von Übertragungsverhalten. Nenne Sie zu jedem auch ein Beispiel.**
 1.  **P-Glied** (Proportional): Ausgang folgt dem Eingang sofort.
-    * Beispiel: Hebel, Getriebe, Spannungsteiler.
+  * Beispiel: Hebel, Getriebe, Spannungsteiler.
 2.  **I-Glied** (Integrierend): Ausgang ist das Integral des Eingangs (rampt auf).
-    * Beispiel: Strom, der einen Kondensator lädt (Eingang: Strom, Ausgang: Spannung).
+  * Beispiel: Strom, der einen Kondensator lädt (Eingang: Strom, Ausgang: Spannung).
 3.  **$PT_1$-Glied** (Verzögerungsglied 1. Ordnung): Sprung am Eingang führt zu exponentiellem Anstieg am Ausgang.
-    * Beispiel: RC-Glied (Spannung), Gleichstrommotor (Eingang: Spannung, Ausgang: Drehzahl).
+  * Beispiel: RC-Glied (Spannung), Gleichstrommotor (Eingang: Spannung, Ausgang: Drehzahl).
 4.  **$PT_2$-Glied** (Verzögerungsglied 2. Ordnung): Kann schwingen.
-    * Beispiel: Mechanischer Schwinger (Feder-Masse-Dämpfer-System), elektrischer RLC-Schwingkreis.
+  * Beispiel: Mechanischer Schwinger (Feder-Masse-Dämpfer-System), elektrischer RLC-Schwingkreis.
 
 **118. Was ist das Problem beim P-Regler?**
 
@@ -690,23 +690,23 @@ $$R_{ges} = 1 - [(1-R_1) \cdot (1-R_2) \cdot \ldots \cdot (1-R_n)]$$
 **120. Was sind die Vor- und Nachteile eines PD-Reglers?**
 
 * **Vorteile:**
-    * Er reagiert auf die *Änderung* der Abweichung (D-Anteil) und ist dadurch **sehr schnell** (er "hält vor").
-    * Der D-Anteil wirkt dämpfend und stabilisierend.
+  * Er reagiert auf die *Änderung* der Abweichung (D-Anteil) und ist dadurch **sehr schnell** (er "hält vor").
+  * Der D-Anteil wirkt dämpfend und stabilisierend.
 * **Nachteile:**
-    * Er hat eine **bleibende Regelabweichung** (da der I-Anteil fehlt).
-    * Er **verstärkt Rauschen** im Sensorsignal (durch die Differenziation), was zu Unruhe im Stellglied führt.
+  * Er hat eine **bleibende Regelabweichung** (da der I-Anteil fehlt).
+  * Er **verstärkt Rauschen** im Sensorsignal (durch die Differenziation), was zu Unruhe im Stellglied führt.
 
 **121. Welchen Typ von Regler implementieren diese Codezeilen?: `esum = esum + e; y = Kp*e + Ki*Ta*esum;`**
 
 * Dies ist ein **PI-Regler** (Proportional-Integral-Regler).
-    * `Kp*e` ist der P-Anteil.
-    * `Ki*Ta*esum` ist der I-Anteil (wobei `esum` die Summe $e_i$ ist und $T_a$ die Abtastzeit).
+  * `Kp*e` ist der P-Anteil.
+  * `Ki*Ta*esum` ist der I-Anteil (wobei `esum` die Summe $e_i$ ist und $T_a$ die Abtastzeit).
 
 **122. Welchen Typ von Regler implementieren diese Codezeilen?: `y = Kp*e + Kd*(e - ealt)/Ta; ealt = e;`**
 
 * Dies ist ein **PD-Regler** (Proportional-Differential-Regler).
-    * `Kp*e` ist der P-Anteil.
-    * `Kd*(e - ealt)/Ta` ist der D-Anteil (genähert durch die Differenz zum "alten e" geteilt durch die Abtastzeit $T_a$).
+  * `Kp*e` ist der P-Anteil.
+  * `Kd*(e - ealt)/Ta` ist der D-Anteil (genähert durch die Differenz zum "alten e" geteilt durch die Abtastzeit $T_a$).
 
 **123. In welchen (2) Fällen reicht für einfache Regelaufgaben ein einfacher P-Regler aus?**
 
@@ -723,8 +723,8 @@ $$R_{ges} = 1 - [(1-R_1) \cdot (1-R_2) \cdot \ldots \cdot (1-R_n)]$$
 
 1.  **Empirisches Einstellen** (systematisches Probieren/Tuning von $K_p$, $K_i$, $K_d$ an der realen Strecke).
 2.  Verwendung von **Einstellregeln** (z.B. nach Ziegler/Nichols):
-    * *Schwingungsmethode:* $K_p$ wird bis zur Stabilitätsgrenze (Dauerschwingung) erhöht ($K_{pkrit}$, $T_{krit}$).
-    * *Sprungantwort-Methode:* Aufnahme der Sprungantwort (Ermittlung von $T_u$ und $T_g$).
+  * *Schwingungsmethode:* $K_p$ wird bis zur Stabilitätsgrenze (Dauerschwingung) erhöht ($K_{pkrit}$, $T_{krit}$).
+  * *Sprungantwort-Methode:* Aufnahme der Sprungantwort (Ermittlung von $T_u$ und $T_g$).
 3.  **Physikalische Modellierung:** Mathematisches Modell der Strecke erstellen und die Reglerparameter in der **Simulation** optimieren.
 
 **126. Wann kann ein digitaler Regler wie ein analoger Regler parametrisiert/dimensioniert werden?**
