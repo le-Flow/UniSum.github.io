@@ -15,17 +15,20 @@
 
 ### 2. Lexikalische Analyse:
 
-- [x] Kontextfreie Grammatiken
-- [x] Parsebaum
-  - [x] konkreter Syntaxbaum
-  - [x] Abstrakter Syntaxbaum
-- [x] Lexer
-- [x] Jflex (Regex etc)
-- [ ] Übergangsdiagramme
-- [ ] Regex zu NFA (McNaughthon-Yamada-Thompson Algorithmus)
-- [ ] DFA und NFA
-- [ ] NFA in DFA Übersetzen (Büchi-Algorithmus)
-- [ ] DFA zu Tabellen getriebener Implementierung
+- [x] [Kontextfreie Grammatiken](Vorlesung/2.%20Lexikalische%20Analyse.md#kontextfreie-grammatiken)
+- [x] [Parsebaum](Vorlesung/2.%20Lexikalische%20Analyse.md#parsebäume)
+  - [x] [konkreter Syntaxbaum](Vorlesung/2.%20Lexikalische%20Analyse.md#konkreter-syntaxbaum-parsebaum)
+  - [x] [Abstrakter Syntaxbaum](Vorlesung/2.%20Lexikalische%20Analyse.md#abstrakter-syntaxbaum-ast)
+- [x] [Lexer](Vorlesung/2.%20Lexikalische%20Analyse.md#lexer)
+- [x] [Jflex (Regex etc)](Vorlesung/2.%20Lexikalische%20Analyse.md#jflex)
+- [x] [Tokenerkennung](Vorlesung/2.%20Lexikalische%20Analyse.md#tokenerkennung)
+  - [x] [Übergangsdiagramme](Vorlesung/2.%20Lexikalische%20Analyse.md#übergangsdiagramme-endliche-automaten)
+- [x] [Automaten](Vorlesung/2.%20Lexikalische%20Analyse.md#automaten)
+  - [x] [DFA zu Tabellen getriebener Implementierung](Vorlesung/2.%20Lexikalische%20Analyse.md#tabellengetriebener-ansatz)
+  - [x] [Automaten (DFA und NFA)](Vorlesung/2.%20Lexikalische%20Analyse.md#automaten)
+  - [x] [NFA in DFA Übersetzen (Büchi-Algorithmus)](Vorlesung/2.%20Lexikalische%20Analyse.md#nfa-zu-dfa-buchi-algorithmus)
+  - [x] [Regex zu NFA (McNaughthon-Yamada-Thompson Algorithmus)](Vorlesung/2.%20Lexikalische%20Analyse.md#regex-zu-nfa-yamada-thompson)
+  - [x] [Effizienz](Vorlesung/2.%20Lexikalische%20Analyse.md#effizienz)
 - TODO: Kapitel 3.3 + Übungen 3.3.2 und 3.3.5
 
 ## Kapitel 3 (Syntaktische Analyse)
