@@ -1,0 +1,2762 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://UniSum.github.io/Compiler/Vorlesung/2.%20Lexikalische%20Analyse/">
+      
+      
+        <link rel="prev" href="../1.%20Einf%C3%BChrung/">
+      
+      
+        <link rel="next" href="../../..">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>2. Lexikalische Analyse - UniSum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kontextfreie-grammatiken" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="UniSum" class="md-header__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UniSum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Lexikalische Analyse
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Prozessrechentechnik/1.Einleitung/" class="md-tabs__link">
+          
+  
+  
+  Prozessrechentechnik
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/" class="md-tabs__link">
+          
+  
+  
+  Verteilte Systeme
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Roadmap/" class="md-tabs__link">
+          
+  
+  
+  Compiler
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="UniSum" class="md-nav__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    UniSum
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prozessrechentechnik
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prozessrechentechnik
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/1.Einleitung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einleitung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/2.Begriffe_und_Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Begriffe und Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/3.Aufbau_eingebetteter_Systeme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Aufbau eingebetteter Systeme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/4.Steuerung_und_Regelung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Steuerung und Regelung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/5.Modellierungstechniken/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Modelierungstechniken
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/6.SW-Entwicklung_f%C3%BCr_ES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. SW-Entwicklung für ES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/SummaryExercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/SolutionsExamTraining/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verteilte Systeme
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verteilte Systeme
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Vorlesung/2.%20Architekturen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Architekturen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Vorlesung/3.%20Technologische%20Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Technologische Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Vorlesung/4.%20Kommunikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Kommunikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Vorlesung/5.%20Koordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Koordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Vorlesung/6.%20Namen%20in%20Verteilten%20Systemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Namen in Verteilten Systemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Vorlesung/7.%20Konsistenz%20und%20Replikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Konsistenz und Replikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Vorlesung/8.%20Fehlertolleranz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Fehlertolleranz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Praktikum
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Praktikum/1.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Praktikum/2.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Praktikum/3.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Verteilte%20Systeme/Praktikum/4.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Lexikalische Analyse
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Lexikalische Analyse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kontextfreie-grammatiken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kontextfreie Grammatiken
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formale-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formale Definition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parsebaume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parsebäume
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parsebäume">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufbau-anatomie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufbau (Anatomie)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konkreter-syntaxbaum-parsebaum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konkreter Syntaxbaum (Parsebaum)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstrakter-syntaxbaum-ast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abstrakter Syntaxbaum (AST)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cst-vs-ast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CST vs. AST
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mehrdeutigkeit-im-baum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mehrdeutigkeit im Baum
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lexer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lexer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lexer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hauptaufgabe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hauptaufgabe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konkrete-tatigkeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konkrete Tätigkeiten
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funktionsweise-interaktion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Funktionsweise &amp; Interaktion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erstellung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erstellung
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fehlerbehandlung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fehlerbehandlung
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jflex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JFlex
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JFlex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grundstruktur-einer-jflex-datei" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grundstruktur einer .jflex Datei
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wichtige-operatoren-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wichtige Operatoren &amp; Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#literale-vs-regex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Literale vs. Regex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makros-definition-nutzung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Makros (Definition &amp; Nutzung)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zeichenklassen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zeichenklassen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matching-reihenfolge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matching-Reihenfolge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nutzliche-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nützliche Snippets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokenerkennung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tokenerkennung
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tokenerkennung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubergangsdiagramme-endliche-automaten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Übergangsdiagramme (Endliche Automaten)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retract-problem-lookahead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Retract"-Problem (Lookahead)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifier-ids-vs-keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier (IDs) vs. Keywords
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automaten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automaten
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automaten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formale-definition_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formale Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabellengetriebener-ansatz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabellengetriebener Ansatz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nfa-zu-dfa-buchi-algorithmus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NFA zu DFA (Büchi-Algorithmus)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regex-zu-nfa-yamada-thompson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regex zu NFA (Yamada-Thompson)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schritte:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#effizienz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effizienz
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kontextfreie-grammatiken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kontextfreie Grammatiken
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formale-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formale Definition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parsebaume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parsebäume
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parsebäume">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufbau-anatomie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufbau (Anatomie)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konkreter-syntaxbaum-parsebaum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konkreter Syntaxbaum (Parsebaum)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstrakter-syntaxbaum-ast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abstrakter Syntaxbaum (AST)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cst-vs-ast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CST vs. AST
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mehrdeutigkeit-im-baum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mehrdeutigkeit im Baum
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lexer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lexer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lexer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hauptaufgabe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hauptaufgabe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konkrete-tatigkeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konkrete Tätigkeiten
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funktionsweise-interaktion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Funktionsweise &amp; Interaktion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erstellung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erstellung
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fehlerbehandlung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fehlerbehandlung
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jflex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JFlex
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JFlex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grundstruktur-einer-jflex-datei" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grundstruktur einer .jflex Datei
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wichtige-operatoren-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wichtige Operatoren &amp; Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#literale-vs-regex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Literale vs. Regex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makros-definition-nutzung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Makros (Definition &amp; Nutzung)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zeichenklassen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zeichenklassen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matching-reihenfolge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matching-Reihenfolge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nutzliche-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nützliche Snippets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokenerkennung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tokenerkennung
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tokenerkennung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubergangsdiagramme-endliche-automaten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Übergangsdiagramme (Endliche Automaten)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retract-problem-lookahead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Retract"-Problem (Lookahead)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifier-ids-vs-keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier (IDs) vs. Keywords
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automaten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automaten
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automaten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formale-definition_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formale Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabellengetriebener-ansatz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabellengetriebener Ansatz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nfa-zu-dfa-buchi-algorithmus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NFA zu DFA (Büchi-Algorithmus)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regex-zu-nfa-yamada-thompson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regex zu NFA (Yamada-Thompson)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schritte:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#effizienz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effizienz
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>2. Lexikalische Analyse</h1>
+
+<h3 id="kontextfreie-grammatiken"><strong>Kontextfreie Grammatiken</strong></h3>
+<p>CFGs sind das Werkzeug, um die <strong>Syntax</strong> einer Programmiersprache zu beschreiben (z. B. "Wie sieht eine If-Anweisung aus?", "Wie werden Klammern geschachtelt?"). Sie sind mächtiger als Reguläre Ausdrücke, da sie <strong>Rekursion</strong> (Verschachtelung) darstellen können.</p>
+<h3 id="formale-definition"><strong>Formale Definition</strong></h3>
+<p>Im Compilerbau wird eine Grammatik <span class="arithmatex">\(G\)</span> oft als 4-Tupel definiert:</p>
+<div class="arithmatex">\[
+G = (N, T, P, S)
+\]</div>
+<ul>
+<li><strong><span class="arithmatex">\(N\)</span> (Nicht-Terminale):</strong> Platzhalter oder Variablen, die weiter aufgelöst werden müssen (z. B. <code>&lt;Statement&gt;</code>, <code>&lt;Expression&gt;</code>, <code>&lt;If-Block&gt;</code>).</li>
+<li><strong><span class="arithmatex">\(T\)</span> (Terminale):</strong> Die kleinsten Bausteine, die nicht weiter zerlegt werden. Im Compiler sind das die <strong>Tokens</strong>, die vom Lexer kommen (z. B. <code>if</code>, <code>int</code>, <code>id</code>, <code>;</code>, <code>+</code>).</li>
+<li><strong><span class="arithmatex">\(P\)</span> (Produktionsregeln):</strong> Regeln der Form <span class="arithmatex">\(A \rightarrow \alpha\)</span>, wobei <span class="arithmatex">\(A \in N\)</span> ist und <span class="arithmatex">\(\alpha\)</span> eine Folge von Terminalen und Nicht-Terminalen.<ul>
+<li><em>Beispiel:</em> <span class="arithmatex">\(E \rightarrow E + E\)</span></li>
+</ul>
+</li>
+<li><strong><span class="arithmatex">\(S\)</span> (Startsymbol):</strong> Das Nicht-Terminal, bei dem die Analyse beginnt (oft <code>&lt;Program&gt;</code>).</li>
+</ul>
+<p>Hier ist die Zusammenfassung zum <strong>Parsebaum</strong> (oft auch <strong>CST - Concrete Syntax Tree</strong> genannt), fokussiert auf das, was du für das Verständnis der Syntaxanalyse brauchst.</p>
+<p>Der Parsebaum ist die <strong>grafische Darstellung der Ableitung</strong>. Er beweist, dass ein Tokenstrom tatsächlich zur Grammatik passt.</p>
+<h2 id="parsebaume"><strong>Parsebäume</strong></h2>
+<h3 id="aufbau-anatomie"><strong>Aufbau (Anatomie)</strong></h3>
+<p>Jedes Element im Baum entspricht exakt den Mengen aus der Grammatik (<span class="arithmatex">\(N, T, S\)</span>):</p>
+<ul>
+<li><strong>Wurzel (Root):</strong> Das Startsymbol <span class="arithmatex">\(S\)</span>.</li>
+<li><strong>Innere Knoten (Nodes):</strong> Die Nicht-Terminale (<span class="arithmatex">\(N\)</span>), also die Regeln (z. B. <code>&lt;Expr&gt;</code>, <code>&lt;Stmt&gt;</code>).</li>
+<li><strong>Blätter (Leaves):</strong> Die Terminale (<span class="arithmatex">\(T\)</span>), also die <strong>Tokens</strong>, die vom Lexer kamen (z. B. <code>id</code>, <code>+</code>, <code>;</code>).</li>
+</ul>
+<h3 id="konkreter-syntaxbaum-parsebaum"><strong>Konkreter Syntaxbaum (Parsebaum)</strong></h3>
+<ul>
+<li><strong>1:1 Abbild der Grammatik:</strong> Jeder Ast entspricht genau einer angewendeten Produktionsregel.</li>
+<li><strong>Vollständig:</strong> Er enthält <strong>jedes einzelne Zeichen</strong>, das der Parser verarbeitet hat, auch syntaktischen "Zucker" wie Klammern <code>( )</code>, Semikolons <code>;</code> oder Kommas, die für die spätere Logik eigentlich unwichtig sind.</li>
+<li><strong>Hierarchie:</strong> Die Struktur des Baums zeigt die <strong>Bindung</strong> (Präzedenz) von Operatoren.<ul>
+<li><strong>Regel:</strong> Was im Baum <strong>tiefer</strong> steht, wird zuerst ausgewertet (engere Bindung).</li>
+</ul>
+</li>
+</ul>
+<h3 id="abstrakter-syntaxbaum-ast"><strong>Abstrakter Syntaxbaum (AST)</strong></h3>
+<ul>
+<li><strong>Kondensierte Logik:</strong> Eine bereinigte Version des Parsebaums, die nur die für die Semantik (Bedeutung) relevanten Informationen enthält.</li>
+<li><strong>Kein syntaktischer "Zucker":</strong> Hilfszeichen, die nur für den Parser nötig waren (wie Klammern <code>( )</code>, Semikolons <code>;</code> oder Keywords wie <code>then</code>), werden entfernt. Die Struktur des Baums selbst definiert nun die Zusammengehörigkeit (die Klammerung ist implizit).</li>
+<li><strong>Operatoren als Knoten:</strong> Während im CST die Knoten abstrakte <em>Regelnamen</em> sind (z. B. <code>&lt;Expr&gt;</code>), sind die inneren Knoten im AST meist direkt die <strong>Operatoren</strong> oder <strong>Anweisungen</strong> (z. B. ein <code>PLUS</code>-Knoten, der direkt zwei Unterbäume als Operanden hat).</li>
+</ul>
+<h3 id="cst-vs-ast"><strong>CST vs. AST</strong></h3>
+<p>Das ist die klassische Prüfungsfrage. Warum nutzen wir später meist keinen Parsebaum mehr?</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Merkmal</th>
+<th style="text-align: left;">Parsebaum (CST)</th>
+<th style="text-align: left;">Abstrakter Syntaxbaum (AST)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Inhalt</strong></td>
+<td style="text-align: left;">Enthält <strong>alles</strong> (Klammern, Keywords like <code>if</code>, <code>then</code>).</td>
+<td style="text-align: left;">Enthält nur <strong>Logik</strong> (Operationen und Operanden).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Knoten</strong></td>
+<td style="text-align: left;">Nicht-Terminale der Grammatik.</td>
+<td style="text-align: left;">Operatoren oder Anweisungen.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Größe</strong></td>
+<td style="text-align: left;">Riesig, tief verschachtelt (z. B.<code>Expr -&gt; Term -&gt; Factor -&gt; Number</code>).</td>
+<td style="text-align: left;">Kompakt, flach.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zweck</strong></td>
+<td style="text-align: left;">Dient dem Parser zur Validierung der Syntax.</td>
+<td style="text-align: left;">Dient dem Rest des Compilers (Semantik, Code-Gen).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mehrdeutigkeit-im-baum"><strong>Mehrdeutigkeit im Baum</strong></h3>
+<p>Wie vorhin bei den Grammatiken erwähnt: Wenn du für <strong>einen</strong> Input <strong>zwei verschiedene</strong> Parsebäume zeichnen kannst, ist die Grammatik <strong>mehrdeutig</strong> (Ambiguous).</p>
+<ul>
+<li>Beispiel: <code>3 + 4 * 5</code>.</li>
+<li>Baum A gruppiert <code>(3+4)</code> tiefer <span class="arithmatex">\(\rightarrow\)</span> falsch.</li>
+<li>Baum B gruppiert <code>(4*5)</code> tiefer <span class="arithmatex">\(\rightarrow\)</span> richtig (wegen Punkt-vor-Strich).</li>
+</ul>
+<h2 id="lexer"><strong>Lexer</strong></h2>
+<h3 id="hauptaufgabe"><strong>Hauptaufgabe</strong></h3>
+<p>Der Lexer ist die erste Stufe des Compilers. Er wandelt den <strong>rohen Zeichenstrom</strong> (Source Code) in eine <strong>Folge von Tokens</strong> um.</p>
+<ul>
+<li><strong>Input:</strong> Quellprogramm (Buchstaben, Ziffern, Sonderzeichen).</li>
+<li><strong>Output:</strong> Tokens für den Parser.</li>
+</ul>
+<h3 id="konkrete-tatigkeiten"><strong>Konkrete Tätigkeiten</strong></h3>
+<ul>
+<li><strong>Tokenisierung:</strong> Erfasst zusammengehörige Zeichen als logische Einheiten (z. B. <code>if</code>, <code>123</code>, <code>variableName</code>).</li>
+<li><strong>Bereinigung:</strong> Entfernt alles, was für die Syntax irrelevant ist (Leerzeichen, Tabs, Zeilenumbrüche, Kommentare).</li>
+<li><strong>Symboltabelle:</strong> Erstellt oft schon erste Einträge in der Symboltabelle (z. B. für Bezeichner).</li>
+</ul>
+<h3 id="funktionsweise-interaktion"><strong>Funktionsweise &amp; Interaktion</strong></h3>
+<p>Der Lexer arbeitet nicht auf Vorrat, sondern <strong>"on demand"</strong>:</p>
+<ul>
+<li>Der <strong>Parser</strong> ruft <code>getNextToken</code> auf.</li>
+<li>Der Lexer liest den Input und sucht die <strong>längste Zeichenfolge</strong> (Longest Match / Maximal Munch), die auf ein Token-Muster passt.</li>
+<li>Er gibt dieses Token an den Parser zurück.</li>
+</ul>
+<h3 id="erstellung"><strong>Erstellung</strong></h3>
+<p>Man schreibt Lexer selten komplett per Hand, sondern nutzt <strong>Scanner-Generatoren</strong> (wie <strong>JFlex</strong> oder Lex/Flex).</p>
+<ul>
+<li><strong>Eingabe:</strong> Reguläre Ausdrücke für jedes Token.</li>
+<li><strong>Ausgabe des Tools:</strong> Fertiger Code (in Java oder C), der einen <strong>Endlichen Automaten</strong> implementiert.</li>
+</ul>
+<h3 id="fehlerbehandlung"><strong>Fehlerbehandlung</strong></h3>
+<p>Der Lexer versteht keine Logik oder komplexe Syntax (er weiß nicht, ob <code>i(x)</code> ein Tippfehler für <code>if(x)</code> ist).</p>
+<ul>
+<li><strong>Wenn kein Muster passt:</strong> Der Lexer darf nicht abstürzen (Crash/Exception sind verboten!).</li>
+<li><strong>Lösung:</strong> <strong>"Panikmodus"</strong>. Er löscht/ignoriert einfach so lange Eingabezeichen (z. B. bis zum Zeilenende), bis er wieder ein bekanntes Token erkennen kann.</li>
+</ul>
+<h2 id="jflex"><strong>JFlex</strong></h2>
+<h3 id="grundstruktur-einer-jflex-datei"><strong>Grundstruktur einer .jflex Datei</strong></h3>
+<p>JFlex-Dateien sind in <strong>drei Abschnitte</strong> unterteilt, die durch <code>%%</code> getrennt werden.</p>
+<pre><code class="language-jflex">/* 1. USER CODE (Imports, Package) */
+package mein.compiler;
+import java_cup.runtime.*;
+
+%%
+
+/* 2. OPTIONEN &amp; MAKROS */
+%class MeinLexer
+%unicode
+%line
+%column
+
+/* Makro-Definitionen */
+Digit = [0-9]
+Letter = [a-zA-Z]
+
+%%
+
+/* 3. REGELN (Lexical Rules) */
+/* Syntax:  Regex   { Java Code } */
+
+&quot;if&quot;         { return symbol(sym.IF); }
+{Digit}+     { return symbol(sym.NUM, Integer.parseInt(yytext())); }
+.            { throw new Error(&quot;Unerwartetes Zeichen&quot;); }
+</code></pre>
+<h3 id="wichtige-operatoren-syntax"><strong>Wichtige Operatoren &amp; Syntax</strong></h3>
+<p>Wie man Muster definiert.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Operator</th>
+<th style="text-align: left;">Beschreibung</th>
+<th style="text-align: left;">Beispiel</th>
+<th style="text-align: left;">Matcht...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>|</code></td>
+<td style="text-align: left;"><strong>Oder</strong> (Alternative)</td>
+<td style="text-align: left;">`a</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>*</code></td>
+<td style="text-align: left;"><strong>Kleene-Stern</strong></td>
+<td style="text-align: left;"><code>a*</code></td>
+<td style="text-align: left;">0 bis unendlich viele "a"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: left;"><strong>Plus</strong></td>
+<td style="text-align: left;"><code>a+</code></td>
+<td style="text-align: left;">1 bis unendlich viele "a"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>?</code></td>
+<td style="text-align: left;"><strong>Optional</strong></td>
+<td style="text-align: left;"><code>a?</code></td>
+<td style="text-align: left;">Kein oder ein "a"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>(...)</code></td>
+<td style="text-align: left;"><strong>Gruppierung</strong></td>
+<td style="text-align: left;"><code>(ab)+</code></td>
+<td style="text-align: left;">"ab", "abab", ...</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>.</code></td>
+<td style="text-align: left;"><strong>Punkt</strong></td>
+<td style="text-align: left;"><code>.</code></td>
+<td style="text-align: left;">Jedes Zeichen (außer Newline)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>\</code></td>
+<td style="text-align: left;"><strong>Escape</strong></td>
+<td style="text-align: left;"><code>\.</code></td>
+<td style="text-align: left;">Einen echten Punkt</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>~</code></td>
+<td style="text-align: left;"><strong>Bis-Zu</strong> (JFlex Special)</td>
+<td style="text-align: left;"><code>~"\n"</code></td>
+<td style="text-align: left;">Alles<em>bis</em> zum Zeilenumbruch</td>
+</tr>
+</tbody>
+</table>
+<h3 id="literale-vs-regex"><strong>Literale vs. Regex</strong></h3>
+<p>In JFlex ist der Unterschied zwischen Text und Code strikt.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Schreibweise</th>
+<th style="text-align: left;">Bedeutung</th>
+<th style="text-align: left;">Erklärung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>"wort"</code></strong></td>
+<td style="text-align: left;"><strong>String-Literal</strong></td>
+<td style="text-align: left;">Matcht exakt die Zeichenfolge<code>wort</code>. Sonderzeichen darin (wie <code>*</code>) verlieren ihre Bedeutung.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>wort</code></strong></td>
+<td style="text-align: left;"><strong>Regex / Makro</strong></td>
+<td style="text-align: left;">Versucht ein Makro namens<code>wort</code> zu finden oder interpretiert es als Regex.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>" "</code></strong></td>
+<td style="text-align: left;"><strong>Leerzeichen</strong></td>
+<td style="text-align: left;">Leerzeichen müssen oft in Anführungszeichen stehen, sonst denkt JFlex, der Java-Code beginnt.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>\\</code></strong></td>
+<td style="text-align: left;"><strong>Backslash</strong></td>
+<td style="text-align: left;">Muss auch innerhalb von Anführungszeichen escaped werden:<code>"\\"</code> matcht <code>\</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="makros-definition-nutzung"><strong>Makros (Definition &amp; Nutzung)</strong></h3>
+<p>Makros machen den Code lesbar. Sie funktionieren wie Variablen für Regex-Teile.</p>
+<p><strong>1. Definition (Abschnitt 2)</strong></p>
+<ul>
+<li>Links der Name, rechts der Regex.</li>
+<li><strong>Keine</strong> geschweiften Klammern hier!</li>
+</ul>
+<!-- end list -->
+
+<pre><code class="language-jflex">Identifier = [a-zA-Z]+
+Whitespace = [ \t\r\n]+
+</code></pre>
+<p><strong>2. Benutzung (Abschnitt 3)</strong></p>
+<ul>
+<li>Muss in <strong>geschweifte Klammern</strong> <code>{}</code> gesetzt werden.</li>
+</ul>
+<!-- end list -->
+
+<pre><code class="language-jflex">{Identifier}   { System.out.println(&quot;ID gefunden: &quot; + yytext()); }
+{Whitespace}   { /* ignorieren */ }
+</code></pre>
+<h3 id="zeichenklassen"><strong>Zeichenklassen</strong></h3>
+<p>Definition von Mengen erlaubter Zeichen.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Syntax</th>
+<th style="text-align: left;">Bedeutung</th>
+<th style="text-align: left;">Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>[...]</code></td>
+<td style="text-align: left;"><strong>Menge</strong></td>
+<td style="text-align: left;"><code>[abc]</code> (a, b oder c)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>[ - ]</code></td>
+<td style="text-align: left;"><strong>Bereich</strong></td>
+<td style="text-align: left;"><code>[0-9]</code> (Ziffern 0-9)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>[^...]</code></td>
+<td style="text-align: left;"><strong>Negation</strong></td>
+<td style="text-align: left;"><code>[^abc]</code> (Alles außer a, b, c)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;&amp;</code></td>
+<td style="text-align: left;"><strong>Schnittmenge</strong></td>
+<td style="text-align: left;"><code>[a-z]&amp;&amp;[^aeiou]</code> (Kleinbuchstaben ohne Vokale)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="matching-reihenfolge"><strong>Matching-Reihenfolge</strong></h3>
+<p>Wenn mehrere Regeln auf den Input passen, entscheidet JFlex so:</p>
+<ol>
+<li><strong>Longest Match:</strong> Die Regel, die den <strong>längsten</strong> String abdeckt, gewinnt.</li>
+</ol>
+<ul>
+<li><em>Beispiel:</em> Input <code>ifvar</code> → matcht <code>{Identifier}</code>, nicht <code>"if"</code>.</li>
+</ul>
+<ol>
+<li><strong>First Match:</strong> Bei gleicher Länge gewinnt die Regel, die <strong>weiter oben</strong> in der Datei steht.</li>
+</ol>
+<ul>
+<li><em>Wichtig:</em> Spezifische Keywords (<code>"if"</code>) müssen <strong>vor</strong> allgemeinen Regeln (<code>{Identifier}</code>) stehen.</li>
+</ul>
+<h3 id="nutzliche-snippets"><strong>Nützliche Snippets</strong></h3>
+<p><strong>Zeilenumbruch (Plattformunabhängig):</strong></p>
+<pre><code class="language-jflex">LineTerminator = \r|\n|\r\n
+</code></pre>
+<p><strong>Kommentare (C-Style <code>/* ... */</code>):</strong></p>
+<pre><code class="language-jflex">Comment = &quot;/*&quot; [^*] ~&quot;*/&quot; | &quot;/*&quot; &quot;*&quot;+ &quot;/&quot;
+</code></pre>
+<p><em>(Hinweis: Echte C-Kommentare sind etwas komplexer wegen geschachtelten Sternen, aber dies ist die einfache JFlex-Variante)</em></p>
+<p><strong>String-Literale (z.B. <code>"Hallo"</code>):</strong></p>
+<pre><code class="language-jflex">String = \&quot;[^\&quot;]*\&quot;
+</code></pre>
+<h2 id="tokenerkennung"><strong>Tokenerkennung</strong></h2>
+<h3 id="ubergangsdiagramme-endliche-automaten"><strong>Übergangsdiagramme (Endliche Automaten)</strong></h3>
+<p>Der Lexer basiert auf <strong>Deterministischen Endlichen Automaten (DFA)</strong>.</p>
+<ul>
+<li><strong>Prinzip:</strong> Der Lexer startet bei Zustand 0. Er liest ein Zeichen und folgt dem Pfeil, der mit diesem Zeichen beschriftet ist, zum nächsten Zustand.</li>
+<li><strong>Ziel:</strong> Einen "akzeptierenden Zustand" (Endzustand) erreichen. Das bedeutet, ein gültiges Token (z. B. eine Zahl, ein Operator) wurde erkannt.</li>
+<li><strong>Verzweigung:</strong> Wenn der Lexer ein <code>&lt;</code> liest, weiß er noch nicht, welches Token es wird. Er muss weiterlesen, um zu unterscheiden, ob es <code>&lt;</code> (kleiner), <code>&lt;=</code> (kleiner gleich) oder <code>&lt;&gt;</code> (ungleich) ist.</li>
+</ul>
+<h3 id="retract-problem-lookahead"><strong>"Retract"-Problem (Lookahead)</strong></h3>
+<p>Dies ist das wichtigste technische Detail beim Scannen.</p>
+<ul>
+<li><strong>Das Problem:</strong> Oft weiß der Automat erst, dass ein Token zu Ende ist, wenn er bereits ein Zeichen <em>zu viel</em> gelesen hat, das gar nicht mehr dazu gehört.</li>
+<li><strong>Beispiel:</strong> Der Lexer soll <code>&gt;</code> erkennen.<ol>
+<li>Er liest <code>&gt;</code>. (Könnte auch der Anfang von <code>&gt;=</code> sein).</li>
+<li>Er liest das nächste Zeichen, z. B. ein <code>a</code> (vom Variablennamen <code>anzahl</code>).</li>
+<li>Erkenntnis: Es ist kein <code>=</code>, also war das Token <code>&gt;</code> hier zu Ende.</li>
+</ol>
+</li>
+<li><strong>Die Aktion (Retract):</strong> Das Zeichen <code>a</code> wurde schon "konsumiert". Es muss nun <strong>zurück in den Eingabepuffer geschoben</strong> werden, damit es beim <em>nächsten</em> Aufruf des Lexers als erstes Zeichen gelesen wird. In Diagrammen wird dies oft mit einem Sternchen (<code>*</code>) am Endzustand markiert.</li>
+</ul>
+<h3 id="identifier-ids-vs-keywords"><strong>Identifier (IDs) vs. Keywords</strong></h3>
+<p>Automaten können strukturell kaum zwischen Variablennamen (IDs) und Schlüsselwörtern unterscheiden, da beide aus Buchstabenfolgen bestehen.</p>
+<ul>
+<li><strong>Falscher Ansatz:</strong> Für jedes Schlüsselwort (<code>if</code>, <code>while</code>, <code>return</code>) einen eigenen Pfad im Automaten bauen. Das würde den Automaten riesig machen.</li>
+<li><strong>Richtiger Ansatz:</strong><ol>
+<li>Der Automat hat nur einen generischen Pfad für "Wörter" (Buchstabe gefolgt von Buchstaben/Zahlen).</li>
+<li>Ist das Wort fertig eingelesen, wird in einer <strong>Symboltabelle</strong> (Liste reservierter Wörter) nachgeschlagen.</li>
+<li><strong>Logik:</strong> Steht das Wort in der Liste? <span class="arithmatex">\(\rightarrow\)</span> Token <code>KEYWORD</code>. Wenn nicht <span class="arithmatex">\(\rightarrow\)</span> Token <code>ID</code>.</li>
+</ol>
+</li>
+</ul>
+<h2 id="automaten"><strong>Automaten</strong></h2>
+<p>Für Theorie-Aufgaben ist der Unterschied der Automatentypen wichtig:</p>
+<ul>
+<li><strong>NFA (Nicht-deterministisch):</strong> Erlaubt "Raten". Es kann von einem Zustand mehrere Pfeile für das <em>gleiche</em> Zeichen geben (oder Sprünge ohne Zeichen). Gut für Menschen zum Entwerfen, schlecht für Computer.</li>
+<li><strong>DFA (Deterministisch):</strong> Eindeutig. Für jedes Zeichen gibt es genau einen definierten Weg.</li>
+<li><strong>Workflow:</strong> Man definiert Muster als <em>Reguläre Ausdrücke</em>, wandelt diese (theoretisch) in NFAs um und optimiert sie schließlich zu DFAs, um sie effizient zu programmieren.</li>
+</ul>
+<h3 id="formale-definition_1"><strong>Formale Definition</strong></h3>
+<p>Ein Automat besteht immer aus 5 Teilen <span class="arithmatex">\((\Sigma, S, \delta, s_0, S_F)\)</span>:</p>
+<ol>
+<li><strong><span class="arithmatex">\(\Sigma\)</span> (Alphabet):</strong> Welche Zeichen darf ich lesen? (z. B. <code>a</code>, <code>b</code>, <code>0</code>, <code>1</code>).</li>
+<li><strong><span class="arithmatex">\(S\)</span> (Zustände):</strong> Alle Kreise im Bild.</li>
+<li><strong><span class="arithmatex">\(s_0\)</span> (Start):</strong> Der Start-Pfeil (hier geht's los).</li>
+<li><strong><span class="arithmatex">\(S_F\)</span> (Endzustände):</strong> Die doppelten Kreise (hier ist das Wort gültig).</li>
+<li><strong><span class="arithmatex">\(\delta\)</span> (Übergänge):</strong> Die Pfeile zwischen den Kreisen (Regelwerk: Wo gehe ich hin bei welchem Zeichen?).</li>
+</ol>
+<h3 id="tabellengetriebener-ansatz"><strong>Tabellengetriebener Ansatz</strong></h3>
+<p>Anstatt den Automaten durch verschachtelte Kontrollstrukturen (wie <code>switch-case</code>) hart zu kodieren, wird die Übergangsfunktion <span class="arithmatex">\(\delta\)</span> in einer <strong>Datenstruktur</strong> abgebildet.</p>
+<p><strong>Übergangsmatrix</strong>
+Man verwendet eine zweidimensionale Tabelle (Matrix/Array), um die Zustandsübergänge zu speichern.</p>
+<ul>
+<li><strong>Zeilen:</strong> Repräsentieren die Menge aller Zustände <span class="arithmatex">\(S\)</span>.</li>
+<li><strong>Spalten:</strong> Repräsentieren das Eingabealphabet <span class="arithmatex">\(\Sigma\)</span>.</li>
+</ul>
+<p><strong>Zugriff</strong>
+Der nächste Zustand wird durch einen direkten Tabellenzugriff ermittelt:
+<code>Table[aktueller_Zustand][eingabe_Zeichen] = ziel_Zustand</code></p>
+<p><strong>Fehlerbehandlung</strong>
+Ein <strong>leerer Eintrag</strong> (oder ein spezieller Fehlerwert) in der Matrix an der Stelle <code>[j][k]</code> bedeutet, dass für den Zustand <code>j</code> mit dem Zeichen <code>k</code> kein Übergang definiert ist. Dies entspricht einem Syntaxfehler im Eingabecode.</p>
+<h3 id="nfa-zu-dfa-buchi-algorithmus"><strong>NFA zu DFA (Büchi-Algorithmus)</strong></h3>
+<ol>
+<li>
+<p><strong>Ziel:</strong>
+  Umwandlung eines <strong>nichtdeterministischen Automaten (NFA)</strong> in einen <strong>deterministischen Automaten (DFA)</strong>.</p>
+</li>
+<li>
+<p><strong>Hauptoperationen:</strong></p>
+<ul>
+<li><strong>ε-closure:</strong> Berechnung aller Zustände, die durch ε-Übergänge (ohne Eingabezeichen) erreichbar sind.</li>
+<li><strong>move:</strong> Bestimmung, wohin man mit einem Eingabesymbol von einem Zustand aus geht.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ablauf:</strong></p>
+<ul>
+<li>Beginne mit der <strong>ε-closure</strong> des Startzustands des NFA.</li>
+<li>Berechne für jedes Eingabesymbol <strong>move(T, a)</strong> und dann <strong>ε-closure(move(T, a))</strong>.</li>
+<li>Wiederhole, bis alle Zustände des DFA bestimmt sind.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ergebnis:</strong>
+  Ein deterministischer Automat (DFA) mit einer Menge von NFA-Zuständen als DFA-Zustände.</p>
+</li>
+</ol>
+<h3 id="regex-zu-nfa-yamada-thompson"><strong>Regex zu NFA (Yamada-Thompson)</strong></h3>
+<p>Der Yamada-Thompson-Algorithmus ist ein Verfahren zur Umwandlung eines <strong>regulären Ausdrucks (Regex)</strong> in einen <strong>NFA</strong>. Dabei wird der reguläre Ausdruck schrittweise in eine <strong>Zustandsmaschine</strong> umgewandelt.</p>
+<h3 id="schritte"><strong>Schritte:</strong></h3>
+<ol>
+<li><strong>Regex aufteilen:</strong> Der reguläre Ausdruck wird in seine Grundbausteine (Operationen wie Konkatenation, Vereinigung, Kleene-Stern) zerlegt.</li>
+<li><strong>Teil-NFAs erstellen:</strong> Für jede Operation (z. B. „|“ für Vereinigung, „*“ für Kleene-Stern) wird ein eigener NFA konstruiert.</li>
+<li><strong>Zustände verknüpfen:</strong> Diese Teil-NFAs werden dann miteinander verknüpft, um den vollständigen NFA zu bilden.</li>
+</ol>
+<h2 id="effizienz"><strong>Effizienz</strong></h2>
+<ul>
+<li><strong>NFA (Der "Sichere"):</strong><ul>
+<li><strong>Bau:</strong> Sehr schnell und braucht wenig Speicher (<span class="arithmatex">\(O(|r|)\)</span>).</li>
+<li><strong>Laufzeit:</strong> Etwas langsamer, weil er beim Lesen des Textes mehrere Zustände gleichzeitig verwalten muss.</li>
+</ul>
+</li>
+<li><strong>DFA (Der "Schnelle, aber Riskante"):</strong><ul>
+<li><strong>Bau:</strong> Kann extrem lange dauern und den Speicher sprengen (exponentielles Wachstum der Zustände möglich).</li>
+<li><strong>Laufzeit:</strong> Unschlagbar schnell (<span class="arithmatex">\(O(|x|)\)</span>), da er pro Zeichen immer nur exakt einen Schritt macht.</li>
+</ul>
+</li>
+</ul>
+<p>Obwohl der DFA beim Scannen schneller wäre, nutzen viele Tools (Scanner-Generatoren) lieber die <strong>NFA-Simulation</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "header.autohide", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

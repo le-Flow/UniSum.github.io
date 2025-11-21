@@ -1,0 +1,1774 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://UniSum.github.io/Verteilte%20Systeme/Vorlesung/3.%20Technologische%20Grundlagen/">
+      
+      
+        <link rel="prev" href="../2.%20Architekturen/">
+      
+      
+        <link rel="next" href="../4.%20Kommunikation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>3. Technologische Grundlagen - UniSum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-threads" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="UniSum" class="md-header__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UniSum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Technologische Grundlagen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Prozessrechentechnik/1.Einleitung/" class="md-tabs__link">
+          
+  
+  
+  Prozessrechentechnik
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../1.%20Einf%C3%BChrung/" class="md-tabs__link">
+          
+  
+  
+  Verteilte Systeme
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Compiler/Roadmap/" class="md-tabs__link">
+          
+  
+  
+  Compiler
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="UniSum" class="md-nav__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    UniSum
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prozessrechentechnik
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prozessrechentechnik
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/1.Einleitung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einleitung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/2.Begriffe_und_Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Begriffe und Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/3.Aufbau_eingebetteter_Systeme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Aufbau eingebetteter Systeme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/4.Steuerung_und_Regelung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Steuerung und Regelung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/5.Modellierungstechniken/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Modelierungstechniken
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/6.SW-Entwicklung_f%C3%BCr_ES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. SW-Entwicklung für ES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/SummaryExercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/SolutionsExamTraining/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verteilte Systeme
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verteilte Systeme
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Architekturen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Architekturen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Technologische Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Technologische Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Threads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-virtualisierung-grundlagen-konzepte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Virtualisierung: Grundlagen &amp; Konzepte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-virtualisierung-kontrolle-effizienz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Virtualisierung: Kontrolle &amp; Effizienz
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Container
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-vms-container-in-verteilten-systemen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. VMs &amp; Container in Verteilten Systemen
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Kommunikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Kommunikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Koordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Koordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Namen%20in%20Verteilten%20Systemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Namen in Verteilten Systemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Konsistenz%20und%20Replikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Konsistenz und Replikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Fehlertolleranz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Fehlertolleranz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Praktikum
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/1.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/2.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/3.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/4.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Compiler/Roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Compiler/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Compiler/Vorlesung/2.%20Lexikalische%20Analyse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Lexikalische Analyse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Threads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-virtualisierung-grundlagen-konzepte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Virtualisierung: Grundlagen &amp; Konzepte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-virtualisierung-kontrolle-effizienz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Virtualisierung: Kontrolle &amp; Effizienz
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Container
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-vms-container-in-verteilten-systemen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. VMs &amp; Container in Verteilten Systemen
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>3. Technologische Grundlagen</h1>
+
+<h3 id="1-threads">1. Threads</h3>
+<p>Threads sind "minimale Software-Prozessoren", die es ermöglichen, virtuelle Prozessoren in Software zu erstellen. Ein <strong>Prozess</strong> ist dabei der Kontext (der Software-Prozessor), in dem ein oder mehrere Threads ausgeführt werden.</p>
+<ul>
+<li><strong>Implementierungsansätze:</strong><ul>
+<li><strong>Benutzerebene (User-level):</strong> Die Thread-Verwaltung findet komplett im Userspace statt.<ul>
+<li><strong>Vorteil:</strong> Extrem effizient, da kein Kernel-Trap für Thread-Operationen nötig ist.</li>
+<li><strong>Nachteil:</strong> Wenn ein Thread einen blockierenden Systemaufruf (z.B. I/O) tätigt, blockiert der Kernel den <em>gesamten Prozess</em>, und damit alle anderen Threads in diesem Prozess.</li>
+</ul>
+</li>
+<li><strong>Kernel-Ebene (Kernel-level):</strong> Der Kernel verwaltet die Threads. Jede Thread-Operation ist ein Systemaufruf.<ul>
+<li><strong>Vorteil:</strong> Blockierende Aufrufe sind kein Problem; der Kernel kann einfach einen anderen Thread desselben Prozesses einplanen (schedulen).</li>
+<li><strong>Nachteil:</strong> Geringere Effizienz, da jede Operation einen Trap in den Kernel erfordert.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lightweight Process (LWP):</strong><ul>
+<li>Eine hybride Lösung, die Kernel-Ebene und Benutzerebene mischt.</li>
+<li>Der Kernel stellt mehrere Kernel-Threads (LWPs) für einen Prozess bereit.</li>
+<li>Die User-level Thread-Bibliothek verteilt die (vielen) User-Threads auf die (wenigeren) Kernel-Threads (N:M-Beziehung).</li>
+<li>Context-Switches zwischen User-Threads können im Userspace stattfinden (effizient), blockierende Aufrufe blockieren nur den LWP, nicht den ganzen Prozess.</li>
+</ul>
+</li>
+<li><strong>Threads in Verteilten Systemen:</strong><ul>
+<li><strong>Multithreaded Clients:</strong> Hauptmotivation ist das <strong>Verbergen von Netzwerklatenz</strong>.<ul>
+<li><em>Beispiel Webbrowser:</em> Ein Thread pro Datei (z.B. Bild), um mehrere Dateien parallel über separate TCP-Verbindungen zu laden.</li>
+<li><em>Beispiel RPC:</em> Mehrere RPCs können parallel (jeder in einem eigenen Thread) ausgeführt werden, was bei Anfragen an verschiedene Server zu linearem Geschwindigkeitszuwachs führen kann.</li>
+</ul>
+</li>
+<li><strong>Multithreaded Server:</strong> Hauptmotivationen sind <strong>verbesserte Leistung</strong> und <strong>einfachere Softwarestruktur</strong>.<ul>
+<li><em>Leistung:</em> Das Starten eines Threads ist "billiger" als das eines neuen Prozesses; Latenz kann verborgen werden, indem auf die nächste Anfrage reagiert wird, während eine vorherige auf I/O wartet.</li>
+<li><em>Struktur:</em> Erlaubt die Nutzung einfacher, blockierender Aufrufe, was den Kontrollfluss vereinfacht.</li>
+<li><em>Architektur:</em> Oft als <strong>Dispatcher-Thread</strong> (nimmt Anfragen entgegen) und Pool von <strong>Worker-Threads</strong> (bearbeiten die Anfragen) implementiert.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="2-virtualisierung-grundlagen-konzepte">2. Virtualisierung: Grundlagen &amp; Konzepte</h3>
+<p>Virtualisierung ist das Erweitern oder Ersetzen einer Schnittstelle, um ein anderes System zu imitieren. Ein <strong>Virtual Machine Monitor (VMM)</strong>, auch Hypervisor genannt, ist die Software, die virtuelle Maschinen (VMs) erstellt und verwaltet.</p>
+<ul>
+<li><strong>Rolle des VMM:</strong><ul>
+<li>Der VMM besitzt die realen Hardwareressourcen.</li>
+<li>Er teilt Ressourcen zu durch <strong>Time-Sharing</strong> (z.B. CPU) oder <strong>Partitionierung</strong> (z.B. Festplatte).</li>
+<li>Nicht vorhandene Ressourcen werden vom VMM <strong>emuliert</strong>.</li>
+</ul>
+</li>
+<li><strong>Zustandsmanagement (State Management):</strong><ul>
+<li>Um zwischen VMs zu wechseln, muss der VMM den Zustand (Register) der VM sichern und den der nächsten laden.</li>
+<li><strong>Ansatz 1 (Indirektion):</strong> Der Prozessor hat nur einen "Register Block Pointer", der auf den Speichersatz der aktiven VM im VMM-Speicher zeigt. Umschalten = nur Pointer ändern.</li>
+<li><strong>Ansatz 2 (Kopieren):</strong> Der VMM kopiert die Registerwerte beim Umschalten explizit zwischen Prozessor und VMM-Speicher hin und her.</li>
+</ul>
+</li>
+<li><strong>Native vs. Gehostete VMMs:</strong><ul>
+<li><strong>Native VM (Typ 1):</strong> Der VMM läuft direkt auf der Hardware (z.B. VMware ESXi).</li>
+<li><strong>User-mode hosted VM (Typ 2):</strong> Der VMM läuft als normale Anwendung auf einem Host-Betriebssystem (z.B. VirtualBox).</li>
+<li><strong>Dual-mode hosted VM (Typ 2):</strong> Der VMM ist als Modul im Host-Betriebssystem integriert (z.B. Parallels für Mac).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="3-virtualisierung-kontrolle-effizienz">3. Virtualisierung: Kontrolle &amp; Effizienz</h3>
+<p>Das Hauptproblem für einen VMM ist, die Kontrolle über die Systemressourcen zu behalten, obwohl das Gast-Betriebssystem glaubt, es würde die Hardware direkt steuern.</p>
+<ul>
+<li><strong>Popek &amp; Goldberg (1974) Kriterien:</strong> Ein "echter" VMM muss drei Kriterien erfüllen:<ol>
+<li><strong>Effizienz:</strong> "Harmlose" (unbedenkliche) Anweisungen müssen nativ (direkt auf der CPU) ausgeführt werden.</li>
+<li><strong>Ressourcenkontrolle:</strong> Gast-VMs dürfen die Systemressourcen nicht ändern können (Isolierung). Das Gast-OS muss daher im <strong>Benutzermodus</strong> laufen.</li>
+<li><strong>Äquivalenz:</strong> Ein Programm muss sich auf der VM (nahezu) genauso verhalten wie auf nativer Hardware (Ausnahme: Performance, Timing).</li>
+</ol>
+</li>
+<li><strong>Das Virtualisierungs-Theorem:</strong><ul>
+<li><strong>Sensitive Instructions:</strong> Befehle, die die Ressourcenkonfiguration ändern (control-sensitive) oder deren Verhalten von der Konfiguration abhängt (behavior-sensitive).</li>
+<li><strong>Privileged Instructions:</strong> Befehle, die einen <em>Trap</em> (Fehler) auslösen, wenn sie im Benutzermodus ausgeführt werden.</li>
+<li><strong>Theorem:</strong> Ein VMM kann nur dann effizient konstruiert werden, wenn die Menge der <strong>sensitiven</strong> Instruktionen eine Teilmenge der <strong>privilegierten</strong> Instruktionen ist.</li>
+<li><em>Einfacher gesagt:</em> Jeder Befehl, der "gefährlich" (sensitiv) ist, <em>muss</em> einen Trap auslösen, wenn das Gast-OS (im User-Mode) ihn ausführt. So erhält der VMM die Kontrolle zurück.</li>
+</ul>
+</li>
+<li><strong>Das Problem "alter" Architekturen (z.B. x86):</strong><ul>
+<li>Die Bedingung ist <strong>nicht</strong> erfüllt.</li>
+<li>Es gibt <strong>"kritische Anweisungen"</strong>: Das sind Befehle, die <em>sensitiv</em>, aber <em>nicht privilegiert</em> sind. Sie lösen keinen Trap aus und erlauben dem Gast-OS, den VMM zu umgehen oder Systemzustände zu ändern (z.B. der <code>POPF</code>-Befehl).</li>
+</ul>
+</li>
+<li><strong>Lösungen für nicht-virtualisierbare Architekturen:</strong><ol>
+<li><strong>Binäre Übersetzung (Binary Translation):</strong> Der VMM scannt den Code des Gast-OS zur Laufzeit. Kritische Anweisungen werden erkannt ("Patched Program") und durch Code ersetzt, der stattdessen den VMM aufruft (Emulation). Für die Effizienz werden übersetzte Code-Blöcke in einem <strong>Code Cache</strong> gespeichert.</li>
+<li><strong>Paravirtualisierung:</strong> Der Code des Gast-Betriebssystems wird <em>im Voraus geändert</em>. Kritische Befehle werden durch explizite Aufrufe an den VMM (sog. "Hypercalls") ersetzt. Nachteil: Es wird ein speziell angepasstes Gast-OS benötigt.</li>
+</ol>
+</li>
+<li><strong>Moderne Architekturen (Intel VT, ARM VHE):</strong> Diese ISAs sind nach den Popek/Goldberg-Kriterien konstruiert und beheben das Problem der "kritischen Anweisungen" in Hardware.</li>
+</ul>
+<hr />
+<h3 id="4-container">4. Container</h3>
+<p>Container (popularisiert durch Docker) sind eine Form der "leichtgewichtigen Virtualisierung". Der fundamentale Unterschied zu VMs ist, dass Container <strong>das zugrundeliegende Betriebssystem (Host OS) teilen</strong>.</p>
+<ul>
+<li><strong>Isolations-Mechanismen:</strong> Anstelle von Hardware-Virtualisierung nutzen Container Kernel-Funktionen zur Isolierung:<ul>
+<li><strong>Namespaces:</strong> Isolieren die "Sicht" des Containers auf Systemressourcen (z.B. eigene Prozess-IDs, Netzwerk-Interfaces, User-IDs).</li>
+<li><strong>Union File System:</strong> Dateisysteme werden in Schichten aufgebaut. Ein "Base Image" (z.B. Ubuntu) ist read-only und wird geteilt; nur die Änderungen des Containers werden in eine separate, beschreibbare Schicht geschrieben.</li>
+<li><strong>Control Groups (cgroups):</strong> Kontrollieren und limitieren die Ressourcennutzung (CPU, Speicher) für Prozessgruppen.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="5-vms-container-in-verteilten-systemen">5. VMs &amp; Container in Verteilten Systemen</h3>
+<p>Die Hauptanwendung für Virtualisierungstechnologien in verteilten Systemen ist das <strong>Cloud Computing</strong>. Sie ermöglichen die effiziente Zuteilung von Ressourcen bei gleichzeitiger Wahrung der Isolationsanforderungen.</p>
+<ul>
+<li><strong>IaaS (Infrastructure-as-a-Service):</strong> Bietet virtuelle Hardware-Ressourcen (z.B. virtuelle Rechner wie Amazon EC2).</li>
+<li><strong>PaaS (Platform-as-a-Service):</strong> Bietet eine Plattform zur Anwendungsentwicklung und -ausführung (z.B. Heroku).</li>
+<li><strong>SaaS (Software-as-a-Service):</strong> Bietet fertige Software-Anwendungen (z.B. Webmail).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "header.autohide", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2234 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://UniSum.github.io/Prozessrechentechnik/4.Steuerung_und_Regelung/">
+      
+      
+        <link rel="prev" href="../3.Aufbau_eingebetteter_Systeme/">
+      
+      
+        <link rel="next" href="../5.Modellierungstechniken/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>4. Steuerung und Regelung - UniSum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inhalte" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="UniSum" class="md-header__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UniSum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Steuerung und Regelung
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../1.Einleitung/" class="md-tabs__link">
+          
+  
+  
+  Prozessrechentechnik
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/" class="md-tabs__link">
+          
+  
+  
+  Verteilte Systeme
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Compiler/Roadmap/" class="md-tabs__link">
+          
+  
+  
+  Compiler
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="UniSum" class="md-nav__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    UniSum
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prozessrechentechnik
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prozessrechentechnik
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.Einleitung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einleitung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.Begriffe_und_Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Begriffe und Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.Aufbau_eingebetteter_Systeme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Aufbau eingebetteter Systeme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Steuerung und Regelung
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Steuerung und Regelung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inhalte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inhalte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtertechnik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtertechnik
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtertechnik">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtereigenschaften" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtereigenschaften
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtereigenschaften">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frequenzselektivitat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequenzselektivität
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grenzfrequenz-fg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grenzfrequenz (fg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterordnung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filterordnung
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analoge-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analoge Filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitale-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Digitale Filter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Digitale Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fir-finite-impulse-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FIR (Finite Impulse Response)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iir-infinite-impulse-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IIR (Infinite Impulse Response)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steuerung-und-regelung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steuerung und Regelung
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steuerung und Regelung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steuerung-open-loop-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steuerung (Open Loop Control)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regelung-closed-loop-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regelung (Closed Loop Control)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kenngroen-der-regelgute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kenngrößen der Regelgüte
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kenngrößen der Regelgüte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamische-regelgute-zeitverhalten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamische Regelgüte (Zeitverhalten)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stationare-regelgute-genauigkeit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stationäre Regelgüte (Genauigkeit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stabilitat-robustheit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stabilität &amp; Robustheit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-regler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID-Regler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PID-Regler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#die-drei-anteile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Die drei Anteile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vergleichstabelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vergleichstabelle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.Modellierungstechniken/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Modelierungstechniken
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.SW-Entwicklung_f%C3%BCr_ES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. SW-Entwicklung für ES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SummaryExercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SolutionsExamTraining/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verteilte Systeme
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verteilte Systeme
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/2.%20Architekturen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Architekturen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/3.%20Technologische%20Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Technologische Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/4.%20Kommunikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Kommunikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/5.%20Koordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Koordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/6.%20Namen%20in%20Verteilten%20Systemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Namen in Verteilten Systemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/7.%20Konsistenz%20und%20Replikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Konsistenz und Replikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/8.%20Fehlertolleranz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Fehlertolleranz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Praktikum
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/1.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/2.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/3.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/4.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Vorlesung/2.%20Lexikalische%20Analyse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Lexikalische Analyse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inhalte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inhalte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtertechnik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtertechnik
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtertechnik">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtereigenschaften" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtereigenschaften
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtereigenschaften">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frequenzselektivitat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequenzselektivität
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grenzfrequenz-fg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grenzfrequenz (fg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterordnung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filterordnung
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analoge-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analoge Filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitale-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Digitale Filter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Digitale Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fir-finite-impulse-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FIR (Finite Impulse Response)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iir-infinite-impulse-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IIR (Infinite Impulse Response)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steuerung-und-regelung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steuerung und Regelung
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steuerung und Regelung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steuerung-open-loop-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steuerung (Open Loop Control)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regelung-closed-loop-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regelung (Closed Loop Control)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kenngroen-der-regelgute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kenngrößen der Regelgüte
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kenngrößen der Regelgüte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamische-regelgute-zeitverhalten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamische Regelgüte (Zeitverhalten)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stationare-regelgute-genauigkeit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stationäre Regelgüte (Genauigkeit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stabilitat-robustheit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stabilität &amp; Robustheit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-regler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID-Regler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PID-Regler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#die-drei-anteile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Die drei Anteile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vergleichstabelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vergleichstabelle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>4. Steuerung und Regelung</h1>
+
+<h2 id="inhalte">Inhalte</h2>
+<ul>
+<li>Filter (analoge und digitale Filter, Filtereigenschaften)</li>
+<li>Steuerung und Regelung (Begriffe, Blockschaltbilder)</li>
+<li>Kenngrößen der Regelgüte (Stabilität, Robustheit)</li>
+<li>PID-Regler</li>
+</ul>
+<hr />
+<h2 id="filtertechnik">Filtertechnik</h2>
+<h3 id="filtereigenschaften">Filtereigenschaften</h3>
+<h4 id="frequenzselektivitat">Frequenzselektivität</h4>
+<p>Filter werden oft nach ihrem Verhalten im Frequenzbereich klassifiziert. Sie besitzen einen <strong>Durchlassbereich</strong> (Signal passiert) und einen <strong>Sperrbereich</strong> (Signal wird gedämpft).</p>
+<ul>
+<li><strong>Tiefpass:</strong> Lässt tiefe Frequenzen durch (z. B. zur Unterdrückung von hochfrequentem Sensor-Rauschen).</li>
+<li><strong>Hochpass:</strong> Lässt hohe Frequenzen durch (z. B. um Gleichanteile/Offset auszufiltern).</li>
+<li><strong>Bandpass:</strong> Lässt nur ein bestimmtes Frequenzband durch.</li>
+<li><strong>Bandsperre:</strong> Sperrt ein bestimmtes Frequenzband (z. B. 50Hz-Brummen).</li>
+</ul>
+<h4 id="grenzfrequenz-fg">Grenzfrequenz (<i>f</i><sub>g</sub>)</h4>
+<p>Die Frequenz, bei der die Signal-Amplitude um <strong>3 dB</strong> (Dezibel) abgefallen ist.</p>
+<ul>
+<li>Dies entspricht einer Reduzierung der Amplitude auf <span class="arithmatex">\(1/\sqrt{2} \approx 70,7 \%\)</span>.</li>
+<li>Dies entspricht der <strong>halben Leistung</strong> des Signals.</li>
+</ul>
+<h4 id="filterordnung">Filterordnung</h4>
+<p>Beschreibt die höchste Potenz in der mathematischen Modellierung (DGL oder Übertragungsfunktion).</p>
+<ul>
+<li>Bestimmt die <strong>Steilheit des Übergangsbereichs</strong> (Flankensteilheit).</li>
+<li><strong>Faustregel:</strong> Pro Ordnung steigt die Dämpfung um 20 dB/Dekade (z. B. 2. Ordnung = 40 dB/Dekade).</li>
+<li><strong>Trade-off:</strong> Höhere Ordnung = steilere Flanke (besser), aber höherer Realisierungsaufwand und längere Laufzeit.</li>
+</ul>
+<hr />
+<h3 id="analoge-filter">Analoge Filter</h3>
+<p>Werden direkt durch elektronische Bauteile realisiert.</p>
+<ul>
+<li><strong>Passiv:</strong> Bestehen nur aus passiven Bauteilen (R, L, C).<ul>
+<li>Benötigen keine Spannungsversorgung.</li>
+<li><em>Beispiel:</em> Tiefpass 1. Ordnung (RC-Glied) <span class="arithmatex">\(\to f_g = \frac{1}{2\pi RC}\)</span>.</li>
+</ul>
+</li>
+<li><strong>Aktiv:</strong> Verwenden aktive Bauteile wie <strong>Operationsverstärker (OPV)</strong>.<ul>
+<li><strong>Vorteile:</strong> Können Signale auch <strong>verstärken</strong>; ermöglichen Kaskadierung (Hintereinanderschaltung) ohne gegenseitige Beeinflussung.</li>
+<li><strong>Nachteile:</strong> Benötigen Spannungsversorgung; OPV fügt eigenes Rauschen hinzu; anfällig für Alterung und Temperaturdrift.</li>
+</ul>
+</li>
+<li><strong>Einsatz:</strong> Oft als Anti-Aliasing-Filter vor dem A/D-Wandler oder im sehr hohen Frequenzbereich.</li>
+</ul>
+<hr />
+<h3 id="digitale-filter">Digitale Filter</h3>
+<p>Verarbeiten abgetastete Zahlenfolgen (Signale) softwareseitig (MCU, DSP) oder in Hardware (FPGA). Mathematisch basieren sie auf <strong>Differenzengleichungen</strong>.</p>
+<h4 id="fir-finite-impulse-response">FIR (Finite Impulse Response)</h4>
+<ul>
+<li><strong>Nicht-rekursiv:</strong> Der Ausgangswert <span class="arithmatex">\(x_n\)</span> hängt nur von aktuellen und alten <em>Eingangswerten</em> <span class="arithmatex">\(y\)</span> ab (keine Rückkopplung).</li>
+<li><strong>Formel:</strong> <span class="arithmatex">\(x_n = \sum b_k \cdot y_{n-k}\)</span></li>
+<li><strong>Vorteile:</strong> <strong>Immer stabil</strong> (kann nicht schwingen); <strong>konstante Gruppenlaufzeit</strong> (keine Phasenverzerrung des Signals).</li>
+<li><strong>Nachteile:</strong> Benötigt eine sehr hohe Ordnung (viele Rechenschritte) für steile Flanken.</li>
+</ul>
+<h4 id="iir-infinite-impulse-response">IIR (Infinite Impulse Response)</h4>
+<ul>
+<li><strong>Rekursiv:</strong> Der Ausgangswert <span class="arithmatex">\(x_n\)</span> hängt von Eingangswerten <span class="arithmatex">\(y\)</span> UND alten <em>Ausgangswerten</em> <span class="arithmatex">\(x\)</span> ab (Rückkopplung).</li>
+<li><strong>Formel:</strong> <span class="arithmatex">\(x_n = \sum b_k \cdot y_{n-k} + \sum a_j \cdot x_{n-j}\)</span></li>
+<li><strong>Vorteile:</strong> Sehr effizient. Erreicht steile Flanken mit <strong>wenigen Koeffizienten</strong> (geringe Rechenlast).</li>
+<li><strong>Nachteile:</strong> Kann <strong>instabil werden</strong> (aufschwingen); phasenverzerrend (keine konstante Gruppenlaufzeit).</li>
+</ul>
+<hr />
+<h2 id="steuerung-und-regelung">Steuerung und Regelung</h2>
+<h3 id="steuerung-open-loop-control">Steuerung (Open Loop Control)</h3>
+<ul>
+<li>Eine <strong>offene Wirkkette</strong>: Eingang <span class="arithmatex">\(\to\)</span> Steuerglied <span class="arithmatex">\(\to\)</span> Stellglied <span class="arithmatex">\(\to\)</span> Strecke <span class="arithmatex">\(\to\)</span> Ausgang.</li>
+<li>Die Berechnungen sind <strong>unabhängig vom Ist-Zustand</strong> der Strecke.</li>
+<li><strong>Problem:</strong> Störgrößen (z. B. Seitenwind, Laständerung) werden <strong>nicht erkannt</strong> und nicht korrigiert.</li>
+</ul>
+<h3 id="regelung-closed-loop-control">Regelung (Closed Loop Control)</h3>
+<ul>
+<li>Eine <strong>geschlossene Wirkkette</strong> (Regelkreis).</li>
+<li><strong>Prinzip:</strong><ol>
+<li>Der <strong>Istwert</strong> (Regelgröße <span class="arithmatex">\(x(t)\)</span>) wird gemessen (Rückführung <span class="arithmatex">\(r(t)\)</span>).</li>
+<li><strong>Vergleich:</strong> Regeldifferenz <span class="arithmatex">\(e(t) = w(t) - r(t)\)</span> (Sollwert - Istwert).</li>
+<li>Der <strong>Regler</strong> versucht, <span class="arithmatex">\(e(t)\)</span> auf Null zu zwingen.</li>
+</ol>
+</li>
+<li><strong>Vorteil:</strong> Kann <strong>Störgrößen aktiv ausgleichen</strong>.</li>
+</ul>
+<hr />
+<h3 id="kenngroen-der-regelgute">Kenngrößen der Regelgüte</h3>
+<p>Wie gut arbeitet ein Regler? Man betrachtet meist die <strong>Sprungantwort</strong> (Reaktion auf eine sprunghafte Änderung des Sollwerts).</p>
+<h4 id="dynamische-regelgute-zeitverhalten">Dynamische Regelgüte (Zeitverhalten)</h4>
+<ul>
+<li><strong>Anregelzeit (<span class="arithmatex">\(T_{An}\)</span>):</strong> Zeit, bis der Istwert <em>erstmals</em> den Toleranzbereich um den Sollwert erreicht.</li>
+<li><strong>Überschwingweite (<span class="arithmatex">\(X_o\)</span>):</strong> Maximale Abweichung über den Sollwert hinaus (Überreaktion).</li>
+<li><strong>Ausregelzeit (<span class="arithmatex">\(T_{Aus}\)</span>):</strong> Zeit, bis der Istwert <em>dauerhaft</em> im Toleranzbereich bleibt (Einschwingen).</li>
+<li><strong>Regelfläche (<span class="arithmatex">\(I_R\)</span>):</strong> Integral der Regeldifferenz (Gesamtfehler über die Zeit).</li>
+</ul>
+<h4 id="stationare-regelgute-genauigkeit">Stationäre Regelgüte (Genauigkeit)</h4>
+<ul>
+<li><strong>Bleibende Regeldifferenz (<span class="arithmatex">\(e(\infty)\)</span>):</strong> Der Fehler, der auch nach unendlich langer Zeit noch besteht (Genauigkeit im eingeschwungenen Zustand).</li>
+</ul>
+<h4 id="stabilitat-robustheit">Stabilität &amp; Robustheit</h4>
+<ul>
+<li><strong>Stabilität:</strong> Ein System ist stabil, wenn es nach einer Störung in einen Ruhezustand zurückkehrt (abklingt). Instabile Systeme schwingen sich unbegrenzt auf (Zerstörungsgefahr).</li>
+<li><strong>Robustheit:</strong> Die Fähigkeit des Reglers, auch dann stabil und gut zu arbeiten, wenn sich die Parameter der Strecke ändern (z. B. Auto wird schwerer durch Beladung).</li>
+<li><strong>Zielkonflikt:</strong> Man kann meist nicht alles haben. Ein sehr <em>schneller</em> Regler neigt zum Überschwingen (weniger stabil). Ein sehr <em>robuster</em> Regler ist oft träge.</li>
+</ul>
+<hr />
+<h2 id="pid-regler">PID-Regler</h2>
+<p>Der Standard-Industrieregler. Er berechnet die Stellgröße <span class="arithmatex">\(y(t)\)</span> aus drei parallelen Anteilen.</p>
+<p><strong>Reglergleichung:</strong></p>
+<div class="arithmatex">\[y(t) = K_P \cdot e(t) + K_I \int e(t) dt + K_D \cdot \dot{e}(t)\]</div>
+<h3 id="die-drei-anteile">Die drei Anteile</h3>
+<ol>
+<li><strong>P-Anteil (Proportional) <span class="arithmatex">\(\to\)</span> "Gegenwart"</strong><ul>
+<li>Reagiert auf die <strong>aktuelle</strong> Abweichung.</li>
+<li>Wirkt sofort, hinterlässt aber meist eine <strong>bleibende Regelabweichung</strong>.</li>
+</ul>
+</li>
+<li><strong>I-Anteil (Integral) <span class="arithmatex">\(\to\)</span> "Vergangenheit"</strong><ul>
+<li>Summiert die <strong>vergangenen</strong> Fehler auf.</li>
+<li>Solange ein Fehler existiert, wächst der I-Anteil <span class="arithmatex">\(\to\)</span> zwingt den Fehler auf Null (<strong>keine bleibende Regelabweichung</strong>).</li>
+<li>Nachteil: Macht das System träger und neigt zum Überschwingen.</li>
+</ul>
+</li>
+<li><strong>D-Anteil (Differential) <span class="arithmatex">\(\to\)</span> "Zukunft"</strong><ul>
+<li>Reagiert auf die <strong>Änderungsgeschwindigkeit</strong> des Fehlers.</li>
+<li>Wirkt dämpfend ("vorausdenkend").</li>
+<li>Stabilisiert den Kreis und erlaubt aggressiveren P-Anteil.</li>
+</ul>
+</li>
+</ol>
+<h3 id="vergleichstabelle">Vergleichstabelle</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Reglertyp</th>
+<th style="text-align: left;">Reaktion (Anregelzeit)</th>
+<th style="text-align: left;">Überschwingen</th>
+<th style="text-align: left;">Bleibende Regeldifferenz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>P</strong></td>
+<td style="text-align: left;">Mittel</td>
+<td style="text-align: left;">Klein</td>
+<td style="text-align: left;"><strong>Ja</strong> (Nachteil)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>I</strong></td>
+<td style="text-align: left;">Langsam</td>
+<td style="text-align: left;">Groß</td>
+<td style="text-align: left;"><strong>Nein</strong> (Vorteil)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PI</strong></td>
+<td style="text-align: left;">Mittel</td>
+<td style="text-align: left;">Mittel</td>
+<td style="text-align: left;"><strong>Nein</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PD</strong></td>
+<td style="text-align: left;">Schnell</td>
+<td style="text-align: left;">Klein</td>
+<td style="text-align: left;"><strong>Ja</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PID</strong></td>
+<td style="text-align: left;"><strong>Schnell</strong></td>
+<td style="text-align: left;"><strong>Klein</strong></td>
+<td style="text-align: left;"><strong>Nein</strong> (Ideal)</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "header.autohide", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

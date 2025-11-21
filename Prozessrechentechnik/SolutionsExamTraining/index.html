@@ -1,0 +1,2466 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://UniSum.github.io/Prozessrechentechnik/SolutionsExamTraining/">
+      
+      
+        <link rel="prev" href="../SummaryExercises/">
+      
+      
+        <link rel="next" href="../../Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Quiz - UniSum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#einleitung" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="UniSum" class="md-header__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UniSum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quiz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../1.Einleitung/" class="md-tabs__link">
+          
+  
+  
+  Prozessrechentechnik
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/" class="md-tabs__link">
+          
+  
+  
+  Verteilte Systeme
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Compiler/Roadmap/" class="md-tabs__link">
+          
+  
+  
+  Compiler
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="UniSum" class="md-nav__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    UniSum
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prozessrechentechnik
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prozessrechentechnik
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.Einleitung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einleitung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.Begriffe_und_Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Begriffe und Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.Aufbau_eingebetteter_Systeme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Aufbau eingebetteter Systeme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.Steuerung_und_Regelung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Steuerung und Regelung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.Modellierungstechniken/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Modelierungstechniken
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.SW-Entwicklung_f%C3%BCr_ES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. SW-Entwicklung für ES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SummaryExercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einleitung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Einleitung
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#begriffe-und-grundlagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Begriffe und Grundlagen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aufbau-es" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufbau ES
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steuerung-und-regelung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steuerung und Regelung
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modellierungstechniken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modellierungstechniken
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sw-entwicklung-fur-es" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SW-Entwicklung für ES
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fragen-zum-praktikum-freescale-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fragen zum Praktikum (Freescale-Videos)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verteilte Systeme
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verteilte Systeme
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/2.%20Architekturen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Architekturen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/3.%20Technologische%20Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Technologische Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/4.%20Kommunikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Kommunikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/5.%20Koordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Koordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/6.%20Namen%20in%20Verteilten%20Systemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Namen in Verteilten Systemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/7.%20Konsistenz%20und%20Replikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Konsistenz und Replikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/8.%20Fehlertolleranz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Fehlertolleranz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Praktikum
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/1.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/2.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/3.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/4.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Vorlesung/2.%20Lexikalische%20Analyse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Lexikalische Analyse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einleitung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Einleitung
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#begriffe-und-grundlagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Begriffe und Grundlagen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aufbau-es" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aufbau ES
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steuerung-und-regelung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steuerung und Regelung
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modellierungstechniken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modellierungstechniken
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sw-entwicklung-fur-es" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SW-Entwicklung für ES
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fragen-zum-praktikum-freescale-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fragen zum Praktikum (Freescale-Videos)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Quiz</h1>
+
+<h2 id="einleitung">Einleitung</h2>
+<p><strong>1. Was ist ein Eingebettetes System (ES) und was sind seine charakteristischen Eigenschaften?</strong></p>
+<ul>
+<li>Ein Eingebettetes System (ES) ist ein Rechensystem, das in einen technischen Kontext (z.B. ein Auto, eine Waschmaschine) "eingebettet" ist, um dort Mess-, Steuer- oder Regelungsaufgaben zu erfüllen.</li>
+<li><strong>Charakteristische Eigenschaften</strong>:<ul>
+<li><strong>Enge Kopplung</strong> mit der physikalischen Umwelt (über Sensoren und Aktuatoren).</li>
+<li><strong>Reaktive Systeme:</strong> Sie reagieren kontinuierlich auf (oft asynchrone) Ereignisse aus der Umgebung, statt Daten zu transformieren.</li>
+<li><strong>Echtzeitanforderungen:</strong> Die korrekte Funktion hängt oft von der Einhaltung zeitlicher Fristen (Deadlines) ab.</li>
+<li><strong>Ressourcenbeschränkungen:</strong> Sie sind oft hinsichtlich Kosten, Energieverbrauch, Speicher und Rechenleistung stark optimiert (effizient).</li>
+<li><strong>Verlässlichkeit:</strong> Sie müssen hohe Anforderungen an Zuverlässigkeit und Funktionale Sicherheit erfüllen (z.B. ISO 26262).</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Nennen Sie einige wichtige Unterschiede zwischen ES- und IT-Systemen.</strong></p>
+<ul>
+<li><strong>IT-Systeme</strong> (z.B. Buchhaltungsserver) sind primär <strong>transformationelle Systeme</strong>: Sie verarbeiten einen Stapel Daten (Input) zu einem Ergebnis (Output).</li>
+<li><strong>Eingebettete Systeme (ES)</strong> sind primär <strong>reaktive Systeme</strong>, die kontinuierlich mit ihrer Umwelt interagieren und auf Stimuli reagieren.</li>
+<li>ES haben eine <strong>enge HW/SW-Verzahnung</strong> und unterliegen <strong>harten Echtzeitanforderungen</strong> sowie <strong>strengen Ressourcen- und Energiebeschränkungen</strong>, was bei IT-Systemen seltener der Fall ist.</li>
+</ul>
+<p><strong>3. Wann funktioniert ein Echtzeitsystem korrekt?</strong></p>
+<ul>
+<li>Ein Echtzeitsystem funktioniert korrekt, wenn seine Berechnungen nicht nur <strong>logisch korrekt</strong> sind, sondern auch <strong>innerhalb der vorgegebenen Zeitfristen (Deadlines)</strong> erfolgen. Ein richtiges Ergebnis zur falschen Zeit ist ein Fehler.</li>
+</ul>
+<p><strong>4. Was ist der Unterschied zwischen weichen und harten Echtzeit-Bedingungen?</strong></p>
+<ul>
+<li><strong>Harte Echtzeit (Hard Real-Time):</strong> Das Verpassen einer Deadline kann <strong>katastrophale Folgen</strong> haben (z.B. Airbag-Auslösung). Der Nutzen des Ergebnisses fällt nach der Deadline sofort auf null oder wird negativ.</li>
+<li><strong>Weiche Echtzeit (Soft Real-Time):</strong> Das Verpassen einer Deadline ist <strong>tolerierbar</strong> und führt z.B. nur zu Komfortverlust oder Qualitätsminderung (z.B. Ruckeln beim Video-Streaming). Der Nutzen des Ergebnisses sinkt nach der Deadline allmählich.</li>
+</ul>
+<p><strong>5. Nennen Sie einige wichtige nicht-funktionale Anforderungen an ES.</strong></p>
+<ul>
+<li><strong>Effizienz</strong> (Preis, Gewicht, Energieverbrauch)</li>
+<li><strong>Verlässlichkeit</strong> (Reliability)</li>
+<li><strong>Funktionale Sicherheit</strong> (Safety)</li>
+<li><strong>Echtzeitfähigkeit</strong> (Rechtzeitigkeit)</li>
+<li><strong>Robustheit</strong></li>
+</ul>
+<hr />
+<h2 id="begriffe-und-grundlagen">Begriffe und Grundlagen</h2>
+<p><strong>6. Was ist ein Signal?</strong></p>
+<ul>
+<li>Ein Signal ist der Träger von Information, dargestellt als eine physikalische Größe, die sich zeitlich ändert (z.B. Spannung).</li>
+</ul>
+<p><strong>7. Nach welchen Kriterien lassen sich Signale klassifizieren?</strong></p>
+<ul>
+<li>Nach dem <strong>Zeitbereich</strong> (zeitkontinuierlich oder zeitdiskret).</li>
+<li>Nach dem <strong>Wertebereich</strong> (wertkontinuierlich oder wertdiskret).</li>
+</ul>
+<p><strong>8. Was ist der Unterschied zwischen zeitdiskreten und wertdiskreten Signalen?</strong></p>
+<ul>
+<li><strong>Zeitdiskret:</strong> Das Signal ist nur zu bestimmten, diskreten Zeitpunkten definiert (z.B. ein abgetastetes Signal).</li>
+<li><strong>Wertdiskret:</strong> Das Signal kann nur eine endliche (abzählbare) Anzahl von Werten annehmen (z.B. ein quantisiertes Signal).</li>
+</ul>
+<p><strong>9. Was ist ein digitales Signal?</strong></p>
+<ul>
+<li>Ein digitales Signal ist sowohl <strong>zeitdiskret</strong> als auch <strong>wertdiskret</strong>.</li>
+</ul>
+<p><strong>10. Welche Art von Signalen kann ein reales Übertragungsmedium übertragen?</strong></p>
+<ul>
+<li>Reale physikalische Übertragungsmedien übertragen immer <strong>analoge Signale</strong> (zeit- und wertkontinuierliche Signale).</li>
+</ul>
+<hr />
+<h2 id="aufbau-es">Aufbau ES</h2>
+<p><strong>11. Was ist der MSR-Kreislauf? Skizzieren Sie ihn gedanklich.</strong></p>
+<ul>
+<li>Der MSR-Kreislauf (Messen, Steuern, Regeln) beschreibt den geschlossenen Regelkreis in eingebetteten Systemen.</li>
+<li><strong>Sensorik</strong> erfasst den Prozesszustand (Messen), die <strong>Verarbeitungseinheit</strong> (<span class="arithmatex">\(\mu P\)</span>) trifft Entscheidungen (Verarbeiten) und die <strong>Aktorik</strong> beeinflusst den Prozess (Stellen/Regeln).</li>
+</ul>
+<p><strong>12. Was versteht man unter dem Begriff „Sensor“ (bei ES)? Zu was dienen sie und was ist i. A. bei Sensorsignalen zu beachten?</strong></p>
+<ul>
+<li>Sensoren sind Bauteile, die nichtelektrische (z.B. mechanische, thermische) Größen aus dem Prozesszustand erfassen und in elektrische Signale umwandeln.</li>
+<li>Bei Sensorsignalen ist zu beachten, dass sie oft <strong>verrauscht</strong>, fehlerbehaftet oder von Störungen überlagert sind.</li>
+</ul>
+<p><strong>13. Nach welchen Eigenschaften lassen sich Sensoren klassifizieren?</strong></p>
+<ul>
+<li><strong>Extrinsisch</strong> (erfassen die Umgebung, z.B. Kamera) vs. <strong>Intrinsisch</strong> (erfassen den internen Systemzustand, z.B. Gyroskop).</li>
+<li>Nach <strong>Integrationsstufen</strong>: Elementarsensor (reiner Wandler), Integrierter Sensor (mit Signalaufbereitung), Intelligenter Sensor (mit Vorverarbeitung).</li>
+</ul>
+<p><strong>14. Beschreiben Sie das Messprinzip eines mechanischen, kapazitiven Beschleunigungssensors.</strong></p>
+<ul>
+<li>Eine träge Masse ist federnd aufgehängt (<span class="arithmatex">\(F = m \cdot a = k \cdot \Delta d\)</span>). Bei Beschleunigung wird diese Masse ausgelenkt (<span class="arithmatex">\(\Delta d\)</span>).</li>
+<li>Die Masse ist als mittlere Elektrode eines <strong>Differentialkondensators</strong> (<span class="arithmatex">\(C_1\)</span>, <span class="arithmatex">\(C_2\)</span>) realisiert. Die Auslenkung ändert die Abstände und damit die Kapazitäten <span class="arithmatex">\(C_1\)</span> und <span class="arithmatex">\(C_2\)</span> gegenläufig. Diese Kapazitätsänderung wird gemessen.</li>
+</ul>
+<p><strong>15. Beschreiben Sie die Funktionsweise eines inkrementellen Positions-/Winkelsensors mit Lichtschranken.</strong></p>
+<ul>
+<li>Ein <strong>Optischer Encoder</strong> (Inkrementalgeber) verwendet eine rotierende Scheibe mit einem feinen Strichmuster (hell/dunkel).</li>
+<li>Zwei leicht versetzte Lichtschranken (Detektor A, B) tasten das Muster ab. Aus der Anzahl der Impulse wird die Position/Winkeländerung berechnet, aus der Phasenverschiebung von A zu B die <strong>Bewegungsrichtung</strong>.</li>
+</ul>
+<p><strong>16. Was ist die Aufgabe eines Aktuators?</strong></p>
+<ul>
+<li>Aktuatoren (oder Aktoren) beeinflussen den technischen Prozess, indem sie elektrische Energie (das Steuersignal) in eine andere Energieform, meist mechanische Arbeit, umwandeln (z.B. Motorbewegung, Kraft).</li>
+</ul>
+<p><strong>17. Gleichstrommotoren werden meist mit einer H-Brücke und einem PWM-Signal angesteuert. Beschreiben Sie den Vorgang. Was kann alles damit gesteuert werden?</strong></p>
+<ul>
+<li>Eine <strong>H-Brücke</strong> ist eine Schaltung aus vier Schaltern (Transistoren). Durch paarweises Schließen der diagonalen Schalter kann die <strong>Polung</strong> am Motor umgekehrt werden.</li>
+<li>Ein <strong>PWM-Signal</strong> (Pulsweiten-Modulation) wird an die H-Brücke angelegt. Das Tastverhältnis (Duty Cycle) der PWM bestimmt die mittlere Spannung am Motor.</li>
+<li>Gesteuert werden:<ol>
+<li><strong>Drehrichtung</strong> (durch Umpolen der H-Brücke).</li>
+<li><strong>Drehzahl / Drehmoment</strong> (durch das Tastverhältnis der PWM).</li>
+</ol>
+</li>
+</ul>
+<p><strong>18. Was sind die Vorteile und Nachteile von Schrittmotoren?</strong></p>
+<ul>
+<li><strong>Vorteile:</strong> Sie können in diskreten Winkelschritten angesteuert werden und ermöglichen eine Positionierung im "Open-Loop"-Betrieb (Steuerung) <strong>ohne Sensorik</strong> (Rückführung).</li>
+<li><strong>Nachteile:</strong> Sie haben ein geringeres Drehmoment, sind ineffizienter und können bei Überlast "Schritte verlieren" (die Position ist dann unbekannt).</li>
+</ul>
+<p><strong>19. Welche 3 Schritte sind bei der Abtastung eines analogen Eingangssignals notwendig?</strong>
+1.  <strong>Filterung:</strong> Entfernung von Frequenzen oberhalb der halben Abtastrate mittels <strong>Anti-Aliasing-Filter</strong> (analoger Tiefpass).
+2.  <strong>Halten:</strong> Festhalten des analogen Spannungswertes während der Wandlung mittels <strong>Sample &amp; Hold (S&amp;H)</strong>-Schaltung.
+3.  <strong>Wandlung:</strong> Diskretisierung von Zeit und Wert mittels <strong>A/D-Wandler (ADC)</strong>.</p>
+<p><strong>20. Welche 3 Schritte sind bei der Rückführung eines digitalen Ausgangssignals zu einem analogen Ausgangssignal notwendig?</strong>
+1.  <strong>Wandlung:</strong> Umwandlung des digitalen Werts in eine analoge (oft gestufte) Spannung mittels <strong>D/A-Wandler (DAC)</strong> (oder Erzeugung eines <strong>PWM</strong>-Signals).
+2.  <strong>Entstörung (Deglitching):</strong> (Nur bei DACs nötig) Entfernen von Umschalt-Spitzen (Glitches) mittels <strong>Deglitcher (S&amp;H-Schaltung)</strong>.
+3.  <strong>Glättung:</strong> Entfernen der "Treppenstufen" (bei DAC) bzw. Glättung der Pulse (bei PWM) mittels <strong>Tiefpassfilter</strong> (Rekonstruktionsfilter).</p>
+<p><strong>21. Was besagt das Nyquist-Shannon-Abtasttheorem?</strong></p>
+<ul>
+<li>Die Abtastfrequenz (<span class="arithmatex">\(f_a\)</span>) muss <strong>mindestens doppelt so hoch</strong> sein wie die höchste im Signal enthaltene Frequenz (<span class="arithmatex">\(f_g\)</span>), um das Signal exakt rekonstruieren zu können.</li>
+</ul>
+<div class="arithmatex">\[f_a &gt; 2 \cdot f_g\]</div>
+<p><strong>22. Was sind Alias-Effekte, wann entstehen sie und was muss man zu deren Vermeidung beachten?</strong></p>
+<ul>
+<li><strong>Alias-Effekte</strong> entstehen, wenn das Nyquist-Shannon-Theorem <strong>verletzt</strong> wird (die Abtastrate zu gering ist).</li>
+<li>Hohe Frequenzen im Signal "tarnen" sich als niedrigere Frequenzen und verfälschen die Messung.</li>
+<li><strong>Vermeidung:</strong> Man muss zwingend ein <strong>Anti-Aliasing-Filter</strong> (einen analogen Tiefpassfilter) <strong>vor</strong> der Abtastung verwenden, um alle Frequenzen oberhalb <span class="arithmatex">\(f_a/2\)</span> abzuschneiden.</li>
+</ul>
+<p><strong>23. Was ist die Aufgabe einer Sample&amp;Hold-Schaltung vor einem A/D-Wandler?</strong></p>
+<ul>
+<li>Ein ADC benötigt eine endliche Wandlungszeit. Die S&amp;H-Schaltung "friert" den analogen Spannungswert am Abtastzeitpunkt ein und hält ihn <strong>während der Dauer der A/D-Wandlung konstant</strong>.</li>
+</ul>
+<p><strong>24. Was sind Hazards (Glitches) und wie werden sie bei der D/A-Wandlung vermieden?</strong></p>
+<ul>
+<li><strong>Hazards (Glitches)</strong> sind unerwünschte, kurze Spannungsspitzen (Spikes) am Ausgang eines <strong>D/A-Wandlers</strong>. Sie entstehen, wenn die Bits des digitalen Worts nicht exakt gleichzeitig umschalten (z.B. beim Übergang <code>0111</code> <span class="arithmatex">\(\to\)</span> <code>1000</code> könnte kurz <code>0000</code> anliegen).</li>
+<li>Sie werden durch einen nachgeschalteten <strong>Deglitcher</strong> (eine S&amp;H-Schaltung) vermieden, der den letzten stabilen Wert hält, bis der DAC den neuen Wert stabil ausgegeben hat.</li>
+</ul>
+<p><strong>25. Welche Typen von A/D-Wandlern unterscheidet man und was sind die wichtigsten Eigenschaften?</strong></p>
+<ul>
+<li><strong>Wägeverfahren (Successive Approximation, SAR):</strong> Schrittweiser Vergleich (Bit für Bit). Guter Kompromiss zwischen Geschwindigkeit und Kosten, sehr verbreitet.</li>
+<li><strong>Parallele Wandler (Flash):</strong> Extrem schnell (eine Taktperiode). Benötigen aber <span class="arithmatex">\(2^n-1\)</span> Komparatoren, daher teuer und meist auf niedrige Auflösungen (z.B. 8 Bit) beschränkt.</li>
+<li><strong>Integrierende Wandler (z.B. Dual-Slope):</strong> Langsam, aber sehr genau und robust gegen Störfrequenzen (z.B. 50/60Hz-Brummen).</li>
+</ul>
+<p><strong>26. Was versteht man unter Pulsweiten-Modulation (PWM-Modulation)? Wofür wird sie verwendet?</strong></p>
+<ul>
+<li><strong>PWM</strong> ist ein digitales (Rechteck-)Signal mit konstanter Frequenz, aber <strong>variablem Tastverhältnis</strong> (Verhältnis von "EIN"-Zeit zu "AUS"-Zeit).</li>
+<li><strong>Verwendung:</strong><ol>
+<li>Effiziente Ansteuerung von Aktuatoren (z.B. <strong>Motor-Drehzahlsteuerung</strong>, <strong>LED-Dimmung</strong>).</li>
+<li>Als energiesparende Alternative zu einem D/A-Wandler (wenn ein Tiefpassfilter nachgeschaltet wird).</li>
+</ol>
+</li>
+</ul>
+<p><strong>27. Welche 3 Technologien gibt es bei den Verarbeitungseinheiten von ES und was sind deren Vor- und Nachteile?</strong></p>
+<ol>
+<li><strong>Prozessoren (<span class="arithmatex">\(\mu P\)</span>, <span class="arithmatex">\(\mu C\)</span>, DSPs):</strong><ul>
+<li>Vorteil: <strong>Höchste Flexibilität</strong> (Software).</li>
+<li>Nachteil: Geringste Energieeffizienz (Operationen/Watt).</li>
+</ul>
+</li>
+<li><strong>ASICs (Application-Specific Integrated Circuits):</strong><ul>
+<li>Vorteil: <strong>Höchste Energieeffizienz</strong> (fest verdrahtet).</li>
+<li>Nachteil: <strong>Unflexibel</strong>, extrem hohe Entwicklungskosten.</li>
+</ul>
+</li>
+<li><strong>Rekonfigurierbare Logik (FPGAs):</strong><ul>
+<li>Vorteil: Ein <strong>Kompromiss</strong> zwischen Effizienz und Flexibilität.</li>
+<li>Nachteil: Komplex in der Programmierung (z.B. VHDL).</li>
+</ul>
+</li>
+</ol>
+<p><strong>28. Was sind ASICs und wann kommen sie zum Einsatz?</strong></p>
+<ul>
+<li><strong>ASICs</strong> (Application-Specific Integrated Circuits) sind anwendungsspezifische, fest verdrahtete Schaltungen.</li>
+<li>Sie kommen bei <strong>sehr hohen Stückzahlen</strong> zum Einsatz, bei denen maximale Energieeffizienz und minimale Kosten pro Stück wichtiger sind als Flexibilität (z.B. in Mobiltelefonen).</li>
+</ul>
+<p><strong>29. Was versteht man unter dem Effizienz-/Flexibilitätskonflikt?</strong></p>
+<ul>
+<li>Es ist der Zielkonflikt, dass Bauteile mit hoher <strong>Flexibilität</strong> (wie Prozessoren) meist eine niedrige <strong>Energieeffizienz</strong> haben, während Bauteile mit hoher Energieeffizienz (wie ASICs) meist <strong>unflexibel</strong> sind. FPGAs liegen dazwischen.</li>
+</ul>
+<p><strong>30. Warum ist ein minimaler Energieverbrauch bei mobilen Geräten so wichtig?</strong></p>
+<ul>
+<li>Ein minimaler Energieverbrauch ist der Schlüsselfaktor für die <strong>Akkulaufzeit</strong> mobiler Geräte.</li>
+</ul>
+<p><strong>31. Auf was alles wirkt sich die Leistungsaufnahme eines Gerätes aus?</strong></p>
+<ul>
+<li><strong>Akkulaufzeit</strong> (bei mobilen Geräten).</li>
+<li><strong>Wärmeentwicklung</strong> (erfordert ggf. Kühlung, was Größe, Gewicht und Kosten erhöht).</li>
+<li><strong>Betriebskosten</strong> (Stromverbrauch).</li>
+</ul>
+<p><strong>32. Wie können Prozessoren für ES hinsichtlich Effizienz optimiert werden?</strong></p>
+<ul>
+<li>Durch <strong>spezialisierte Hardware</strong> (z.B. Co-Prozessoren).</li>
+<li>Durch <strong>intelligentes Energiemanagement</strong>, z.B. verschiedene <strong>Energiesparzustände</strong> (Run, Idle, Sleep) und das Abschalten ungenutzter Peripherie (Clock Gating).</li>
+</ul>
+<p><strong>33. Was sind rekonfigurierbare Logiken und wann kommen sie zum Einsatz?</strong></p>
+<ul>
+<li>Dies sind Bauteile wie <strong>FPGAs</strong> (Field-Programmable Gate Arrays).</li>
+<li>Ihre interne Logikstruktur ist nicht fest verdrahtet, sondern kann (neu) konfiguriert werden. Sie kommen als Kompromiss zum Einsatz, wenn ASICs zu teuer (geringe Stückzahl) und Prozessoren zu langsam oder ineffizient sind.</li>
+</ul>
+<p><strong>34. Was sind FPGAs und wie sind diese aufgebaut?</strong></p>
+<ul>
+<li><strong>FPGAs</strong> (Field-Programmable Gate Arrays) sind rekonfigurierbare Logiken.</li>
+<li>Sie bestehen aus einem großen Array von <strong>konfigurierbaren Logikblöcken (CLBs)</strong> – diese enthalten z.B. Look-Up Tables (LUTs) und Flip-Flops – die durch ein programmierbares Verbindungsnetzwerk (Routing) miteinander verschaltet werden.</li>
+</ul>
+<hr />
+<h2 id="steuerung-und-regelung">Steuerung und Regelung</h2>
+<p><strong>35. Zu was werden Filter in ES eingesetzt?</strong></p>
+<ul>
+<li><strong>Signalverbesserung:</strong> z.B. <strong>Rauschen entfernen</strong> (Tiefpass).</li>
+<li><strong>Signalvorbereitung:</strong> z.B. <strong>Anti-Aliasing</strong> (Tiefpass) oder Gleichanteile entfernen (Hochpass).</li>
+<li><strong>Signaltrennung:</strong> z.B. eine bestimmte Störfrequenz (Netzbrummen) entfernen (Bandsperre).</li>
+<li><strong>Signalrekonstruktion:</strong> Glättung von DAC- oder PWM-Signalen (Tiefpass).</li>
+</ul>
+<p><strong>36. Was sind die Eigenschaften eines idealen Filters? Wie kann man sich diesen bei digitalen Filtern nähern?</strong></p>
+<ul>
+<li>Ein <strong>ideales Filter</strong> hätte eine Verstärkung von 1 im Durchlassbereich, 0 im Sperrbereich und einen unendlich steilen Abfall (Übergangsbereich = 0).</li>
+<li>Annäherung bei digitalen Filtern: Durch <strong>Erhöhung der Filterordnung</strong> (mehr Koeffizienten/Verzögerungsglieder), was die Flanke steiler macht.</li>
+</ul>
+<p><strong>37. Was ist bei einem Filter die Grenzfrequenz?</strong></p>
+<ul>
+<li>Die Frequenz (<span class="arithmatex">\(f_g\)</span>), bei der die Signal-Amplitude am Ausgang um <strong>-3 dB</strong> (also auf ca. 70,7% des Eingangswerts bzw. die halbe Leistung) abgefallen ist.</li>
+</ul>
+<p><strong>38. Nennen Sie Anwendungsfälle für Hochpass-, Tiefpass-, Bandpass- und Bandsperren-Filter.</strong></p>
+<ul>
+<li><strong>Tiefpass:</strong> Rauschen filtern, Anti-Aliasing, Glättung von PWM/DAC-Signalen.</li>
+<li><strong>Hochpass:</strong> Gleichanteile oder langsame Drifts entfernen (z.B. bei Audio- oder Biosignalen).</li>
+<li><strong>Bandpass:</strong> Ein bestimmtes Frequenzband isolieren (z.B. ein Funksignal).</li>
+<li><strong>Bandsperre (Notch-Filter):</strong> Eine einzelne Störfrequenz gezielt entfernen (z.B. 50/60 Hz Netzbrummen).</li>
+</ul>
+<p><strong>39. Aus welchen Bauteilen bestehen analoge, passive Filter?</strong></p>
+<ul>
+<li>Sie bestehen nur aus passiven Bauteilen: <strong>Widerstände (R), Kondensatoren (C) und Spulen (L)</strong>.</li>
+</ul>
+<p><strong>40. Was sind die Nachteile analoger Filter?</strong></p>
+<ul>
+<li>Sie sind <strong>anfällig für Bauteiltoleranzen, Alterung und Temperaturdrift</strong>.</li>
+<li>Komplexe Filter (hoher Ordnung) sind schwer zu realisieren; Spulen (L) sind oft groß und teuer.</li>
+</ul>
+<p><strong>41. Was sind die Vorteile digitaler Filter?</strong></p>
+<ul>
+<li><strong>Perfekt reproduzierbar</strong> (da sie auf Berechnungen basieren), keine Alterung oder Drift.</li>
+<li><strong>Flexibel:</strong> Parameter können per Software geändert werden (adaptive Filter).</li>
+<li><strong>Komplexe Filter</strong> (z.B. FIR-Filter mit linearer Phase) sind realisierbar, die analog unmöglich wären.</li>
+</ul>
+<p><strong>42. Durch was wird die max. Frequenz digitaler Filter begrenzt?</strong></p>
+<ul>
+<li>Durch das <strong>Nyquist-Theorem</strong>: Ein digitaler Filter kann nur Frequenzen bis maximal zur <strong>halben Abtastfrequenz</strong> (<span class="arithmatex">\(f_a / 2\)</span>) sinnvoll verarbeiten.</li>
+</ul>
+<p><strong>43. Ein digitales System (Filter) kann durch eine Differenzengleichung beschrieben werden. Was ist das?</strong></p>
+<ul>
+<li>Eine Differenzengleichung beschreibt, wie der <em>nächste</em> Ausgangswert (<span class="arithmatex">\(y_k\)</span>) aus <em>aktuellen</em> (<span class="arithmatex">\(x_k\)</span>) und <em>vergangenen</em> (<span class="arithmatex">\(x_{k-1}, y_{k-1}\)</span>) Ein- und Ausgangswerten berechnet wird.</li>
+<li><strong>Beispiel (IIR):</strong> <span class="arithmatex">\(y_k = 0.1 \cdot x_k + 0.9 \cdot y_{k-1}\)</span></li>
+</ul>
+<p><strong>44. Was sind die Unterschiede zw. einem FIR-Filter und einem IIR-Filter?</strong></p>
+<ul>
+<li><strong>FIR (Finite Impulse Response):</strong><ul>
+<li><strong>Nicht-rekursiv</strong> (keine Rückkopplung des Ausgangs). Formel: <span class="arithmatex">\(y_n = \sum b_k \cdot x_{n-k}\)</span></li>
+<li>Die Impulsantwort hat eine <em>endliche</em> Länge.</li>
+<li>Sind <strong>immer stabil</strong> und können linearphasig (konstante Gruppenlaufzeit) sein.</li>
+</ul>
+</li>
+<li><strong>IIR (Infinite Impulse Response):</strong><ul>
+<li><strong>Rekursiv</strong> (verwendet vergangene Ausgangswerte). Formel: <span class="arithmatex">\(y_n = \sum b_k \cdot x_{n-k} + \sum a_j \cdot y_{n-j}\)</span></li>
+<li>Die Impulsantwort ist <em>unendlich</em> lang.</li>
+<li>Benötigen viel weniger Rechenaufwand (Ordnung) für dieselbe Steilheit, <strong>können aber instabil werden</strong>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>45. Was ist die Ordnung eines digitalen Filters? Was beeinflusst die Ordnung?</strong></p>
+<ul>
+<li>Die Ordnung ist die <strong>Anzahl der benötigten Verzögerungsglieder</strong> (Speicherplätze für <span class="arithmatex">\(x_{k-n}\)</span> oder <span class="arithmatex">\(y_{k-n}\)</span>).</li>
+<li>Die Ordnung beeinflusst die <strong>Steilheit der Filterflanke</strong> (Übergangsbereich): Eine höhere Ordnung ergibt einen steileren, "besseren" Filter, erfordert aber mehr Rechenleistung.</li>
+</ul>
+<p><strong>46. Was ist der Unterschied zwischen einer Steuerung und einer Regelung?</strong></p>
+<ul>
+<li><strong>Steuerung (Open-Loop):</strong> Eine <strong>offene Wirkkette</strong>. Die Stellgröße wird ohne Kenntnis der tatsächlichen Ausgangsgröße (Ist-Wert) gesetzt. Störungen werden nicht erkannt und nicht korrigiert.</li>
+<li><strong>Regelung (Closed-Loop):</strong> Eine <strong>geschlossene Wirkkette</strong> (Regelkreis). Die Ausgangsgröße (Ist-Wert) wird gemessen und vom Soll-Wert abgezogen (Regelabweichung). Der Regler korrigiert basierend auf dieser Abweichung.</li>
+</ul>
+<p><strong>47. Skizzieren Sie einen allgemeinen Regelkreis.</strong></p>
+<ul>
+<li>Ein Regelkreis besteht aus:<ul>
+<li><strong>Summierstelle:</strong> Bildet die Regelabweichung <span class="arithmatex">\(e = w - x\)</span> (Soll-Wert <span class="arithmatex">\(w\)</span>, Ist-Wert <span class="arithmatex">\(x\)</span>).</li>
+<li><strong>Regler:</strong> Erzeugt die Stellgröße <span class="arithmatex">\(y\)</span> aus <span class="arithmatex">\(e\)</span>.</li>
+<li><strong>Regelstrecke:</strong> Der Prozess, der von <span class="arithmatex">\(y\)</span> (und Störgröße <span class="arithmatex">\(z\)</span>) beeinflusst wird und den Ist-Wert <span class="arithmatex">\(x\)</span> liefert.</li>
+<li><strong>Rückführung:</strong> Führt <span class="arithmatex">\(x\)</span> (oft über einen Sensor) zur Summierstelle zurück.</li>
+</ul>
+</li>
+</ul>
+<p><strong>48. Welche Kenngrößen gibt es für die dynamische Regelgüte?</strong></p>
+<ul>
+<li><strong>Dynamische Regelgüte</strong> beschreibt das Zeitverhalten beim Übergang in einen neuen Zustand.</li>
+<li>Kenngrößen sind z.B. die <strong>Anregelzeit</strong> (wie schnell der Wert erstmals erreicht wird), die <strong>Ausregelzeit</strong> (bis der Wert dauerhaft im Toleranzband bleibt) und die <strong>Überschwingweite</strong> (wie stark das System über das Ziel hinausschießt).</li>
+</ul>
+<p><strong>49. Was beschreibt die stationäre Regelgüte?</strong></p>
+<ul>
+<li>Die <strong>stationäre Regelgüte</strong> beschreibt die Genauigkeit im <strong>eingeschwungenen Zustand</strong>, d.h. die <strong>bleibende Regelabweichung</strong> (den Fehler, der "übrig bleibt").</li>
+</ul>
+<p><strong>50. Durch welches Übertragungsglied im Regler kann man die stationäre Regelabweichung zu Null bekommen?</strong></p>
+<ul>
+<li>Durch einen <strong>I-Anteil (Integral-Anteil)</strong>. Nur Regler mit I-Anteil (I-, PI-, PID-Regler) können die bleibende Regelabweichung vollständig eliminieren.</li>
+</ul>
+<p><strong>51. Ein Regelkreis kann stabil oder instabil sein. Was heißt das?</strong></p>
+<ul>
+<li><strong>Stabil:</strong> Nach einer Störung oder einer Sollwertänderung kehrt die Regelgröße (Ist-Wert) in einen stabilen Endzustand zurück.</li>
+<li><strong>Instabil:</strong> Die Regelgröße schwingt sich unkontrolliert auf (Amplitude wächst) oder wächst unbegrenzt an. Dies kann zur Zerstörung der Strecke führen.</li>
+</ul>
+<p><strong>52. Ein Regelkreisverhalten sollte robust ausgelegt werden. Was heißt das?</strong></p>
+<ul>
+<li><strong>Robustheit</strong> bedeutet, dass die Regelung (z.B. Stabilität und Regelgüte) auch dann erhalten bleibt, wenn sich die Parameter der Regelstrecke leicht ändern (z.B. durch Alterung, Temperatur oder unterschiedliche Beladung).</li>
+</ul>
+<hr />
+<h2 id="modellierungstechniken">Modellierungstechniken</h2>
+<p><strong>53. Beschreiben Sie mit eigenen Worten das Grundprinzip des modellbasierten Entwicklungsansatzes.</strong></p>
+<ul>
+<li>Beim <strong>Modellbasierten Design (MBD)</strong> ist das <strong>Modell</strong> (z.B. ein Simulink-Blockschaltbild) das zentrale Entwicklungsartefakt.</li>
+<li>Statt manuell Code (z.B. in C) zu schreiben, wird die Logik grafisch modelliert. Aus diesem Modell wird der finale <strong>Quellcode automatisch generiert</strong> (mittels Auto-Coder).</li>
+<li>Dieser Ansatz ermöglicht frühe Tests und Simulationen (MIL, SIL) und eine klare Trennung von Funktion und Implementierung.</li>
+</ul>
+<p><strong>54. Warum sind bei ES Funktionsmodelle mit nachgelagerter Code-Generierung oft geeigneter als fertige Softwarebibliotheken?</strong></p>
+<ul>
+<li>Eine fertige Softwarebibliothek ist oft generisch und muss alle Eventualitäten abdecken, was zu unnötigem Overhead führt (Effizienz-Flexibilitäts-Konflikt).</li>
+<li>Ein <strong>Auto-Coder</strong> generiert aus einem Modell (z.B. einem Fuzzy-Regler-Modell) hochoptimierten, <strong>spezifischen Code</strong>, der <em>nur</em> die benötigte Variante implementiert und daher effizienter (schneller, speichersparender) ist.</li>
+</ul>
+<p><strong>55. Nennen Sie Anforderungen, die man an Modellierungssprachen stellen kann.</strong>
+1.  Abbildung von <strong>Hierarchie</strong> (Strukturierung).
+2.  Abbildung von <strong>Nebenläufigkeit</strong> (Parallelität).
+3.  Abbildung von <strong>Zeitverhalten</strong> (Deadlines, Perioden).
+4.  Abbildung von <strong>reaktivem Verhalten</strong> (z.B. Zustandsautomaten).
+5.  Abbildung von <strong>Datenfluss</strong>.
+6.  <strong>Ausführbarkeit/Simulierbarkeit</strong>.
+7.  Möglichkeit zur <strong>Code-Generierung</strong>.
+8.  Formale Verifizierbarkeit.
+9.  Wiederverwendbarkeit.
+10. Eindeutige Syntax und Semantik.</p>
+<p><strong>56. Was sind die Nachteile des Ausführungsmodells „Von-Neumann“?</strong></p>
+<ul>
+<li>Das Von-Neumann-Modell ist rein <strong>sequenziell</strong> (Control Flow).</li>
+<li><strong>Nebenläufigkeit</strong> (z.B. durch Threads) muss manuell verwaltet werden und ist extrem fehleranfällig (z.B. <strong>Race Conditions</strong>, <strong>Deadlocks</strong>). Edward Lee nannte es "unverständlich für Menschen".</li>
+</ul>
+<p><strong>57. Nennen Sie 3 alternative Ausführungsmodelle und ihren Fokus.</strong>
+1.  <strong>Datenflussmodell (Data Flow):</strong> Fokus auf dem <strong>Datenfluss</strong>; die Ausführung wird durch die Verfügbarkeit von Daten getriggert.
+2.  <strong>Endliche Zustandsautomaten (FSM):</strong> Fokus auf <strong>reaktivem Verhalten</strong> und Zustandsübergängen.
+3.  <strong>Diskretes Ereignismodell:</strong> Fokus auf einer <strong>zeitlich sortierten Warteschlange</strong> von Ereignissen.</p>
+<p><strong>58. Beschreiben Sie die Eigenschaften (reiner) Datenflussmodelle.</strong></p>
+<ul>
+<li>Die Ausführung (die "Feuerreihenfolge" der Blöcke) wird durch die <strong>Verfügbarkeit von Daten</strong> bestimmt (Data Flow Order), nicht durch einen sequenziellen Programmzähler (Control Flow). Sie sind inhärent parallel.</li>
+</ul>
+<p><strong>59. Beschreiben Sie die Eigenschaften des Ausführungsmodells „Endlichen Zustandsautomaten“.</strong></p>
+<ul>
+<li>Das System befindet sich immer in einem definierten <strong>Zustand</strong>.</li>
+<li><strong>Ereignisse</strong> (Events) lösen <strong>Übergänge (Transitionen)</strong> von einem Zustand in einen anderen aus.</li>
+<li>Gut geeignet für die Modellierung von <strong>reaktivem Verhalten</strong> (z.B. Steuerung von Benutzeroberflächen oder Protokollen).</li>
+</ul>
+<p><strong>60. Was ist das zentrale Modellierungselement beim Ausführungsmodell diskrete Ereignisse?</strong></p>
+<ul>
+<li>Das zentrale Element ist eine <strong>zeitlich sortierte Warteschlange von Ereignissen</strong> (Zeit-Aktions-Paare).</li>
+<li>Die Simulation "springt" von einem Ereigniszeitpunkt direkt zum nächsten, die Zeit dazwischen wird übersprungen.</li>
+</ul>
+<p><strong>61. Was ist das Testobjekt bei Modell-in-the-Loop-Simulationen (MIL) und was ist der Zweck?</strong></p>
+<ul>
+<li><strong>Testobjekt:</strong> Das <strong>Modell</strong> selbst (z.B. das Simulink-Modell).</li>
+<li><strong>Zweck:</strong> Test der <strong>Funktion und Algorithmenlogik</strong> auf dem Host-PC (Entwicklungsrechner), losgelöst von der Hardware.</li>
+</ul>
+<p><strong>62. Was ist das Testobjekt bei Software-in-the-Loop-Simulationen (SIL) und was ist der Zweck?</strong></p>
+<ul>
+<li><strong>Testobjekt:</strong> Der <strong>automatisch generierte Code</strong>, der aus dem Modell erstellt wurde.</li>
+<li><strong>Zweck:</strong> Test auf <strong>Konsistenz zwischen Modell und Code</strong>. Der Code läuft (kompiliert) auf dem Host-PC.</li>
+</ul>
+<p><strong>63. Was ist das Testobjekt bei Processor-in-the-Loop-Simulationen (PIL) und was ist der Zweck?</strong></p>
+<ul>
+<li><strong>Testobjekt:</strong> Der <strong>automatisch generierte Code</strong>, der für den <strong>Ziel-Prozessor</strong> (den realen Mikrocontroller) kompiliert wurde.</li>
+<li><strong>Zweck:</strong> Test des Codes auf der <strong>realen Hardware</strong> (Prozessor). Testet den Compiler, das Laufzeitverhalten und den Ressourcenbedarf (z.B. Speicher, CPU-Zeit).</li>
+</ul>
+<p><strong>64. Was ist das Testobjekt bei Hardware-in-the-Loop-Simulationen (HIL) und was ist der Zweck?</strong></p>
+<ul>
+<li><strong>Testobjekt:</strong> Das <strong>finale Steuergerät (ECU)</strong> (komplette Hardware mit finaler Software).</li>
+<li><strong>Zweck:</strong> Test des Steuergeräts in <strong>Echtzeit</strong>. Die Umgebung (z.B. das Auto, der Motor) wird von einem HIL-Simulator in Echtzeit simuliert. Dient dem Test von kritischen Zuständen und Diagnosefunktionen.</li>
+</ul>
+<p><strong>65. Was ist der wesentliche Unterschied zwischen SIL und PIL?</strong></p>
+<ul>
+<li><strong>SIL:</strong> Der generierte Code läuft auf dem <strong>Host-PC</strong> (Entwicklungsrechner).</li>
+<li><strong>PIL:</strong> Der generierte Code läuft auf dem <strong>realen Ziel-Prozessor</strong> (<span class="arithmatex">\(\mu C\)</span>).</li>
+</ul>
+<p><strong>66. Was ist der wesentliche Unterschied zwischen PIL und HIL?</strong></p>
+<ul>
+<li><strong>PIL:</strong> Testet <strong>nur den Prozessor</strong> (oder ein Evaluationsboard) oft ohne Echtzeit-Anbindung an die Umgebung.</li>
+<li><strong>HIL:</strong> Testet das <strong>komplette, finale Steuergerät</strong> (ECU) unter <strong>Echtzeitbedingungen</strong> an einem Simulator, der die reale Umgebung (Prozess) nachbildet.</li>
+</ul>
+<p><strong>67. Was ist Rapid Prototyping? Welche Ziele verfolgt man damit?</strong></p>
+<ul>
+<li><strong>Rapid Prototyping (RP)</strong> ist ein Ansatz, bei dem der generierte Code auf einem sehr leistungsfähigen, universellen Prototyping-Steuergerät (z.B. dSpace Autobox) ausgeführt wird.</li>
+<li>Dieses Steuergerät wird <strong>direkt im realen System</strong> (z.B. im echten Fahrzeug) getestet, um die "Quality Gates" (SIL/PIL/HIL) zunächst zu überspringen.</li>
+<li><strong>Ziel:</strong> Schnelle Validierung der Funktion im realen Umfeld und Identifikation von Streckenparametern.</li>
+</ul>
+<hr />
+<h2 id="sw-entwicklung-fur-es">SW-Entwicklung für ES</h2>
+<p><strong>68. Was sind die Eigenschaften und Anforderungen an die Software eingebetteter Systeme?</strong></p>
+<ul>
+<li><strong>Eigenschaften:</strong> Muss mit begrenzten Ressourcen (Speicher, Energie) auskommen, muss robust gegen fehlerhafte Eingaben (Sensordaten) sein.</li>
+<li><strong>Anforderungen:</strong> Muss oft harten Echtzeitanforderungen, hohen Zuverlässigkeitsanforderungen und Anforderungen an die Funktionale Sicherheit (z.B. ISO 26262) genügen.</li>
+</ul>
+<p><strong>69. In welche 3 klar definierbare, unterschiedliche und teils sogar widersprüchlichen Systemeigenschaften lässt sich der Begriff Verlässlichkeit unterteilen?</strong>
+1.  <strong>Zuverlässigkeit (Reliability):</strong> Kontinuierlich fehlerfreie Funktion über einen Zeitraum.
+2.  <strong>Verfügbarkeit (Availability):</strong> Anteil der Zeit, in der das System funktioniert.
+3.  <strong>Funktionale Sicherheit (Safety):</strong> Freiheit von nicht akzeptierbaren Risiken.</p>
+<p><strong>70. Wie ist Zuverlässigkeit definiert? Ist sie wichtig für ES?</strong></p>
+<ul>
+<li><strong>Definition:</strong> Die Wahrscheinlichkeit (<span class="arithmatex">\(R(t)\)</span>), dass das System eine Funktion über einen festgelegten Zeitraum <strong>durchgängig fehlerfrei</strong> erfüllt.</li>
+<li><strong>Wichtigkeit:</strong> Ja, sie ist extrem wichtig, da ein Ausfall (z.B. der Bremse) katastrophale Folgen haben kann.</li>
+</ul>
+<p><strong>71. Wie ist Verfügbarkeit definiert? Spielt sie bei sicherheitskritischen Systemen eine Rolle?</strong></p>
+<ul>
+<li><strong>Definition:</strong> Der Anteil der Zeit, in der das System funktioniert (<span class="arithmatex">\(Verfügbarkeit = \frac{Gesamtzeit - Ausfallzeit}{Gesamtzeit}\)</span>).</li>
+<li><strong>Rolle:</strong> Sie spielt eine <strong>untergeordnete</strong> Rolle. Ein System kann <em>sicher</em>, aber <em>nicht verfügbar</em> sein (z.B. ein Zug, der im "Not-Aus" sicher steht), was besser ist als <em>unsicher</em>, aber <em>verfügbar</em> (z.B. ein Zug mit defekten Bremsen, der fährt).</li>
+</ul>
+<p><strong>72. Was ist der typische Verlauf der Ausfallrate als Funktion der Nutzungszeit? Begründen Sie den Verlauf.</strong></p>
+<ul>
+<li>Dies ist die <strong>"Badewannenkurve"</strong>:<ol>
+<li><strong>Frühausfälle:</strong> Hohe, aber sinkende Ausfallrate (Produktionsfehler).</li>
+<li><strong>Konsolidierungsphase:</strong> Konstante, niedrige Ausfallrate (Zufallsausfälle).</li>
+<li><strong>Altersausfälle:</strong> Steigende Ausfallrate (Verschleiß, Alterung).</li>
+</ol>
+</li>
+</ul>
+<p><strong>73. Erklären Sie die Begriffe Risiko und Grenzrisiko.</strong></p>
+<ul>
+<li><strong>Risiko:</strong> Das Produkt aus der <strong>Eintrittswahrscheinlichkeit</strong> eines Schadens und dem <strong>Schadensausmaß</strong> (Schwere des Schadens).</li>
+<li><strong>Grenzrisiko:</strong> Das maximal gesellschaftlich oder normativ (z.B. in der ISO 26262) akzeptierte Restrisiko.</li>
+</ul>
+<p><strong>74. Was ist Funktionale Sicherheit?</strong></p>
+<ul>
+<li>Die <strong>Freiheit von nicht akzeptierbaren Risiken</strong>, die durch Fehlfunktionen des ES selbst entstehen (z.B. ein Airbag, der fälschlicherweise auslöst).</li>
+</ul>
+<p><strong>75. Wie wirken sich empfindliche Fehlererkennungsmechanismen auf Zuverlässigkeit und Funktionale Sicherheit tendenziell aus.</strong></p>
+<ul>
+<li>Sie <strong>erhöhen die Funktionale Sicherheit</strong> (Safety), da gefährliche Zustände erkannt und vermieden werden (z.B. durch Abschalten).</li>
+<li>Sie <strong>senken potenziell die Zuverlässigkeit</strong> (Reliability) / <strong>Verfügbarkeit</strong> (Availability), da das System bei (vielleicht harmlosen) Fehlern öfter ausfällt oder abgeschaltet wird.</li>
+</ul>
+<p><strong>76. Welche Besonderheiten gelten für die Entwicklung sicherheitskritischer Systeme?</strong></p>
+<ul>
+<li>Es müssen strenge <strong>Normen</strong> (z.B. ISO 26262) befolgt werden.</li>
+<li>Es ist eine intensive <strong>Gefahren- und Risikoanalyse</strong> erforderlich.</li>
+<li><strong>Redundanz</strong> (Hardware oder Software) wird oft eingesetzt.</li>
+<li>Es ist ein extrem rigoroser <strong>Verifikations- und Validierungsprozess</strong> notwendig.</li>
+</ul>
+<p><strong>77. Was ist das Ziel von Reliability Engineering?</strong></p>
+<ul>
+<li>Das Ziel ist die <strong>Gewährleistung der Verlässlichkeit</strong> eines Systems durch den Einsatz von konstruktiven (Redundanz) und analytischen (Berechnungs) Maßnahmen.</li>
+</ul>
+<p><strong>78. Was ist das Ziel von analytischen Verfahren beim Reliability Engineering?</strong></p>
+<ul>
+<li>Das Ziel ist die <strong>Berechnung oder Abschätzung</strong> der Gesamtsystem-Zuverlässigkeit, basierend auf den Zuverlässigkeiten der einzelnen Komponenten.</li>
+</ul>
+<p><strong>79. Wie berechnet sich die Zuverlässigkeit eines seriell/parallel gekoppelten Systems?</strong></p>
+<ul>
+<li>(Mit <span class="arithmatex">\(R_i\)</span> = Zuverlässigkeit der Komponente i)</li>
+<li><strong>Serielle Kopplung</strong> (System fällt aus, wenn 1 Komponente ausfällt):</li>
+</ul>
+<div class="arithmatex">\[R_{ges} = R_1 \cdot R_2 \cdot \ldots \cdot R_n\]</div>
+<ul>
+<li><strong>Parallele Kopplung</strong> (System funktioniert, wenn mind. 1 Komponente funktioniert):</li>
+</ul>
+<div class="arithmatex">\[R_{ges} = 1 - [(1-R_1) \cdot (1-R_2) \cdot \ldots \cdot (1-R_n)]\]</div>
+<p><strong>80. Welche konstruktiven Maßnahmen gibt es beim Reliability Engineering?</strong></p>
+<ul>
+<li>Die wichtigste Maßnahme ist der Einsatz von <strong>Redundanz</strong>:<ul>
+<li>Hardware-Redundanz</li>
+<li>Software-Redundanz</li>
+<li>Informations-Redundanz (z.B. Paritätsbits, Prüfsummen)</li>
+</ul>
+</li>
+</ul>
+<p><strong>81. Was ist der Unterschied zw. statischer und dynamischer Redundanz bei Hardware?</strong></p>
+<ul>
+<li><strong>Statische Redundanz:</strong> Alle Komponenten sind parallel aktiv. Ein Mehrheitsentscheider (Voter) filtert fehlerhafte Ergebnisse heraus (z.B. 2-aus-3-System).</li>
+<li><strong>Dynamische Redundanz:</strong> Es gibt aktive Komponenten und passive Reserve-Komponenten (Standby). Eine Fehlererkennung schaltet im Fehlerfall auf die Reservekomponente um.</li>
+</ul>
+<p><strong>82. Wie schaut (statische, dynamische) Redundanz bei der eingebetteten Software aus?</strong></p>
+<ul>
+<li><strong>Statisch (N-Versions Programming):</strong> Mehrere (z.B. 3) unabhängige Teams entwickeln dieselbe Software. Alle Versionen laufen parallel, ein Voter entscheidet (sehr teuer).</li>
+<li><strong>Dynamisch (Recovery Blocks):</strong> Eine Fehlererkennung (Plausibilisierung) prüft das Ergebnis. Ist es fehlerhaft, wird eine alternative (anders implementierte) Software-Routine ausgeführt.</li>
+</ul>
+<p><strong>83. Warum sind der flexiblen Gestaltung der Software bei ES engere Grenzen gesetzt als bei IT-Systemen?</strong></p>
+<ul>
+<li>Wegen der harten <strong>nicht-funktionalen Anforderungen</strong>: Strenge Echtzeit-Deadlines, limitierte Ressourcen (Speicher, CPU), hohe Anforderungen an Sicherheit und Verlässlichkeit sowie die enge Verzahnung mit der Hardware (Treiber) schränken die Flexibilität ein.</li>
+</ul>
+<p><strong>84. Was ist bei ES der Unterschied zwischen Plattformsoftware und Applikationssoftware?</strong></p>
+<ul>
+<li><strong>Plattformsoftware:</strong> Der <strong>hardwarenahe</strong> und anwendungsunabhängige Teil. Sie stellt Treiber (z.B. für CAN, ADC) und Basisdienste (z.B. Betriebssystem, Scheduling) bereit und abstrahiert die Hardware (z.B. AUTOSAR). Sie hat <strong>keine Semantik</strong> (liefert nur Rohwerte).</li>
+<li><strong>Applikationssoftware:</strong> Der <strong>hardwareunabhängige</strong> Teil, der die eigentliche Funktion (z.B. Tempomat, Motorsteuerung) implementiert. Hier liegt das Domänenwissen und der Wettbewerbsvorteil. Sie <strong>trägt die Semantik</strong> (weiß, was der Rohwert bedeutet).</li>
+</ul>
+<hr />
+<h2 id="fragen-zum-praktikum-freescale-videos">Fragen zum Praktikum (Freescale-Videos)</h2>
+<p><strong>85. Warum hat das im Praktikum verwendete Board (z.B. MPC560xB) mehrere Taktquellen?</strong></p>
+<ul>
+<li>Es hat mehrere Quellen für unterschiedliche Zwecke:<ol>
+<li>Einen <strong>internen RC-Oszillator (FIRC)</strong> (16 MHz), der als schneller, aber ungenauer Standard-Takt nach dem Reset dient.</li>
+<li>Einen <strong>externen Oszillator (FXOSC)</strong> (4-16 MHz), der als präzise Basis für die PLL dient.</li>
+<li>Low-Power-Oszillatoren (SIRC/SXOSC) für Sleep-Modi.</li>
+</ol>
+</li>
+</ul>
+<p><strong>86. Was ist der Vorteil des Externen Oszillators (Quarz-Kristall) gegenüber dem Internen RC-Oszillator?</strong></p>
+<ul>
+<li>Ein externer Oszillator (Kristall) ist signifikant <strong>präziser und stabiler</strong> (weniger Drift durch Temperatur oder Spannung) als ein interner RC-Oszillator. Der RC-Oszillator ist dafür billiger und startet schneller.</li>
+</ul>
+<p><strong>87. Warum ist eine genaue Taktquelle wichtig?</strong></p>
+<ul>
+<li>Eine genaue Taktquelle (wie ein Kristall) ist unerlässlich für:<ul>
+<li><strong>Synchrone Kommunikation:</strong> Bussysteme wie CAN oder LIN benötigen exakte Baudraten.</li>
+<li><strong>Präzise Zeitmessung:</strong> Alle Timer-Funktionen (EMIOS, PIT) hängen von der Genauigkeit des Taktes ab.</li>
+<li><strong>Echtzeit-Verhalten:</strong> Die Einhaltung von Deadlines erfordert eine deterministische Zeitbasis.</li>
+</ul>
+</li>
+</ul>
+<p><strong>88. Was ist die Phase-Locked Loop (PLL)? Wofür wird sie verwendet?</strong></p>
+<ul>
+<li>Die <strong>PLL (Phase-Locked Loop)</strong> ist eine Schaltung, die den Takt des externen Oszillators (FXOSC) als Referenz nutzt, um dessen Frequenz mit einem wählbaren Faktor zu <strong>multiplizieren</strong>.</li>
+<li>Sie wird verwendet, um den hohen <strong>Systemtakt (SYSCLK)</strong> zu erzeugen (z.B. 64 MHz aus einem 8 MHz Kristall).</li>
+</ul>
+<p><strong>89. Zu was dient die Clock Monitorung Unit (CMU)?</strong></p>
+<ul>
+<li>Die <strong>CMU (Clock Monitoring Unit)</strong> <strong>überwacht</strong> die Funktionsfähigkeit der Taktquellen.</li>
+<li>Sie vergleicht Taktquellen miteinander. Bei einer Inkonsistenz (Fehler) kann sie einen <strong>Reset</strong>, einen <strong>Interrupt Request</strong> oder den Übergang in den <strong>SAFE Mode</strong> auslösen.</li>
+</ul>
+<p><strong>90. Warum gibt es beim MPC560xB-Board verschiedene Run Modes?</strong></p>
+<ul>
+<li>Aus <strong>Energiespargründen</strong>.</li>
+<li>Verschiedene Aufgaben (Tasks) benötigen unterschiedliche Ressourcen (z.B. Taktquellen, Peripherie). Die Run Modes (z.B. RUN0..3, HALT, STOP) erlauben es, nur die Komponenten zu aktivieren, die für die aktuelle Aufgabe benötigt werden, und den Rest abzuschalten (Clock Gating).</li>
+</ul>
+<p><strong>91. Was ist der SAFE-Mode?</strong></p>
+<ul>
+<li>Der SAFE-Mode ist ein <strong>System-Modus</strong>.</li>
+<li>Bei einem <strong>Hardware-Fehler</strong> (z.B. Ausfall einer Taktquelle erkannt durch die CMU) wechselt die MCU automatisch in diesen Modus.</li>
+<li>In diesem Modus kann Code ausgeführt werden, um den Fehler zu diagnostizieren und das System in einen sicheren Zustand zu bringen.</li>
+</ul>
+<p><strong>92. Warum ist das Cookbook (AN2865) ein wichtiges Dokument für den Entwickler?</strong></p>
+<ul>
+<li>Das "Qorivva Simple Cookbook" (AN2865) ist wichtig, da es praktische <strong>Code-Beispiele</strong> ("Hello World Programs") für die gängigsten Funktionen und Peripherie-Initialisierungen (wie PLL- und Run-Mode-Konfiguration) enthält.</li>
+</ul>
+<p><strong>93. Für was ist der sogenannte Watch Dog gut?</strong></p>
+<ul>
+<li>Der Watch Dog (Software Watchdog Timer, SWT) ist eine Sicherheitsfunktion, die nach dem Reset <strong>aktiv</strong> ist.</li>
+<li>Er muss vom laufenden Programm <strong>periodisch bedient</strong> (zurückgesetzt) werden (durch Schreiben von <code>0xA602</code> und <code>0xB480</code>).</li>
+<li>Wenn das Programm "hängenbleibt" (z.B. in einer Endlosschleife), wird der Watchdog nicht mehr bedient, läuft über und löst einen <strong>Reset</strong> aus, um das System wieder in einen definierten Zustand zu bringen.</li>
+</ul>
+<p><strong>94. Die Abkürzung EMIOS steht für Enhanced Modular Input/Output System. Für was ist das Modul gut?</strong></p>
+<ul>
+<li><strong>EMIOS</strong> (Enhanced Modular Input/Output System) ist ein leistungsfähiges Timer-Modul.</li>
+<li>Es stellt Dutzende von Kanälen bereit, um <strong>zeitgesteuerte I/O-Funktionalitäten</strong> (z.B. komplexe PWM-Signale erzeugen oder Input-Flanken exakt messen) <strong>unabhängig von der CPU</strong> zu realisieren.</li>
+</ul>
+<p><strong>95. Nennen Sie 3 Beispiele für mögliche I/O-Funktionalitäten eines EMIOS-Kanals.</strong>
+1.  <strong>MCB (Modulus Counter):</strong> Dient als Zähler (Up oder Up/Down), der als (ggf. gemeinsame) Zeitbasis (über einen Counter Bus) für andere Kanäle genutzt werden kann.
+2.  <strong>SAIC (Single Action Input Capture):</strong> Erfasst den exakten Zählerstand (Zeitpunkt), zu dem eine Input-Signalflanke (steigend oder fallend) eintritt.
+3.  <strong>OPWMB (Output Pulse Width Modulation):</strong> Erzeugt ein PWM-Signal, das auf einer externen Zeitbasis (einem anderen Counter Bus) basiert.</p>
+<p><strong>96. Im Praktikum haben wir die Output-Funktionalität „Pulse Width Modulation Buffered“ verwendet.</strong></p>
+<ul>
+<li><strong>Frage 1:</strong> Woraus ergibt sich die Periodenlänge T des PWM-Signals?<ul>
+<li>Im Modus "Pulse Width Modulation Buffered" (OPWMB) wird als Taktquelle ein <strong>externer Modulo-Counter</strong> (ein anderer EMIOS-Kanal, der als MCB konfiguriert ist) verwendet. Dieser Modulo-Counter definiert die feste Periodenlänge des PWM-Signals.</li>
+</ul>
+</li>
+<li><strong>Frage 2:</strong> Wie wird der Duty-Cycle tein des PWM-Signals eingestellt?<ul>
+<li>Der Duty-Cycle wird durch zwei Registerwerte innerhalb der Periode frei positioniert:<ul>
+<li><strong>Register A1</strong> (bzw. UCA[n]) definiert den Startpunkt (z.B. die steigende Flanke).</li>
+<li><strong>Register B1</strong> (bzw. UCB[n]) definiert den Endpunkt (z.B. die fallende Flanke).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Frage 3:</strong> Wo wurde ein PWM-Signal im Praktikum verwendet?<ul>
+<li>(Typischerweise wird PWM im NXP-Cup-Praktikum für die Ansteuerung der <strong>Motoren</strong> (über die H-Brücke) und des <strong>Lenk-Servos</strong> verwendet.)</li>
+</ul>
+</li>
+</ul>
+<p><strong>97. Im Praktikum haben wir die Output-Funktionalität „Pulse Width Modulation with Trigger“ verwendet. Zu welchem Zweck wurde diese Output-Funktionalität verwendet?</strong></p>
+<ul>
+<li>Der Modus <strong>OPWMT</strong> (PWM with Trigger) wird verwendet, um <strong>Ereignisse exakt zu synchronisieren</strong>.</li>
+<li>Er erzeugt nicht nur einen PWM-Puls (über Register A1 und B1), sondern setzt auch zu einem dritten, frei wählbaren Zeitpunkt (definiert durch <strong>Register A2</strong>) ein <strong>FLAG</strong> (einen Trigger).</li>
+<li>Zweck: Dieses Flag kann (z.B. über die CTU) genutzt werden, um eine <strong>A/D-Wandlung zu einem exakten Zeitpunkt</strong> innerhalb des PWM-Zyklus anzustoßen (z.B. zur Strommessung oder zur Synchronisation der Kamera).</li>
+</ul>
+<p><strong>98. Ein EMIOS-Kanal hat auch einen Programmable Input Filter (in Hardware). Für was ist dieser gut?</strong></p>
+<ul>
+<li>Er dient zur <strong>Entprellung</strong> (Debouncing) von digitalen Eingangssignalen.</li>
+<li>Eine Signalflanke wird erst dann erkannt (weitergegeben), wenn das Signal für eine <strong>programmierbare Anzahl von Clock-Zyklen</strong> (z.B. 2, 4, 8 oder 16 Takte) stabil anliegt.</li>
+</ul>
+<p><strong>99. Was ist ein Interrupt?</strong></p>
+<ul>
+<li>Ein Interrupt ist eine <strong>asynchrone Unterbrechung</strong> des "normalen" Programmablaufs, die typischerweise durch Hardware (Peripherie) ausgelöst wird.</li>
+</ul>
+<p><strong>100. Wo kommen die Interrupt-Requests einer Applikation i. d. R. her?</strong></p>
+<ul>
+<li>Von den <strong>Peripherieelementen</strong> (z.B. ADC, EMIOS, PIT oder CAN), wenn diese ein Ereignis melden (z.B. "Wandlung fertig", "Timer abgelaufen", "Nachricht empfangen").</li>
+</ul>
+<p><strong>101. Welche Zuordnung findet im Interrupt Controller statt?</strong></p>
+<ul>
+<li>Der Interrupt Controller (INTC) ordnet jeder Interrupt-Request-Quelle (IR-Quelle) einen <strong>eigenen IR-Vektor</strong> (die Adresse der zugehörigen Behandlungsroutine/ISR) zu.</li>
+</ul>
+<p><strong>102. Was hat die Verwendung von Interrupt für einen Vorteil?</strong></p>
+<ul>
+<li><strong>Effizienz.</strong> Statt die CPU durch "Polling" (ständiges Abfragen, z.B. "Ist die Wandlung fertig?") zu blockieren, kann die CPU andere Aufgaben erledigen oder in einen stromsparenden Modus wechseln. Sie wird nur dann aktiv (unterbrochen), wenn ein Peripherie-Ereignis dies erfordert.</li>
+</ul>
+<p><strong>103. Was ist beim MPC560xB der Unterschied zwischen dem Software Vector Mode und dem Hardware Vector Mode?</strong></p>
+<ul>
+<li><strong>Software Vector Mode:</strong><ul>
+<li>Optimiert für <strong>minimale Code-Größe</strong>.</li>
+<li>Alle IRs landen in einem gemeinsamen Handler (z.B. IVOR 4). Die Software muss dann manuell (durch Lesen des IACKR-Registers) die genaue Quelle ermitteln und über eine Sprungtabelle zur richtigen ISR springen.</li>
+</ul>
+</li>
+<li><strong>Hardware Vector Mode:</strong><ul>
+<li>Optimiert für <strong>minimale Latenz</strong> (Reaktionszeit).</li>
+<li>Jede IR-Quelle hat einen <strong>eigenen Vektor</strong> (Einsprungadresse) in der Hardware-Tabelle. Die Hardware springt direkt zur richtigen ISR, ohne dass die Software die Quelle suchen muss.</li>
+</ul>
+</li>
+</ul>
+<p><strong>104. Was ist beim ADC-Modul der Scan Mode?</strong></p>
+<ul>
+<li>Der Scan Mode ist eine Konvertierungsoption (im Gegensatz zum "One shot mode").</li>
+<li>Er dient der <strong>periodischen Konvertierung</strong> einer Gruppe (Maske) von Kanälen.</li>
+</ul>
+<p><strong>105. Was macht der sogenannte Programmable Analog Watchdog des ADC-Moduls?</strong></p>
+<ul>
+<li>Er ermöglicht die Definition eines <strong>Wertebereichs</strong> (eines programmierbaren oberen und unteren Schwellenwerts, THRH und THRL).</li>
+<li>Er überwacht einen ADC-Kanal <strong>ohne CPU-Beteiligung</strong>.</li>
+<li>Wenn der Messwert diesen Bereich verlässt, kann er einen <strong>Interrupt</strong> auslösen.</li>
+</ul>
+<p><strong>106. Was ist die sogenannte Cross Trigger Unit (CTU)?</strong></p>
+<ul>
+<li>Die <strong>CTU (Cross Trigger Unit)</strong> ist eine Hardware-Verbindungseinheit.</li>
+<li>Sie dient dazu, ein <strong>Timer-Event</strong> (von einem EMIOS-Kanal oder einem PIT) in einen <strong>ADC-Konvertierungs-Trigger</strong> umzuwandeln.</li>
+<li>Dies geschieht <strong>ohne CPU-Beteiligung</strong> und garantiert Synchronizität.</li>
+</ul>
+<p><strong>107. Für was wurde die CTU im Praktikum verwendet?</strong></p>
+<ul>
+<li>Im Anwendungsbeispiel "Einlesen der analogen Pixelwerte" der <strong>Zeilenkamera (TSL1401)</strong>.</li>
+<li>Ein EMIOS-Kanal (im OPWMT-Modus) erzeugt ein Trigger-Flag, das synchron zum Kamera-Takt (CAM CLK) ist.</li>
+<li>Dieses Flag löst über die CTU bei jedem Takt eine ADC-Wandlung aus, um den analogen Pixelwert einzulesen.</li>
+</ul>
+<p><strong>108. Wie wurde bei unserem Fahrzeug die Belichtungsdauer der Kamera eingestellt?</strong></p>
+<ul>
+<li>(Basierend auf dem TSL1401-Kamera-Timing):</li>
+<li>Die Belichtungsdauer ("Integration") ist die Zeit, in der die Pixel Licht sammeln.</li>
+<li>Diese Zeit wird durch den <strong>Zeitabstand</strong> zwischen dem <strong>Start-Impuls (SI)</strong> (der die Belichtung startet) und dem <strong>ersten Takt-Impuls (CLK)</strong> (der das Auslesen startet und die Belichtung beendet) gesteuert.</li>
+<li>Im Praktikum wurde dieser Zeitabstand durch die Konfiguration der EMIOS-Timer eingestellt.</li>
+</ul>
+<p><strong>109. Was wurde bei unserem Fahrzeug mit einem SI-Signal alles ausgelöst/beeinflusst?</strong></p>
+<ul>
+<li>(Basierend auf dem TSL1401-Kamera-Timing):</li>
+<li>Das <strong>SI-Signal</strong> (Serial Input) ist ein einzelner Puls.</li>
+<li>Er löst zwei Dinge aus:<ol>
+<li>Er startet den <strong>Belichtungszyklus (Integration)</strong> der 128 Pixel.</li>
+<li>Er startet den <strong>Auslesevorgang</strong> (Vorbereitung zur Ausgabe von Pixel 1 beim nächsten Takt).</li>
+</ol>
+</li>
+</ul>
+<p><strong>110. Was kann man mit einem DMA-Request erreichen?</strong></p>
+<ul>
+<li>Einen <strong>Datentransfer (Kopierauftrag)</strong> zwischen Speicher und Peripherie (oder RAM zu RAM) ausführen, <strong>ohne dass die CPU</strong> beteiligt ist.</li>
+</ul>
+<p><strong>111. Was kann man mit DMA (häufig) vermeiden?</strong></p>
+<ul>
+<li>Eine <strong>CPU-Beteiligung</strong>. Die CPU wird nicht durch Kopierroutinen (z.B. in einer ISR) blockiert und hat Zeit für andere Aufgaben.</li>
+</ul>
+<p><strong>112. Was kann alles einen DMA-Request auslösen?</strong>
+1.  <strong>Peripherieelemente</strong> (z.B. ADC-Konvertierung fertig, EMIOS-Event, DSPI-Empfangspuffer voll).
+2.  <strong>Software</strong> (durch Setzen eines Bits in einem Register).
+3.  Ein <strong>Periodical Interval Timer (PIT)</strong> (für periodische DMA-Transfers).</p>
+<p><strong>113. Welche Möglichkeiten bietet DMA noch mit Bezug auf die Konfiguration von Peripherieelementen?</strong></p>
+<ul>
+<li>DMA kann Peripherieelemente <strong>automatisch rekonfigurieren</strong>.</li>
+<li>Beispiel: Ein DMA-Transfer (ausgelöst durch ein EMIOS-Event) kann neue Werte (für den nächsten Puls) aus dem RAM direkt in die EMIOS-Register (CADR/CBDR) schreiben.</li>
+<li>Dies ermöglicht <strong>Verkettungen (Chaining)</strong> von Peripherie-Aktionen ohne CPU-Beteiligung.</li>
+</ul>
+<p><strong>114. Was ist das Scatter-Gather Feature des DMA-Moduls?</strong></p>
+<ul>
+<li>Es erlaubt einem DMA-Kanal, nach Abschluss eines Transfers <strong>automatisch einen neuen Transfer Control Descriptor (TCD)</strong> (der die Parameter für den <em>nächsten</em> Transfer enthält) aus dem Speicher zu laden.</li>
+<li>Dies ermöglicht es, Daten von mehreren, nicht zusammenhängenden Quellen zu <strong>sammeln (Gather)</strong> oder Daten an mehrere, nicht zusammenhängende Ziele zu <strong>verteilen (Scatter)</strong>.</li>
+</ul>
+<p><strong>115. Erläutern Sie die Begriffe Regelstrecke, Führungsgröße, Regelgröße, Regelabweichung u. Stellgröße.</strong></p>
+<ul>
+<li><strong>Regelstrecke:</strong> Der zu beeinflussende Prozess oder Teil des Systems, der geregelt werden soll (z.B. der Motor, die Heizung).</li>
+<li><strong>Führungsgröße (w):</strong> Der vorgegebene Wert, den die Regelgröße erreichen soll (der <strong>Soll-Wert</strong>).</li>
+<li><strong>Regelgröße (x):</strong> Die Ausgangsgröße der Strecke, die gemessen wird (der <strong>Ist-Wert</strong>).</li>
+<li><strong>Regelabweichung (e):</strong> Die Differenz zwischen Soll- und Ist-Wert (<span class="arithmatex">\(e = w - x\)</span>). Sie ist die Eingangsgröße des Reglers.</li>
+<li><strong>Stellgröße (y):</strong> Die Ausgangsgröße des Reglers, die auf die Regelstrecke einwirkt, um die Regelabweichung zu korrigieren.</li>
+</ul>
+<p><strong>116. Die Glieder der Regelstrecke werden entsprechend ihrem Zeitverhalten charakterisiert. Wie kann man das Zeitverhalten herausfinden?</strong></p>
+<ul>
+<li>Indem man die <strong>Sprungantwort</strong> der Regelstrecke aufnimmt.</li>
+<li>Dazu legt man am Eingang der (geöffneten) Strecke ein <strong>Testsignal</strong> (eine sprunghafte Änderung der Eingangsgröße) an und zeichnet die Reaktion (Antwort) am Ausgang auf. Die Form dieser Antwort (z.B. S-förmig) charakterisiert die Strecke.</li>
+</ul>
+<p><strong>117. Nennen Sie 4 unterschiedliche Typen von Übertragungsverhalten. Nenne Sie zu jedem auch ein Beispiel.</strong>
+1.  <strong>P-Glied</strong> (Proportional): Ausgang folgt dem Eingang sofort.
+  * Beispiel: Hebel, Getriebe, Spannungsteiler.
+2.  <strong>I-Glied</strong> (Integrierend): Ausgang ist das Integral des Eingangs (rampt auf).
+  * Beispiel: Strom, der einen Kondensator lädt (Eingang: Strom, Ausgang: Spannung).
+3.  <strong><span class="arithmatex">\(PT_1\)</span>-Glied</strong> (Verzögerungsglied 1. Ordnung): Sprung am Eingang führt zu exponentiellem Anstieg am Ausgang.
+  * Beispiel: RC-Glied (Spannung), Gleichstrommotor (Eingang: Spannung, Ausgang: Drehzahl).
+4.  <strong><span class="arithmatex">\(PT_2\)</span>-Glied</strong> (Verzögerungsglied 2. Ordnung): Kann schwingen.
+  * Beispiel: Mechanischer Schwinger (Feder-Masse-Dämpfer-System), elektrischer RLC-Schwingkreis.</p>
+<p><strong>118. Was ist das Problem beim P-Regler?</strong></p>
+<ul>
+<li>Er hat eine <strong>bleibende Regelabweichung</strong>. Er wird den Soll-Wert (bei Strecken ohne I-Anteil) nie exakt erreichen; es bleibt immer ein kleiner Fehler bestehen.</li>
+</ul>
+<p><strong>119. Was sind die Eigenschaften eines I-Reglers?</strong></p>
+<ul>
+<li>Er <strong>summiert die Regelabweichung</strong> über die Zeit auf (Integral).</li>
+<li><strong>Vorteil:</strong> Er kann die <strong>bleibende Regelabweichung vollständig eliminieren</strong>.</li>
+<li><strong>Nachteil:</strong> Er ist <strong>langsam</strong> und neigt zum Schwingen (instabil).</li>
+</ul>
+<p><strong>120. Was sind die Vor- und Nachteile eines PD-Reglers?</strong></p>
+<ul>
+<li><strong>Vorteile:</strong><ul>
+<li>Er reagiert auf die <em>Änderung</em> der Abweichung (D-Anteil) und ist dadurch <strong>sehr schnell</strong> (er "hält vor").</li>
+<li>Der D-Anteil wirkt dämpfend und stabilisierend.</li>
+</ul>
+</li>
+<li><strong>Nachteile:</strong><ul>
+<li>Er hat eine <strong>bleibende Regelabweichung</strong> (da der I-Anteil fehlt).</li>
+<li>Er <strong>verstärkt Rauschen</strong> im Sensorsignal (durch die Differenziation), was zu Unruhe im Stellglied führt.</li>
+</ul>
+</li>
+</ul>
+<p><strong>121. Welchen Typ von Regler implementieren diese Codezeilen?: <code>esum = esum + e; y = Kp*e + Ki*Ta*esum;</code></strong></p>
+<ul>
+<li>Dies ist ein <strong>PI-Regler</strong> (Proportional-Integral-Regler).<ul>
+<li><code>Kp*e</code> ist der P-Anteil.</li>
+<li><code>Ki*Ta*esum</code> ist der I-Anteil (wobei <code>esum</code> die Summe <span class="arithmatex">\(e_i\)</span> ist und <span class="arithmatex">\(T_a\)</span> die Abtastzeit).</li>
+</ul>
+</li>
+</ul>
+<p><strong>122. Welchen Typ von Regler implementieren diese Codezeilen?: <code>y = Kp*e + Kd*(e - ealt)/Ta; ealt = e;</code></strong></p>
+<ul>
+<li>Dies ist ein <strong>PD-Regler</strong> (Proportional-Differential-Regler).<ul>
+<li><code>Kp*e</code> ist der P-Anteil.</li>
+<li><code>Kd*(e - ealt)/Ta</code> ist der D-Anteil (genähert durch die Differenz zum "alten e" geteilt durch die Abtastzeit <span class="arithmatex">\(T_a\)</span>).</li>
+</ul>
+</li>
+</ul>
+<p><strong>123. In welchen (2) Fällen reicht für einfache Regelaufgaben ein einfacher P-Regler aus?</strong></p>
+<ol>
+<li>Wenn die <strong>bleibende Regelabweichung</strong> klein genug ist und toleriert (vernachlässigt) werden kann.</li>
+<li>Wenn die <strong>Regelstrecke selbst bereits einen I-Anteil besitzt</strong> (z.B. Regelung der Position bei einem Motor, der über die Geschwindigkeit gestellt wird).</li>
+</ol>
+<p><strong>124. Welche Vorteile haben digitale Regler?</strong></p>
+<ul>
+<li>Sie arbeiten <strong>driftfrei</strong> (im Gegensatz zu analogen Bauteilen, die altern oder temperaturabhängig sind).</li>
+<li>Es lassen sich komplexe, <strong>nichtlineare oder adaptive Regler</strong> leichter realisieren.</li>
+<li>Der Regler kann bei Bedarf einfach per <strong>Software neu konfiguriert</strong> und parametriert werden.</li>
+</ul>
+<p><strong>125. Nennen Sie 3 prinzipielle Vorgehensweisen, wie man die Reglerparameter eines PID-Reglers ermitteln kann.</strong></p>
+<ol>
+<li><strong>Empirisches Einstellen</strong> (systematisches Probieren/Tuning von <span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_i\)</span>, <span class="arithmatex">\(K_d\)</span> an der realen Strecke).</li>
+<li>Verwendung von <strong>Einstellregeln</strong> (z.B. nach Ziegler/Nichols):<ul>
+<li><em>Schwingungsmethode:</em> <span class="arithmatex">\(K_p\)</span> wird bis zur Stabilitätsgrenze (Dauerschwingung) erhöht (<span class="arithmatex">\(K_{pkrit}\)</span>, <span class="arithmatex">\(T_{krit}\)</span>).</li>
+<li><em>Sprungantwort-Methode:</em> Aufnahme der Sprungantwort (Ermittlung von <span class="arithmatex">\(T_u\)</span> und <span class="arithmatex">\(T_g\)</span>).</li>
+</ul>
+</li>
+<li><strong>Physikalische Modellierung:</strong> Mathematisches Modell der Strecke erstellen und die Reglerparameter in der <strong>Simulation</strong> optimieren.</li>
+</ol>
+<p><strong>126. Wann kann ein digitaler Regler wie ein analoger Regler parametrisiert/dimensioniert werden?</strong></p>
+<ul>
+<li>Wenn die <strong>Abtastzeit (<span class="arithmatex">\(T_a\)</span>) sehr viel kleiner</strong> ist (z.B. Faktor 10-20) als die dominierende Zeitkonstante der Regelstrecke.</li>
+<li>In diesem Fall verhält sich das System <strong>"quasi-kontinuierlich"</strong> und die Effekte der digitalen Abtastung können vernachlässigt werden.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "header.autohide", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

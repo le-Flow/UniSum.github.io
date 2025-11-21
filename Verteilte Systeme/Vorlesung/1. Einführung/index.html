@@ -1,0 +1,1874 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://UniSum.github.io/Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/">
+      
+      
+        <link rel="prev" href="../../../Prozessrechentechnik/SolutionsExamTraining/">
+      
+      
+        <link rel="next" href="../2.%20Architekturen/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>1. Einführung - UniSum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-definitionen-und-grundlagen" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="UniSum" class="md-header__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UniSum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Einführung
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Prozessrechentechnik/1.Einleitung/" class="md-tabs__link">
+          
+  
+  
+  Prozessrechentechnik
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Verteilte Systeme
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Compiler/Roadmap/" class="md-tabs__link">
+          
+  
+  
+  Compiler
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="UniSum" class="md-nav__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    UniSum
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prozessrechentechnik
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prozessrechentechnik
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/1.Einleitung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einleitung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/2.Begriffe_und_Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Begriffe und Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/3.Aufbau_eingebetteter_Systeme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Aufbau eingebetteter Systeme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/4.Steuerung_und_Regelung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Steuerung und Regelung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/5.Modellierungstechniken/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Modelierungstechniken
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/6.SW-Entwicklung_f%C3%BCr_ES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. SW-Entwicklung für ES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/SummaryExercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/SolutionsExamTraining/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verteilte Systeme
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verteilte Systeme
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-definitionen-und-grundlagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Definitionen und Grundlagen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-entwurfsziele-fur-verteilte-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Entwurfsziele für Verteilte Systeme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-skalierung-ansatze-und-techniken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Skalierung: Ansätze und Techniken
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-klassen-von-verteilten-systemen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Klassen von Verteilten Systemen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#die-fragen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Die Fragen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#die-antworten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Die Antworten
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Architekturen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Architekturen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Technologische%20Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Technologische Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Kommunikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Kommunikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Koordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Koordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Namen%20in%20Verteilten%20Systemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Namen in Verteilten Systemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Konsistenz%20und%20Replikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Konsistenz und Replikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Fehlertolleranz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Fehlertolleranz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Praktikum
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/1.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/2.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/3.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/4.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Compiler/Roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Compiler/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Compiler/Vorlesung/2.%20Lexikalische%20Analyse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Lexikalische Analyse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-definitionen-und-grundlagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Definitionen und Grundlagen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-entwurfsziele-fur-verteilte-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Entwurfsziele für Verteilte Systeme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-skalierung-ansatze-und-techniken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Skalierung: Ansätze und Techniken
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-klassen-von-verteilten-systemen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Klassen von Verteilten Systemen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#die-fragen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Die Fragen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#die-antworten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Die Antworten
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>1. Einführung</h1>
+
+<h3 id="1-definitionen-und-grundlagen">1. Definitionen und Grundlagen</h3>
+<p>Verteilte Systeme (VS) sind durch den technologischen Fortschritt bei Mikroprozessoren und Netzwerken entstanden. Sie unterscheiden sich grundlegend von dezentralen und zentralisierten Systemen und können aus verschiedenen Perspektiven betrachtet werden.</p>
+<ul>
+<li><strong>Dezentrales System:</strong> Prozesse und Ressourcen sind <strong>notwendigerweise</strong> über mehrere Computer verteilt (z.B. Blockchain, Flugverkehrskontrollsystem).</li>
+<li><strong>Verteiltes System:</strong> Prozesse und Ressourcen sind <strong>ausreichend</strong> über mehrere Computer verteilt (z.B. Google Gmail, CDNs).</li>
+<li>
+<p><strong>Zentralisiertes System:</strong> Hat zwei Hauptnachteile:</p>
+<ol>
+<li><strong>Single point of failure</strong> (einzige Schwachstelle).</li>
+<li><strong>Skalierbarkeitsprobleme</strong>.</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><strong>Perspektiven auf VS:</strong> Man kann sie u.a. aus den Perspektiven Architektur, Verfahren, Kommunikation, Koordination, Benennung, Konsistenz, Fehlertoleranz und Sicherheit betrachten.</li>
+</ul>
+<hr />
+<h3 id="2-entwurfsziele-fur-verteilte-systeme">2. Entwurfsziele für Verteilte Systeme</h3>
+<p>Beim Entwurf von Verteilten Systemen werden sechs Hauptziele verfolgt, die sich oft gegenseitig beeinflussen und Kompromisse erfordern.</p>
+<ol>
+<li><strong>Ressourcenteilung</strong><ul>
+<li><strong>Was:</strong> Gemeinsame Nutzung von Ressourcen (z.B. Filesharing, Google Docs) aus ökonomischen oder kooperativen Gründen.</li>
+</ul>
+</li>
+<li><strong>Transparenz</strong><ul>
+<li><strong>Was:</strong> Das Verbergen der Tatsache, dass ein System verteilt ist, vor dem Nutzer und der Anwendung.</li>
+<li><strong>Wie:</strong> Wird typischerweise durch eine <strong>Middleware-Schicht</strong> (Verteilte Systemschicht) erreicht.</li>
+<li><strong>Typen:</strong> Umfasst Zugriffs-, Orts-, Migrations-, Relokations-, Replikations-, Nebenläufigkeits- und Fehlertransparenz.</li>
+<li><strong>Grenzen:</strong> Völlige Transparenz ist unmöglich (z.B. Netzwerklatenzen).</li>
+</ul>
+</li>
+<li><strong>Offenheit (Openness)</strong><ul>
+<li><strong>Was:</strong> Die Fähigkeit, das System einfach zu erweitern und mit anderen Systemen zu kombinieren (Interoperabilität).</li>
+<li><strong>Wie:</strong> Basiert auf standardisierten Interfaces, oft definiert durch eine <strong>IDL (Interface Definition Language)</strong>.</li>
+<li><strong>Technik:</strong> Trennung von <strong>Richtlinie (Policy)</strong> (was?) und <strong>Mechanismus (Mechanism)</strong> (wie?).</li>
+</ul>
+</li>
+<li><strong>Verlässlichkeit (Dependability)</strong><ul>
+<li><strong>Was:</strong> Das System verhält sich wie erwartet, auch bei Teilausfällen (eine Komponente fällt aus, das System als Ganzes läuft weiter).</li>
+<li><strong>Anforderungen:</strong><ul>
+<li>Verfügbarkeit (availability)</li>
+<li>Zuverlässigkeit (reliability)</li>
+<li>Sicherheit (Safety)</li>
+<li>Wartbarkeit (Maintainability)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Sicherheit (Security)</strong><ul>
+<li><strong>Was:</strong> Schutz vor unautorisiertem Zugriff oder Änderungen.</li>
+<li><strong>Aspekte:</strong><ul>
+<li><strong>Vertraulichkeit (confidentiality):</strong> Nur autorisierte Parteien haben Zugriff.</li>
+<li><strong>Integrität (integrity):</strong> Änderungen sind nur in erlaubter Weise möglich.</li>
+<li><strong>Autorisierung &amp; Authentifizierung</strong>.</li>
+</ul>
+</li>
+<li><strong>Technik:</strong> <strong>Kryptographie</strong> (symmetrisch und asymmetrisch) ermöglicht sichere Kommunikationskanäle.</li>
+</ul>
+</li>
+<li><strong>Skalierbarkeit</strong><ul>
+<li><strong>Was:</strong> Die Fähigkeit des Systems, in verschiedenen Dimensionen effizient zu wachsen.</li>
+<li><strong>Dimensionen:</strong><ul>
+<li><strong>Größe:</strong> Mehr Nutzer und Ressourcen.</li>
+<li><strong>Geographie:</strong> Nutzer und Ressourcen sind weit verteilt.</li>
+<li><strong>Administrativ:</strong> Verwaltbar über mehrere Organisationen hinweg.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="3-skalierung-ansatze-und-techniken">3. Skalierung: Ansätze und Techniken</h3>
+<p>Um Skalierbarkeit zu erreichen, müssen Flaschenhälse (begrenzte Rechen-, Speicher- oder Netzwerkkapazität) überwunden werden. Dies geschieht durch gezielte Ansätze und Techniken.</p>
+<ul>
+<li><strong>Skalierungs-Ansätze (Wie wachsen?)</strong><ul>
+<li><strong>Scaling up (Vertikal):</strong> Erhöhung der Kapazität einer <em>einzelnen</em> Ressource (z.B. schnellere CPU, mehr RAM).</li>
+<li><strong>Scaling out (Horizontal):</strong> Hinzufügen von <em>mehr</em> Ressourcen derselben Art (z.B. mehr Server).</li>
+</ul>
+</li>
+<li><strong>Skalierungs-Techniken (Welche Methoden?)</strong><ul>
+<li><strong>Latenz verbergen:</strong> Einsatz von <strong>Asynchroner Kommunikation</strong>, da die Netzwerklatenz (physikalisch begrenzt durch <span class="arithmatex">\(c\)</span>) nicht eliminiert werden kann.</li>
+<li><strong>Partitionierung:</strong> Aufteilen einer Komponente oder Ressource in kleinere Teile und deren Verteilung (z.B. das DNS-System).</li>
+<li><strong>Replikation:</strong> Erstellen von Kopien von Daten/Ressourcen.<ul>
+<li><strong>Caching:</strong> Eine Form der Replikation, die vom Klienten eines Dienstes durchgeführt wird.</li>
+<li><em>Problem:</em> Konsistenz der Kopien.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Dezentralisierte Algorithmen</strong><ul>
+<li>Oft zur Lösung von Skalierungsproblemen eingesetzt.</li>
+<li><strong>Merkmale:</strong><ol>
+<li>Kein Computer hat vollständige Systeminformationen.</li>
+<li>Entscheidungen basieren nur auf <strong>lokalen</strong> Informationen.</li>
+<li>Der Ausfall eines Computers schädigt nicht den Algorithmus.</li>
+<li>Es gibt <strong>keine globale Uhr</strong>.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="4-klassen-von-verteilten-systemen">4. Klassen von Verteilten Systemen</h3>
+<p>Verteilte Systeme lassen sich je nach Aufbau und Anwendungszweck in drei Hauptkategorien einteilen.</p>
+<ol>
+<li><strong>Verteilte Computersysteme (Distributed Computing Systems)</strong><ul>
+<li><strong>Fokus:</strong> Bereitstellung von Rechenleistung.</li>
+<li><strong>Typen:</strong> <strong>Cluster Computingsysteme</strong> (nutzen homogene Computer) und <strong>Grid Computingsysteme</strong> (nutzen heterogene Computer).</li>
+</ul>
+</li>
+<li><strong>Verteilte Informationssysteme (Distributed Information Systems)</strong><ul>
+<li><strong>Fokus:</strong> Integration von Anwendungen und Daten.</li>
+<li><strong>Typen:</strong> <strong>Transaktionsverarbeitungssysteme</strong> (nutzen Primitive wie <code>BEGIN_TRANSACTION</code>) und <strong>Enterprise Application Integration (EAI)</strong>.</li>
+</ul>
+</li>
+<li><strong>Pervasive Systeme</strong><ul>
+<li><strong>Was:</strong> Systeme aus kleinen, batteriebetriebenen, mobilen Geräten mit drahtlosen Verbindungen (z.B. Sensornetze).</li>
+<li><strong>Merkmal:</strong> Sie sind Teil der Umgebung und erfordern <strong>keine menschliche Administration</strong>.</li>
+<li><strong>Anforderung:</strong> Müssen sich automatisch an kontextuelle Veränderungen anpassen.</li>
+</ul>
+</li>
+</ol>
+<h3 id="die-fragen">Die Fragen</h3>
+<ol>
+<li>Wie unterscheidet sich ein <strong>dezentrales System</strong> von einem <strong>verteilten System</strong> gemäß der Definition im Dokument?</li>
+<li>Nennen Sie die zwei prinzipiellen Probleme von <strong>zentralisierten Systemen</strong>.</li>
+<li>Listen Sie die <strong>sechs Entwurfsziele</strong> für Verteilte Systeme auf.</li>
+<li>Was ist der Unterschied zwischen <strong>Migrations-Transparenz</strong> und <strong>Relokations-Transparenz</strong>?</li>
+<li>Wodurch (durch welche Schicht) wird Transparenz in verteilten Systemen typischerweise erreicht?</li>
+<li>Was besagt das <strong>CAP-Theorem</strong> (kurz)?</li>
+<li>Was ist der Zweck einer <strong>Interface Definition Language (IDL)</strong> im Kontext der Offenheit?</li>
+<li>Nennen Sie die vier Anforderungen an die <strong>Verlässlichkeit (Dependability)</strong>.</li>
+<li>Welche zwei grundsätzlichen Anwendungen von <strong>Public-Key Kryptosystemen</strong> werden genannt?</li>
+<li>Erklären Sie den Unterschied zwischen <strong>"Scaling up" (vertikale Skalierung)</strong> und <strong>"Scaling out" (horizontale Skalierung)</strong>.</li>
+<li>Nennen Sie die drei <strong>Skalierungstechniken</strong>, die im Dokument vorgestellt werden, um mit Latenzen und Kapazitätsgrenzen umzugehen.</li>
+<li>Nennen Sie die <strong>drei Hauptklassen</strong> von Verteilten Systemen.</li>
+<li>Was ist ein charakteristisches Merkmal von <strong>Pervasiven Systemen</strong>?</li>
+<li>Welche vier Unterscheidungsmerkmale haben <strong>dezentralisierte Algorithmen</strong> im Vergleich zu zentralisierten?</li>
+</ol>
+<hr />
+<h3 id="die-antworten">Die Antworten</h3>
+<ol>
+<li>Ein <strong>dezentrales System</strong> ist eines, in dem Prozesse und Ressourcen <em>notwendigerweise</em> über mehrere Computer verteilt sind. Ein <strong>verteiltes System</strong> ist eines, in dem sie <em>ausreichend</em> über mehrere Computer verteilt sind.</li>
+<li>Die zwei prinzipiellen Probleme sind: <strong>Single point of failure</strong> (einzige Schwachstelle) und <strong>Skalierbarkeitsprobleme</strong>.</li>
+<li>Die sechs Entwurfsziele sind:<ol>
+<li>Ressourcenteilung</li>
+<li>Transparenz</li>
+<li>Erweiterbarkeit &amp; Wiederverwendbarkeit ("openness”)</li>
+<li>Verlässlichkeit</li>
+<li>Sicherheit (Security)</li>
+<li>Skalierbarkeit</li>
+</ol>
+</li>
+<li><strong>Migrations-Transparenz</strong> verbirgt, dass eine Ressource an einen anderen Ort verschoben werden kann. <strong>Relokations-Transparenz</strong> verbirgt, dass eine Ressource an einen anderen Ort verschoben werden kann, <em>während sie genutzt wird</em>.</li>
+<li>Transparenz wird durch eine <strong>Middleware Layer (Verteilte Systemschicht)</strong> erreicht.</li>
+<li>Das CAP-Theorem besagt, dass ein vernetztes System, das geteilte Daten bereitstellt, nur zwei der drei Eigenschaften haben kann: <strong>Consistency (Konsistenz)</strong>, <strong>Availability (Verfügbarkeit)</strong> und <strong>Partition tolerance (Partitionstoleranz)</strong>.</li>
+<li>Eine IDL dient dazu, <strong>Schnittstellen</strong> anzubieten. Sie definiert die <strong>Syntax</strong> eines Dienstes (z.B. Name, Argumente &amp; Ergebnis), um Standardisierung und Interoperabilität zu fördern.</li>
+<li>Die vier Anforderungen sind:<ul>
+<li>Verfügbarkeit (availability)</li>
+<li>Zuverlässigkeit (reliability)</li>
+<li>Sicherheit (Safety)</li>
+<li>Wartbarkeit (Maintainability)</li>
+</ul>
+</li>
+<li>Die zwei Anwendungen sind: Das <strong>Versenden von vertraulichen Nachrichten</strong> (sicherer Kanal) und die <strong>Digitale Signatur</strong>.</li>
+<li><strong>Scaling up (vertikal)</strong> ist die Erhöhung der Kapazität der betroffenen Ressource (z.B. schnellere CPU, mehr Speicher). <strong>Scaling out (horizontal)</strong> ist das Hinzufügen von mehr Ressourcen derselben Art.</li>
+<li>Die drei Skalierungstechniken sind:<ul>
+<li><strong>Verbergen von Netzwerklatenz</strong> (durch Asynchrone Kommunikation)</li>
+<li><strong>Partitionierung und Verteilung</strong></li>
+<li><strong>Replikation</strong> (bzw. Caching)</li>
+</ul>
+</li>
+<li>Die drei Hauptklassen sind:<ol>
+<li>Verteilte Computersysteme (Distributed Computing Systems)</li>
+<li>Verteilte Informationssysteme (Distributed Information Systems)</li>
+<li>Pervasive Systeme</li>
+</ol>
+</li>
+<li>Ein Pervasives System besteht aus <strong>kleinen, batteriebetriebenen, mobilen Computergeräten mit drahtlosen Verbindungen</strong>. Sie sind Teil unserer Umgebung und erfordern <strong>keine menschliche Administration</strong>.</li>
+<li>Die vier Merkmale sind:<ol>
+<li>Kein Computer hat vollständige Informationen über den Systemstatus.</li>
+<li>Computer entscheiden nur aufgrund von lokalen Informationen.</li>
+<li>Der Ausfall eines Computers schädigt nicht den Algorithmus.</li>
+<li>Es wird nicht implizit angenommen, dass es eine globale Uhr gibt.</li>
+</ol>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "header.autohide", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

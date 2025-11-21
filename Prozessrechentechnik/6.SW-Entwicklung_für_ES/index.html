@@ -1,0 +1,2056 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://UniSum.github.io/Prozessrechentechnik/6.SW-Entwicklung_f%C3%BCr_ES/">
+      
+      
+        <link rel="prev" href="../5.Modellierungstechniken/">
+      
+      
+        <link rel="next" href="../SummaryExercises/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>6. SW-Entwicklung für ES - UniSum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inhalte" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="UniSum" class="md-header__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UniSum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. SW-Entwicklung für ES
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../1.Einleitung/" class="md-tabs__link">
+          
+  
+  
+  Prozessrechentechnik
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/" class="md-tabs__link">
+          
+  
+  
+  Verteilte Systeme
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Compiler/Roadmap/" class="md-tabs__link">
+          
+  
+  
+  Compiler
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="UniSum" class="md-nav__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    UniSum
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prozessrechentechnik
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prozessrechentechnik
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.Einleitung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einleitung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.Begriffe_und_Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Begriffe und Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.Aufbau_eingebetteter_Systeme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Aufbau eingebetteter Systeme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.Steuerung_und_Regelung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Steuerung und Regelung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.Modellierungstechniken/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Modelierungstechniken
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. SW-Entwicklung für ES
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. SW-Entwicklung für ES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inhalte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inhalte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#besonderheiten-eingebetteter-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Besonderheiten eingebetteter Software
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemarchitekturen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systemarchitekturen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Systemarchitekturen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zeitgesteuerte-systeme-time-triggered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zeitgesteuerte Systeme (Time-Triggered)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ereignisgesteuerte-systeme-event-triggered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ereignisgesteuerte Systeme (Event-Triggered)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verlasslichkeit-dependability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verlässlichkeit (Dependability)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verlässlichkeit (Dependability)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-zuverlassigkeit-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Zuverlässigkeit (Reliability)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-verfugbarkeit-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Verfügbarkeit (Availability)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-funktionale-sicherheit-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Funktionale Sicherheit (Safety)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reliability Engineering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reliability Engineering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytische-verfahren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analytische Verfahren
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konstruktive-manahmen-redundanz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konstruktive Maßnahmen (Redundanz)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konstruktive Maßnahmen (Redundanz)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware-redundanz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware-Redundanz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-redundanz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software-Redundanz
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-schichten-plattform-vs-applikation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software-Schichten: Plattform vs. Applikation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SummaryExercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SolutionsExamTraining/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verteilte Systeme
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verteilte Systeme
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/2.%20Architekturen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Architekturen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/3.%20Technologische%20Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Technologische Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/4.%20Kommunikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Kommunikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/5.%20Koordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Koordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/6.%20Namen%20in%20Verteilten%20Systemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Namen in Verteilten Systemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/7.%20Konsistenz%20und%20Replikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Konsistenz und Replikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/8.%20Fehlertolleranz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Fehlertolleranz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Praktikum
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/1.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/2.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/3.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/4.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Vorlesung/2.%20Lexikalische%20Analyse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Lexikalische Analyse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inhalte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inhalte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#besonderheiten-eingebetteter-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Besonderheiten eingebetteter Software
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemarchitekturen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systemarchitekturen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Systemarchitekturen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zeitgesteuerte-systeme-time-triggered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zeitgesteuerte Systeme (Time-Triggered)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ereignisgesteuerte-systeme-event-triggered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ereignisgesteuerte Systeme (Event-Triggered)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verlasslichkeit-dependability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verlässlichkeit (Dependability)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verlässlichkeit (Dependability)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-zuverlassigkeit-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Zuverlässigkeit (Reliability)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-verfugbarkeit-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Verfügbarkeit (Availability)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-funktionale-sicherheit-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Funktionale Sicherheit (Safety)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reliability Engineering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reliability Engineering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytische-verfahren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analytische Verfahren
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konstruktive-manahmen-redundanz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konstruktive Maßnahmen (Redundanz)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konstruktive Maßnahmen (Redundanz)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware-redundanz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware-Redundanz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-redundanz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software-Redundanz
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-schichten-plattform-vs-applikation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software-Schichten: Plattform vs. Applikation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>6. SW-Entwicklung für ES</h1>
+
+<h2 id="inhalte">Inhalte</h2>
+<ul>
+<li>Besonderheiten eingebetteter Software</li>
+<li>Systemarchitekturen (Zeit- vs. Ereignisgesteuert)</li>
+<li>Verlässlichkeit (Dependability) und Funktionale Sicherheit</li>
+<li>Reliability Engineering (Analytische und Konstruktive Maßnahmen)</li>
+<li>Software-Schichten (Plattform vs. Applikationssoftware)</li>
+</ul>
+<hr />
+<h2 id="besonderheiten-eingebetteter-software">Besonderheiten eingebetteter Software</h2>
+<p>Eingebettete Systeme (ES) unterliegen anderen Zwängen als klassische PC-Software.</p>
+<ul>
+<li><strong>Ressourcenbeschränkung:</strong> Da ES oft Massenprodukte sind, herrscht hoher Kostendruck. Man investiert lieber mehr Entwicklungszeit in Code-Optimierung, um an der Hardware (Speicher, CPU) Cent-Beträge zu sparen.</li>
+<li><strong>Energieverbrauch:</strong> Kritisch, da Batteriekapazitäten begrenzt sind und oft keine aktive Kühlung (Lüfter) möglich ist.</li>
+<li><strong>Robustheit:</strong> Die Software muss mit ungenauen Sensordaten, Rauschen und vereinfachten Modellen der Realität zuverlässig arbeiten.</li>
+<li><strong>Echtzeit &amp; Normen:</strong> Oft müssen harte Zeitlimits eingehalten werden, zertifiziert nach Normen wie IEC 61508 (Industrie) oder ISO 26262 (Automotive).</li>
+<li><strong>Zielkonflikt:</strong> Hohe Flexibilität (Wartbarkeit, Abstraktion) steht meist im Widerspruch zu maximaler Performanz und minimalem Ressourcenverbrauch.</li>
+</ul>
+<hr />
+<h2 id="systemarchitekturen">Systemarchitekturen</h2>
+<p>Wie wird die Ausführung der Software gesteuert?</p>
+<h3 id="zeitgesteuerte-systeme-time-triggered">Zeitgesteuerte Systeme (Time-Triggered)</h3>
+<ul>
+<li><strong>Steuerung:</strong> Durch einen <strong>festen Zeittakt</strong>.</li>
+<li><strong>Datenfluss:</strong> Sensoren werden aktiv abgefragt (<strong>Polling</strong>).</li>
+<li><strong>Vorteil:</strong> Das zeitliche Verhalten ist <strong>vollständig deterministisch und planbar</strong>. Dies ist für <strong>harte Echtzeitanforderungen</strong> oft zwingend notwendig.</li>
+</ul>
+<h3 id="ereignisgesteuerte-systeme-event-triggered">Ereignisgesteuerte Systeme (Event-Triggered)</h3>
+<ul>
+<li><strong>Steuerung:</strong> Durch externe Ereignisse (<strong>Interrupts</strong>).</li>
+<li><strong>Nachteil:</strong> Das zeitliche Verhalten ist schwer vorhersehbar. Ein Risiko sind <strong>"Event Showers"</strong> (Ereignisstürme), bei denen zu viele Interrupts gleichzeitig auftreten und das System überlasten.</li>
+</ul>
+<hr />
+<h2 id="verlasslichkeit-dependability">Verlässlichkeit (Dependability)</h2>
+<p>Ein Oberbegriff für die Vertrauenswürdigkeit eines Systems, unterteilt in drei Aspekte:</p>
+<h3 id="1-zuverlassigkeit-reliability">1. Zuverlässigkeit (Reliability)</h3>
+<p>Die Wahrscheinlichkeit <span class="arithmatex">\(R(t)\)</span>, dass ein System über einen Zeitraum <span class="arithmatex">\(t\)</span> <strong>durchgängig fehlerfrei</strong> funktioniert.</p>
+<p><strong>Die Badewannenkurve</strong></p>
+<p>Beschreibt die Ausfallrate von Hardware über die Lebenszeit:
+1.  <strong>Frühausfallphase:</strong> Hohe Rate durch Produktionsfehler (sinkend).
+2.  <strong>Konsolidierungsphase:</strong> Niedrige, konstante Rate (Zufallsausfälle).
+3.  <strong>Spätausfallphase:</strong> Steigende Rate durch Verschleiß/Alterung.</p>
+<h3 id="2-verfugbarkeit-availability">2. Verfügbarkeit (Availability)</h3>
+<p>Der Anteil der Zeit, in der das System funktionsbereit ist (unabhängig von Unterbrechungen).</p>
+<div class="arithmatex">\[Verfügbarkeit = \frac{\text{Gesamtzeit} - \text{Ausfallzeit}}{\text{Gesamtzeit}}\]</div>
+<h3 id="3-funktionale-sicherheit-safety">3. Funktionale Sicherheit (Safety)</h3>
+<p>Die Freiheit von nicht akzeptierbaren Risiken.
+* <strong>Risikodefinition:</strong></p>
+<div class="arithmatex">\[Risiko = \text{Eintrittshäufigkeit} \times \text{Schadensausmaß}\]</div>
+<p><img alt="alt text" src="../images/6.SW-Entwicklung_f%C3%BCr_ES/image.png" /></p>
+<ul>
+<li><strong>Ziel:</strong> Das Risiko muss unter einem definierten <strong>Grenzrisiko</strong> bleiben.</li>
+<li><strong>Zielkonflikt Safety vs. Availability:</strong> Eine sehr empfindliche Fehlererkennung, die das System beim kleinsten Zweifel abschaltet, erhöht die Sicherheit (kein Schaden), aber ruiniert die Verfügbarkeit (System steht still).</li>
+</ul>
+<hr />
+<h2 id="reliability-engineering">Reliability Engineering</h2>
+<p>Methoden zur Berechnung und Steigerung der Verlässlichkeit.</p>
+<h3 id="analytische-verfahren">Analytische Verfahren</h3>
+<p>Berechnung der Gesamtsystem-Zuverlässigkeit (<span class="arithmatex">\(R\)</span>) aus Komponenten.</p>
+<p>[Image of series vs parallel reliability block diagram]</p>
+<ul>
+<li><strong>Serielle Kopplung (Kette):</strong><ul>
+<li>System fällt aus, wenn <strong>eine</strong> Komponente versagt.</li>
+<li><span class="arithmatex">\(R_{Gesamt} = R_1 \cdot R_2 \cdot \ldots \cdot R_n\)</span></li>
+<li><em>Ergebnis:</em> Die Zuverlässigkeit ist <strong>schlechter</strong> als die der schlechtesten Komponente.</li>
+</ul>
+</li>
+<li><strong>Parallele Kopplung (Redundanz):</strong><ul>
+<li>System fällt nur aus, wenn <strong>alle</strong> Komponenten versagen.</li>
+<li><span class="arithmatex">\(R_{Gesamt} = 1 - [(1 - R_1) \cdot (1 - R_2) \cdot \ldots \cdot (1 - R_n)]\)</span></li>
+<li><em>Ergebnis:</em> Die Zuverlässigkeit ist <strong>besser</strong> als die der besten Komponente.</li>
+</ul>
+</li>
+</ul>
+<h3 id="konstruktive-manahmen-redundanz">Konstruktive Maßnahmen (Redundanz)</h3>
+<p>Einsatz zusätzlicher Ressourcen zur Fehlertoleranz.</p>
+<h4 id="hardware-redundanz">Hardware-Redundanz</h4>
+<ul>
+<li><strong>Statisch (Voting):</strong> Identische Module arbeiten parallel. Ein <strong>Voter</strong> entscheidet per Mehrheit (z. B. 2-aus-3 Auswahl / Triple Modular Redundancy). Maskiert Fehler sofort.</li>
+</ul>
+<ul>
+<li><strong>Dynamisch (Switching):</strong> Eine Fehlererkennung schaltet im Notfall auf ein Reserve-Modul ("Standby") um.</li>
+<li><strong>Hybrid:</strong> Kombination aus Voting und Rekonfiguration (defekte Module werden vom Voter ignoriert und durch Reserve ersetzt).</li>
+</ul>
+<h4 id="software-redundanz">Software-Redundanz</h4>
+<p>Da Software nicht "verschleißt", helfen einfache Kopien nicht gegen Designfehler (Bugs). Man benötigt <strong>Diversität</strong>.
+* <strong>N-Versions Programming (Statisch):</strong> Mehrere Teams entwickeln die Software unabhängig voneinander. Alle Versionen laufen parallel, ein Voter entscheidet. (Extrem teuer).
+* <strong>Recovery Blocks (Dynamisch):</strong> Ein Akzeptanztest prüft das Ergebnis. Schlägt dieser fehl, wird eine (einfachere) Reserve-Variante ausgeführt.</p>
+<hr />
+<h2 id="software-schichten-plattform-vs-applikation">Software-Schichten: Plattform vs. Applikation</h2>
+<p>Moderne ECU-Architekturen (z. B. AUTOSAR) trennen strikt in zwei Schichten.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Merkmal</th>
+<th style="text-align: left;"><strong>Plattformsoftware</strong></th>
+<th style="text-align: left;"><strong>Applikationssoftware</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Position</strong></td>
+<td style="text-align: left;">Unten (Hardwarenah)</td>
+<td style="text-align: left;">Oben (Hardwareunabhängig)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Aufgabe</strong></td>
+<td style="text-align: left;"><strong>Abstraktion der Hardware</strong>. Stellt Treiber (ADC, CAN) und Basisdienste (Scheduling) bereit.</td>
+<td style="text-align: left;">Enthält die <strong>eigentliche Produktlogik</strong> (Regler, Steuerungsabläufe).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Semantik</strong></td>
+<td style="text-align: left;"><strong>Keine Semantik.</strong> Liefert nur Rohwerte (z.B. "Spannungswert 102").</td>
+<td style="text-align: left;"><strong>Trägt die Semantik.</strong> Interpretiert Werte (z.B. "102 = 5 m/s² Beschleunigung").</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abhängigkeit</strong></td>
+<td style="text-align: left;">Plattformspezifisch (angepasst an den Chip).</td>
+<td style="text-align: left;">Anwendungsspezifisch (enthält das Domänenwissen).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Beispiel</strong></td>
+<td style="text-align: left;">Betriebssystem, Bustreiber, HAL.</td>
+<td style="text-align: left;">Tempomat-Regler, Motorsteuerung.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "header.autohide", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

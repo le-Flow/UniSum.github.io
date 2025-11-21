@@ -1,0 +1,2005 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://UniSum.github.io/Prozessrechentechnik/SummaryExercises/">
+      
+      
+        <link rel="prev" href="../6.SW-Entwicklung_f%C3%BCr_ES/">
+      
+      
+        <link rel="next" href="../SolutionsExamTraining/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Praktikum - UniSum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-uberblick-automotive-mcus" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="UniSum" class="md-header__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UniSum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Praktikum
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../1.Einleitung/" class="md-tabs__link">
+          
+  
+  
+  Prozessrechentechnik
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/" class="md-tabs__link">
+          
+  
+  
+  Verteilte Systeme
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Compiler/Roadmap/" class="md-tabs__link">
+          
+  
+  
+  Compiler
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="UniSum" class="md-nav__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    UniSum
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prozessrechentechnik
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prozessrechentechnik
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.Einleitung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einleitung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.Begriffe_und_Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Begriffe und Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.Aufbau_eingebetteter_Systeme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Aufbau eingebetteter Systeme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.Steuerung_und_Regelung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Steuerung und Regelung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.Modellierungstechniken/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Modelierungstechniken
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.SW-Entwicklung_f%C3%BCr_ES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. SW-Entwicklung für ES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-uberblick-automotive-mcus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Überblick: Automotive MCUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-byte-reihenfolge-endianness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Byte-Reihenfolge (Endianness)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-siul-system-integration-unit-lite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. SIUL (System Integration Unit Lite)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-clocks-taktquellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Clocks (Taktquellen)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-run-modes-betriebsmodi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Run Modes (Betriebsmodi)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-timed-io-zeitgesteuerte-ein-ausgabe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Timed I/O (Zeitgesteuerte Ein-/Ausgabe)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-interrupts-intc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Interrupts (INTC)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-adc-und-ctu-analog-digital-converter-cross-trigger-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. ADC und CTU (Analog-Digital-Converter &amp; Cross Trigger Unit)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-dma-direct-memory-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. DMA (Direct Memory Access)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-regelungstechnik-control-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Regelungstechnik (Control Systems)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SolutionsExamTraining/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verteilte Systeme
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verteilte Systeme
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/2.%20Architekturen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Architekturen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/3.%20Technologische%20Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Technologische Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/4.%20Kommunikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Kommunikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/5.%20Koordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Koordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/6.%20Namen%20in%20Verteilten%20Systemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Namen in Verteilten Systemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/7.%20Konsistenz%20und%20Replikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Konsistenz und Replikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Vorlesung/8.%20Fehlertolleranz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Fehlertolleranz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Praktikum
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/1.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/2.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/3.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Verteilte%20Systeme/Praktikum/4.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/Vorlesung/2.%20Lexikalische%20Analyse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Lexikalische Analyse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-uberblick-automotive-mcus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Überblick: Automotive MCUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-byte-reihenfolge-endianness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Byte-Reihenfolge (Endianness)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-siul-system-integration-unit-lite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. SIUL (System Integration Unit Lite)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-clocks-taktquellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Clocks (Taktquellen)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-run-modes-betriebsmodi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Run Modes (Betriebsmodi)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-timed-io-zeitgesteuerte-ein-ausgabe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Timed I/O (Zeitgesteuerte Ein-/Ausgabe)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-interrupts-intc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Interrupts (INTC)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-adc-und-ctu-analog-digital-converter-cross-trigger-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. ADC und CTU (Analog-Digital-Converter &amp; Cross Trigger Unit)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-dma-direct-memory-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. DMA (Direct Memory Access)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-regelungstechnik-control-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Regelungstechnik (Control Systems)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Praktikum</h1>
+
+<h2 id="1-uberblick-automotive-mcus">1. Überblick: Automotive MCUs</h2>
+<p>Das Dokument gibt einen Überblick über das 32-bit PowerPC Automotive Mikrocontroller (MCU) Portfolio von Freescale, sortiert nach Anwendungsbereichen wie <strong>Powertrain</strong>, <strong>Chassis &amp; Safety</strong>, <strong>Body &amp; Gateways</strong> sowie <strong>Kommunikation</strong> (CAN, LIN, FlexRay).</p>
+<p>Zwei MCUs werden exemplarisch detaillierter vorgestellt:
+* <strong>MPC5604B:</strong> Basiert auf dem <strong>Power Architecture e200z0 Core</strong> (48-64MHz), ausgestattet mit 512KB Flash, 48K SRAM, 3 FlexCAN-Modulen, 4 LINFlex-Modulen und einem 36-Kanal 10-bit ADC.
+* <strong>MPC5607B:</strong> Ein größerer Bruder mit 1.5MB Flash, 96K SRAM, einem 16-Kanal DMA, 6 FlexCAN, 10 LINFlex und einem 52-Kanal ADC (kombiniert 10-bit und 12-bit Kanäle).</p>
+<hr />
+<h2 id="2-byte-reihenfolge-endianness">2. Byte-Reihenfolge (Endianness)</h2>
+<p>Die PowerPC-Architektur verwendet von Natur aus die <strong>Big Endian</strong> Byte-Ordnung. Das bedeutet, das signifikanteste Byte (Most Significant Byte, MSb) wird an der niedrigsten Speicheradresse abgelegt.</p>
+<hr />
+<h2 id="3-siul-system-integration-unit-lite">3. SIUL (System Integration Unit Lite)</h2>
+<p>Die SIUL ist eine zentrale "Glue Logic"-Einheit, die die Konfiguration und das Multiplexing (IOMux) der Pins steuert.</p>
+<ul>
+<li><strong>Funktionen:</strong><ul>
+<li><strong>Pad Control:</strong> Konfiguriert die elektrischen Parameter jedes Pins (z.B. Output Buffer, Open Drain, Pull-up/Pull-down).</li>
+<li><strong>IOMux:</strong> Weist den Pins Signale zu. Jedem Pin können mehrere Funktionen (Alternate Functions, z.B. AF0-AF3) zugewiesen werden.</li>
+<li><strong>GPIO:</strong> Ermöglicht die Nutzung von Pins als allgemeine digitale Ein- oder Ausgänge.</li>
+<li><strong>External Interrupt Management:</strong> Verwaltet externe Interrupt-Signale, inklusive digitaler Glitch-Filter.</li>
+</ul>
+</li>
+<li><strong>Wichtige Register:</strong><ul>
+<li><strong>PCR (Pad Configuration Register):</strong> Konfiguriert jeden Pin individuell. Wichtige Felder sind:<ul>
+<li><code>PA</code> (Pad Assignment): Wählt die Alternate Function (z.B. GPIO, CAN, EMIOS) für den Pin.</li>
+<li><code>OBE</code> (Output Buffer Enable): Aktiviert den Pin als Ausgang.</li>
+<li><code>IBE</code> (Input Buffer Enable): Aktiviert den Pin als Eingang.</li>
+<li><code>WPE</code> / <code>WPS</code>: Aktivieren und wählen eines Weak Pull-Up oder Pull-Down Widerstands.</li>
+</ul>
+</li>
+<li><strong>PSMI (Pad Select Multiplexed Inputs):</strong> Wählt bei Peripherie-Eingängen, die mit mehreren Pins verbunden sind, aus, welcher Pin tatsächlich als Quelle genutzt wird.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="4-clocks-taktquellen">4. Clocks (Taktquellen)</h2>
+<p>Das System-Timing ist hochkonfigurierbar und essenziell für das Power-Management.</p>
+<ul>
+<li><strong>Taktquellen:</strong><ul>
+<li><strong>FIRC (16 MHz Internal RC):</strong> Der interne RC-Oszillator. Dies ist der <strong>Standard-Takt</strong> nach einem Reset.</li>
+<li><strong>FXOSC (4-16 MHz External):</strong> Ein externer Kristall/Oszillator (im Praktikum 8 MHz).</li>
+<li><strong>FMPLL (Phase Lock Loop):</strong> Multipliziert eine Eingangsfrequenz (meist FXOSC), um den Hochgeschwindigkeits-Systemtakt (z.B. 64 MHz) zu erzeugen.<ul>
+<li><strong>Formel:</strong> <span class="arithmatex">\(FMPLL = \frac{FXOSC \cdot NDIV}{IDF \cdot ODF}\)</span></li>
+</ul>
+</li>
+<li><strong>Low Power Quellen:</strong> SIRC (128 KHz) und SXOSC (32 KHz) für RTC (Real-Time Clock) und Watchdog im Sleep-Modus.</li>
+</ul>
+</li>
+<li><strong>CMU (Clock Monitoring Unit):</strong> Überwacht die Takte auf Konsistenz (z.B. Vergleich FIRC mit FXOSC). Bei Fehlern kann die CMU einen Reset, einen Interrupt oder den Übergang in den <code>SAFE</code> Mode auslösen.</li>
+<li><strong>CGM (Clock Generation Module) Struktur:</strong><ul>
+<li>Der <strong>System Clock Selector (ME)</strong> wählt die Hauptquelle für die <code>SYSCLK</code> (FIRC, FXOSC oder FMPLL).</li>
+<li>Diese <code>SYSCLK</code> wird auf den Core und auf 3 "Peripheral Sets" verteilt.</li>
+<li>Der Takt für jedes Peripherie-Set kann durch einen eigenen Teiler (1-16) im <code>CGM_SC_DCx</code>-Register verlangsamt werden, um Energie zu sparen.</li>
+</ul>
+</li>
+<li><strong>CLKOUT:</strong> Ein ausgewählter Takt (FIRC, FXOSC, FMPLL) kann zur Überprüfung auf einen externen Pin (GPIO[0]) ausgegeben werden.</li>
+</ul>
+<hr />
+<h2 id="5-run-modes-betriebsmodi">5. Run Modes (Betriebsmodi)</h2>
+<p>Die Run Modes sind das Kernkonzept des Power-Managements. Sie definieren, welche Systemkomponenten (Takte, Peripherie, Flash) aktiv sind.</p>
+<ul>
+<li><strong>Modi-Typen:</strong><ul>
+<li><strong>System Modes:</strong> <code>RESET</code>, <code>DRUN</code> (Default Run), <code>SAFE</code>, <code>TEST</code>.</li>
+<li><strong>User Modes:</strong> <code>RUN0</code>...<code>RUN3</code> (normale Betriebsmodi), <code>HALT</code>, <code>STOP</code>, <code>STANDBY</code> (Low-Power-Modi).</li>
+</ul>
+</li>
+<li><strong>Ablauf:</strong> Nach einem Reset startet der MCU im <code>DRUN</code>-Modus. In diesem Modus wird typischerweise die Konfiguration für die User Modes (z.B. <code>RUN0</code>) vorgenommen.</li>
+<li><strong>Konfiguration:</strong><ul>
+<li><strong><code>ME_xxx_MC</code> Register:</strong> Für jeden Modus (z.B. <code>ME_RUN0_MC</code>) gibt es ein Konfigurationsregister. Dieses legt fest:<ul>
+<li>Welche Taktquellen aktiv sind (<code>PLLON</code>, <code>OSCON</code>, <code>IRCON</code>).</li>
+<li>Welche Quelle für die <code>SYSCLK</code> verwendet wird.</li>
+<li>Ob das Flash (<code>CFLAON</code>, <code>DFLAON</code>) oder der Spannungsregler (<code>MVRON</code>) aktiv sind.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Peripheral Clock Gating:</strong> Das Aktivieren von Takten für Peripheriegeräte ist ein zweistufiger Prozess:<ol>
+<li><strong><code>ME_RUN_PCx</code> (Peripheral Configuration):</strong> 8 Register (<code>PC0</code>...<code>PC7</code>) definieren 8 "Policies", die festlegen, in welchen Modi (RUN0, RUN1, DRUN...) eine Policy aktiv ist.</li>
+<li><strong><code>ME_PCTLx</code> (Peripheral Control):</strong> Für <em>jedes</em> Peripheriegerät (z.B. <code>PCTL[68]</code> für SIUL) gibt es ein Register, das eine der 8 Policies (<code>PC0</code>...<code>PC7</code>) auswählt.</li>
+</ol>
+</li>
+<li><strong>Mode-Übergang (Transition):</strong><ul>
+<li>Ein Wechsel (z.B. von <code>DRUN</code> zu <code>RUN0</code>) wird durch Schreiben eines Schlüssels in das <code>ME_MCTL.R</code>-Register eingeleitet.</li>
+<li>Das System <strong>muss</strong> danach warten, bis der Übergang abgeschlossen ist (z.B. durch Polling des <code>ME.GS.B.S_MTRANS</code>-Bits), da Taktquellen (insb. die PLL) Zeit zum Einschwingen benötigen.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="6-timed-io-zeitgesteuerte-ein-ausgabe">6. Timed I/O (Zeitgesteuerte Ein-/Ausgabe)</h2>
+<p>Dieser Abschnitt umfasst den Watchdog, den PIT und das extrem wichtige EMIOS-Modul.</p>
+<ul>
+<li><strong>Watch Dog (SWT):</strong> Ist nach dem Reset standardmäßig aktiv. Er muss entweder periodisch "bedient" (durch Schreiben von <code>0xA602</code> und <code>0xB480</code> in <code>SWT_SR</code>) oder explizit deaktiviert werden, um einen Reset zu verhindern.</li>
+<li><strong>PIT (Periodical Interrupt Timer):</strong> Stellt 32-bit-Zähler bereit, die vom Systemtakt getrieben werden. Sie sind voneinander unabhängig und können Interrupts, DMA-Anfragen oder ADC-Konvertierungen (direkt oder via CTU) auslösen.</li>
+<li><strong>EMIOS (Enhanced Modular Input/Output System):</strong> Ein leistungsfähiges, CPU-unabhängiges Timer-Modul zur Erzeugung und Messung von zeitbasierten Signalen.<ul>
+<li><strong>Struktur:</strong> Besteht aus "Unified Channels". Jeder Kanal kann für eine spezifische Funktion konfiguriert werden. Die Taktung wird von der <code>SYSCLK</code> abgeleitet und kann mehrfach geteilt werden (Common Divider <span class="arithmatex">\(\to\)</span> Global Prescaler <span class="arithmatex">\(\to\)</span> Channel Prescaler).</li>
+<li><strong>Counter Buses:</strong> 5 interne Busse (A-E) erlauben es, einen Kanal als Zähler (Zeitbasis) zu konfigurieren und dieses Signal an andere Kanäle im selben Modul zu verteilen (z.B. Ch 23 über Bus A an alle).</li>
+<li><strong>Doppelte Pufferung (Double Buffering):</strong> Die Register A und B (die Zeitpunkte oder Schwellen definieren) sind doppelt gepuffert (A1/A2, B1/B2). Dies ermöglicht "sichere" Updates: Ein neuer Wert wird in A2 geschrieben, wird aber erst zu Beginn des <em>nächsten</em> Zyklus in A1 (das aktive Register) übernommen.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Wichtige EMIOS-Modi:</strong><ul>
+<li><strong>Counter-Modi:</strong><ul>
+<li><code>MCB</code> (Modulus Counter Buffered): Ein Zähler, der bis zum Wert in Register A1 zählt und dann zurückgesetzt wird. Dient oft als Zeitbasis für andere Kanäle.</li>
+</ul>
+</li>
+<li><strong>Input-Modi:</strong><ul>
+<li><code>SAIC</code> (Single Action Input Capture): Bei einer definierten Signalflanke (steigend/fallend) wird der aktuelle Zählerstand im Register A2 gespeichert und ein Flag gesetzt.</li>
+<li><code>IPWM</code> (Input Pulse Width Measurement): Misst die Pulsbreite. Speichert den Zählerstand der führenden Flanke in B2 und den der folgenden Flanke in A2. Die Software berechnet die Differenz (<code>A2 - B1</code>).</li>
+<li><code>IPM</code> (Input Period Measurement): Ähnlich wie IPWM, misst aber die Zeit zwischen zwei Flanken gleicher Richtung (z.B. steigend zu steigend).</li>
+</ul>
+</li>
+<li><strong>Output-Modi:</strong><ul>
+<li><code>DAOC</code> (Double Action Output Compare): Erzeugt einen Puls. Bei Erreichen von A1 wird die führende Flanke, bei Erreichen von B1 die folgende Flanke ausgelöst.</li>
+<li><code>OPWMB</code> (Output Pulse Width Modulation Buffered): Nutzt eine <em>externe</em> Zeitbasis (von einem MCB-Kanal). A1 und B1 definieren die führende und folgende Flanke des PWM-Pulses innerhalb dieser Periode.</li>
+<li><strong><code>OPWMT</code> (OPWM with Trigger):</strong> Der wichtigste Modus für den Freescale Cup. Wie OPWMB, fügt aber einen dritten Zeitpunkt (Register A2) hinzu. Wenn der Zähler A2 erreicht, wird ein <strong>FLAG</strong> gesetzt. Dieses Flag wird genutzt, um die <strong>CTU</strong> (und damit den ADC) zu einem exakten Zeitpunkt <em>innerhalb</em> des PWM-Pulses zu triggern.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>EMIOS Input Filter:</strong> Ein digitaler Filter (5-bit Zähler), der Eingangssignale "entprellt". Ein Signal wird erst als geändert erkannt, wenn es für eine definierte Anzahl von Takten (z.B. 2, 4, 8 oder 16) stabil anliegt.</li>
+</ul>
+<hr />
+<h2 id="7-interrupts-intc">7. Interrupts (INTC)</h2>
+<p>Der Interrupt Controller (INTC) verwaltet Peripherie-Interrupts.</p>
+<ul>
+<li><strong>Core vs. Peripherie:</strong> Der CPU-Core hat eigene Exceptions (z.B. Machine Check). Alle Interrupts von Peripheriegeräten (ADC, CAN, EMIOS, PIT etc.) werden vom INTC verwaltet und an den Core über die <strong>"External Input Exception" (IVOR 4)</strong> gemeldet.</li>
+<li><strong>Verhalten (Ablauf):</strong> Bei einem Interrupt sichert die Hardware automatisch den Befehlszähler (in <code>SRR0</code>) und das Maschinenstatusregister (in <code>SRR1</code>). Der Programmzeiger springt zur Vektoradresse. Die Interrupt-Service-Routine (ISR) wird ausgeführt. Das <code>rfi</code> (Return from Interrupt) Kommando am Ende stellt <code>SRR0</code> und <code>SRR1</code> wieder her.</li>
+<li><strong>Handshaking-Modi:</strong><ul>
+<li><strong>Software Vector Mode:</strong> (Standard) Alle INTC-Interrupts landen im selben Handler (IVOR 4). Die Software muss dann das <code>IACKR</code>-Register des INTC lesen, um die <em>eigentliche</em> Quelle (z.B. PIT-Kanal 2) zu identifizieren und über eine Sprungtabelle zur richtigen ISR zu springen. Optimiert für Codegröße.</li>
+<li><strong>Hardware Vector Mode:</strong> Jeder Interrupt-Quelle wird ein eigener Vektor zugewiesen, der direkt zur ISR springt. Optimiert für Latenz.</li>
+</ul>
+</li>
+<li><strong>Prioritäten:</strong><ul>
+<li>Es gibt 16 Prioritätsstufen (15 = höchste, 0 = niedrigste, wird nie erkannt).</li>
+<li>Jede IR-Quelle erhält eine Priorität im <code>INTC_PSRx</code>-Register.</li>
+<li>Das <strong><code>INTC_CPR</code> (Current Priority Register)</strong> speichert die Priorität der <em>aktuell laufenden</em> ISR. Nur Interrupts mit einer <em>höheren</em> Priorität als der im <code>INTC_CPR</code> können diese unterbrechen (Preemption).</li>
+<li><strong>WICHTIG:</strong> Nach einem Reset steht das <code>INTC_CPR</code> auf 15 (höchste Priorität). Das bedeutet, <strong>alle</strong> Interrupts sind maskiert. Um Interrupts zu aktivieren, muss das <code>INTC_CPR</code> manuell auf 0 (oder eine andere Basispriorität) gesetzt werden.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="8-adc-und-ctu-analog-digital-converter-cross-trigger-unit">8. ADC und CTU (Analog-Digital-Converter &amp; Cross Trigger Unit)</h2>
+<ul>
+<li><strong>ADC:</strong> Wandelt analoge Spannungen (0-5V) in digitale Werte um. Der MPC5607B hat sowohl 10-bit als auch präzisere 12-bit Kanäle. Jeder Kanal hat ein eigenes Datenregister (<code>CDR</code>), das den Wert (<code>CDATA</code>) und Statusbits (<code>VALID</code>, <code>OVERWrite</code>) enthält.</li>
+<li><strong>Trigger-Optionen:</strong> Eine ADC-Wandlung kann auf drei Arten ausgelöst werden, die sich gegenseitig unterbrechen (präemptiv):<ol>
+<li><strong>Normal Conversion:</strong> (Niedrigste Priorität) Ausgelöst durch Software (Setzen des <code>NSTART</code>-Bits).</li>
+<li><strong>Injected Conversion:</strong> (Mittlere Priorität) Ausgelöst durch Software (<code>JSTART</code>-Bit) oder <code>PIT2</code>. Unterbricht eine laufende "Normal"-Kette.</li>
+<li><strong>CTU (Cross Trigger Unit):</strong> (Höchste Priorität) Ausgelöst durch <code>PIT3</code>, <code>PIT7</code> oder <code>EMIOS</code>-Kanäle. Unterbricht "Normal" und "Injected".</li>
+</ol>
+</li>
+<li><strong>Analog Watchdog:</strong> Ermöglicht eine CPU-unabhängige Bereichsüberwachung (<code>THRL</code>, <code>THRH</code>) eines Analogkanals und kann bei Verletzung einen Interrupt auslösen.</li>
+<li><strong>CTU (Cross Trigger Unit):</strong><ul>
+<li>Die CTU ist die <strong>Hardware-Verbindung</strong> zwischen den Timern (EMIOS, PIT) und dem ADC.</li>
+<li>Sie ermöglicht es, eine ADC-Wandlung <strong>ohne CPU-Beteiligung</strong> und mit exaktem Timing durch ein Timer-Ereignis auszulösen.</li>
+</ul>
+</li>
+<li><strong>Anwendungsbeispiele:</strong><ol>
+<li><strong>Induktivitätsmessung:</strong> Ein EMIOS-Kanal im <code>OPWMT</code>-Modus schaltet einen PWM-Puls (Match A1, Match B1). Ein dritter Zeitpunkt (Match A2) ist so gesetzt, dass der Einschwingstrom (Inrush Current) der Spule abgeklungen ist. Dieser A2-Match triggert über die CTU die ADC-Messung zum exakt richtigen Zeitpunkt.</li>
+<li><strong>Zeilenkamera (TSL1401):</strong> Die Kamera benötigt ein Start-Impuls (SI) und einen Takt (CLK) und liefert pro Takt einen analogen Pixelwert (AO). EMIOS-Kanäle erzeugen CPU-unabhängig die SI- und CLK-Signale. Der EMIOS-Kanal, der den CLK erzeugt, ist im <code>OPWMT</code>-Modus und triggert (via Match A2) über die CTU bei jeder Taktflanke eine ADC-Wandlung, um den analogen Pixelwert einzulesen.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h2 id="9-dma-direct-memory-access">9. DMA (Direct Memory Access)</h2>
+<p>DMA ermöglicht Datentransfers zwischen Peripherie und Speicher (oder Peripherie zu Peripherie) <strong>ohne CPU-Beteiligung</strong>.</p>
+<ul>
+<li><strong>TCD (Transfer Control Descriptor):</strong> Das "Gehirn" jedes DMA-Kanals. Definiert die Quelle (<code>saddr</code>), das Ziel (<code>daddr</code>), die Transfergröße (<code>ssize</code>, <code>dsize</code>), die Anzahl der Bytes pro Request (<code>nbytes</code>, minor loop) und die Gesamtzahl der Requests (<code>citer</code>, major loop).</li>
+<li><strong>DMA Mux:</strong> Ein Multiplexer verbindet die 16 DMA-Kanäle mit Dutzenden von möglichen Anforderungs-Quellen (DSPI, eMIOS, ADC, IIC oder "Always Enabled" für PIT/Software-Trigger).</li>
+<li><strong>Features:</strong><ul>
+<li><strong>Modulo:</strong> Nützlich für <strong>Ringpuffer (Circular Buffers)</strong>. Ermöglicht das automatische "Umbrechen" (Wraparound) der Quell- oder Zieladresse, indem nur die unteren Adressbits inkrementiert werden.</li>
+<li><strong>Scatter-Gather:</strong> Ermöglicht das Verketten von TCDs. Ein TCD kann nach Abschluss die Adresse eines <em>neuen</em> TCDs (gespeichert in <code>sga</code>) laden und diesen aktivieren. Dies erlaubt komplexe Sequenzen.</li>
+<li><strong>Channel Linking:</strong> Ein DMA-Kanal kann nach Abschluss (minor oder major loop) einen <em>anderen</em> DMA-Kanal starten.</li>
+</ul>
+</li>
+<li><strong>Arbitrierung:</strong> Die DMA-Kanäle haben eine feste Priorität (Fixed-Priority Arbitration), um zu entscheiden, welcher Kanal bei gleichzeitigen Anfragen den Buszugriff erhält.</li>
+<li><strong>Beispiele:</strong><ol>
+<li><strong>Wellenform erfassen (EMIOS <span class="arithmatex">\(\to\)</span> RAM):</strong> Ein EMIOS-Kanal (im IPWM-Modus) misst Pulsbreiten. Jede Messung (z.B. fallende Flanke) löst einen DMA-Request aus. Der DMA-Kanal liest die Zeitstempel aus den EMIOS-Registern (<code>CADR</code>, <code>CBDR</code>) und schreibt sie in einen Puffer im RAM. Wenn der Puffer voll ist (major loop complete), wird ein <em>einziger</em> Interrupt (<code>INT_MAJ</code>) ausgelöst, damit die CPU die gesammelten Daten verarbeiten kann.</li>
+<li><strong>Wellenform generieren (RAM <span class="arithmatex">\(\to\)</span> EMIOS):</strong> Ein Array im RAM enthält eine Sequenz von Zeitstempeln. Ein EMIOS-Kanal ist im <code>DAOC</code>-Modus. Ein DMA-Request (ausgelöst durch den <em>Abschluss</em> des <em>vorherigen</em> Pulses) kopiert das <em>nächste</em> Zeitstempel-Paar aus dem RAM in die EMIOS-Register (<code>CADR</code>, <code>CBDR</code>). Dies erzeugt eine komplexe, vordefinierte Wellenform komplett ohne CPU-Last.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h2 id="10-regelungstechnik-control-systems">10. Regelungstechnik (Control Systems)</h2>
+<p>Der letzte Abschnitt behandelt die Grundlagen der digitalen Regelung.</p>
+<ul>
+<li><strong>Grundlagen:</strong><ul>
+<li><strong>Steuern (Open-loop):</strong> Ein Prozess ohne Rückkopplung.</li>
+<li><strong>Regeln (Closed-loop):</strong> Ein Prozess mit Rückkopplung in einem geschlossenen <strong>Regelkreis</strong>. Der Kreis besteht aus den Schritten: <strong>Messen</strong> (des Istwerts), <strong>Vergleichen</strong> (mit dem Sollwert), <strong>Stellen</strong> (Anpassen der Stellgröße).</li>
+</ul>
+</li>
+<li><strong>Begriffe:</strong><ul>
+<li><code>w</code>: Führungsgröße (Sollwert)</li>
+<li><code>x</code>: Regelgröße (Istwert)</li>
+<li><code>e</code>: Regelabweichung (<span class="arithmatex">\(e = w - x\)</span>)</li>
+<li><code>y</code>: Stellgröße (Ausgang des Reglers)</li>
+<li><code>z</code>: Störgröße</li>
+<li><strong>Regelstrecke:</strong> Der zu regelnde Prozess (z.B. Motor, Heizung).</li>
+</ul>
+</li>
+<li><strong>Streckentypen:</strong> Das Verhalten einer Regelstrecke wird durch ihre <strong>Sprungantwort</strong> (Reaktion auf einen Eingangssprung) charakterisiert. Gängige Typen sind:<ul>
+<li><strong>P-Glied:</strong> Proportionale, sofortige Reaktion. <span class="arithmatex">\(G(s) = K\)</span></li>
+<li><strong>I-Glied:</strong> Integrierend, Ausgang rampenförmig. <span class="arithmatex">\(G(s) = K/s\)</span></li>
+<li><strong><span class="arithmatex">\(PT_1\)</span>-Glied:</strong> Verzögerung 1. Ordnung (z.B. RC-Glied, DC-Motor). <span class="arithmatex">\(G(s) = \frac{K}{1+Ts}\)</span></li>
+<li><strong><span class="arithmatex">\(PT_2\)</span>-Glied:</strong> Verzögerung 2. Ordnung (kann schwingen, z.B. Feder-Masse-System). <span class="arithmatex">\(G(s) = \frac{K}{1+\frac{2D}{\omega_0}s+\frac{1}{\omega_0^2}s^2}\)</span></li>
+<li><strong><span class="arithmatex">\(PT_t\)</span>-Glied:</strong> Totzeit (reine Laufzeitverzögerung). <span class="arithmatex">\(G(s) = e^{-T_t s}\)</span></li>
+</ul>
+</li>
+<li>
+<p><strong>Reglertypen:</strong></p>
+<ul>
+<li><strong>P-Regler:</strong> <span class="arithmatex">\(y(t) = K_p \cdot e(t)\)</span>. Schnell, hat aber eine <strong>bleibende Regelabweichung</strong>.</li>
+<li><strong>I-Regler:</strong> <span class="arithmatex">\(y(t) = K_i \int e(\tau)d\tau\)</span>. Langsam, aber <strong>eliminiert die bleibende Regelabweichung</strong>.</li>
+<li><strong>PI-Regler:</strong> <span class="arithmatex">\(y(t) = K_p \cdot e(t) + K_i \int e(\tau)d\tau\)</span>. Mittelschnell, keine bleibende Abweichung.</li>
+<li><strong>PD-Regler:</strong> <span class="arithmatex">\(y(t) = K_p \cdot e(t) + K_d \frac{de(t)}{dt}\)</span>. Sehr schnell (D-Anteil "prognostiziert"), aber empfindlich gegen Rauschen und hat eine bleibende Abweichung.</li>
+<li><strong>PID-Regler:</strong> Universell. Kombiniert die Vorteile aller Typen (schnell und genau).</li>
+</ul>
+<div class="arithmatex">\[y(t) = K_p \cdot e(t) + K_i \int e(\tau)d\tau + K_d \frac{de(t)}{dt}\]</div>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>Digitale Realisierung (PID):</strong></p>
+<ul>
+<li>Ein digitaler Regler benötigt einen ADU (ADC) zum Messen und einen DAU (z.B. PWM über EMIOS) zum Stellen.</li>
+<li>Die Differentialgleichung des PID-Reglers wird in eine zeitdiskrete <strong>Differenzengleichung</strong> (Stellungs-Algorithmus) umgerechnet, die periodisch (mit Abtastzeit <span class="arithmatex">\(T_a\)</span>) berechnet wird:</li>
+</ul>
+<div class="arithmatex">\[y_k = K_p \cdot e_k + K_i \cdot T_a \sum_{i=0}^{k} e_i + \frac{K_d}{T_a} (e_k - e_{k-1})\]</div>
+<ul>
+<li><em>Achtung:</em> Der I-Anteil (Summe) muss gegen Überlauf (<strong>Windup-Effekt</strong>) begrenzt werden.</li>
+<li><strong>Regler-Dimensionierung (Tuning):</strong>
+1.  <strong>Empirisches Einstellen:</strong> Manuelles "Herantasten" (z.B. erst <span class="arithmatex">\(K_p\)</span> erhöhen bis es schwingt, dann <span class="arithmatex">\(K_i\)</span> für Genauigkeit, dann <span class="arithmatex">\(K_d\)</span> für Stabilität).
+2.  <strong>Einstellregeln nach Ziegler/Nichols (Schwingungsmethode):</strong> <span class="arithmatex">\(K_i\)</span> und <span class="arithmatex">\(K_d\)</span> auf 0 setzen. <span class="arithmatex">\(K_p\)</span> so lange erhöhen, bis die Strecke dauerhaft schwingt (Stabilitätsgrenze). Aus diesem <strong><span class="arithmatex">\(K_{pkrit}\)</span></strong> und der Schwingungsperiode <strong><span class="arithmatex">\(T_{krit}\)</span></strong> werden die PID-Parameter über eine Tabelle berechnet.
+3.  <strong>Einstellregeln nach Ziegler/Nichols (Sprungantwort):</strong> Den Regelkreis öffnen und eine S-förmige Sprungantwort aufnehmen. Aus der Wendetangente die Verzugszeit <strong><span class="arithmatex">\(T_u\)</span></strong> (Verzögerung) und die Ausgleichszeit <strong><span class="arithmatex">\(T_g\)</span></strong> (Anstieg) sowie die Streckenverstärkung <strong><span class="arithmatex">\(K_s\)</span></strong> ermitteln und die Parameter über eine Tabelle berechnen.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "header.autohide", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1824 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://UniSum.github.io/Verteilte%20Systeme/Vorlesung/4.%20Kommunikation/">
+      
+      
+        <link rel="prev" href="../3.%20Technologische%20Grundlagen/">
+      
+      
+        <link rel="next" href="../5.%20Koordination/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>4. Kommunikation - UniSum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-grundlagen-der-kommunikation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="UniSum" class="md-header__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UniSum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Kommunikation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Prozessrechentechnik/1.Einleitung/" class="md-tabs__link">
+          
+  
+  
+  Prozessrechentechnik
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../1.%20Einf%C3%BChrung/" class="md-tabs__link">
+          
+  
+  
+  Verteilte Systeme
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Compiler/Roadmap/" class="md-tabs__link">
+          
+  
+  
+  Compiler
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="UniSum" class="md-nav__button md-logo" aria-label="UniSum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    UniSum
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prozessrechentechnik
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prozessrechentechnik
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/1.Einleitung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einleitung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/2.Begriffe_und_Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Begriffe und Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/3.Aufbau_eingebetteter_Systeme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Aufbau eingebetteter Systeme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/4.Steuerung_und_Regelung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Steuerung und Regelung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/5.Modellierungstechniken/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Modelierungstechniken
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/6.SW-Entwicklung_f%C3%BCr_ES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. SW-Entwicklung für ES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/SummaryExercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prozessrechentechnik/SolutionsExamTraining/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verteilte Systeme
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Verteilte Systeme
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Architekturen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Architekturen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Technologische%20Grundlagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Technologische Grundlagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Kommunikation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Kommunikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-grundlagen-der-kommunikation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Grundlagen der Kommunikation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-remote-procedure-call-rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Remote Procedure Call (RPC)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rpc-implementierung-und-varianten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. RPC Implementierung und Varianten
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-nachrichtenorientierte-kommunikation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Nachrichtenorientierte Kommunikation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-multicast-kommunikation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Multicast Kommunikation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-gossip-protokolle-epidemischer-multicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Gossip Protokolle (Epidemischer Multicast)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Koordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Koordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Namen%20in%20Verteilten%20Systemen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Namen in Verteilten Systemen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Konsistenz%20und%20Replikation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Konsistenz und Replikation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Fehlertolleranz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Fehlertolleranz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Praktikum
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Praktikum
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/1.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/2.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/3.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Praktikum/4.%20Praktikum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Praktikum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Compiler/Roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vorlesung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vorlesung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Compiler/Vorlesung/1.%20Einf%C3%BChrung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Compiler/Vorlesung/2.%20Lexikalische%20Analyse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Lexikalische Analyse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-grundlagen-der-kommunikation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Grundlagen der Kommunikation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-remote-procedure-call-rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Remote Procedure Call (RPC)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rpc-implementierung-und-varianten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. RPC Implementierung und Varianten
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-nachrichtenorientierte-kommunikation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Nachrichtenorientierte Kommunikation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-multicast-kommunikation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Multicast Kommunikation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-gossip-protokolle-epidemischer-multicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Gossip Protokolle (Epidemischer Multicast)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>4. Kommunikation</h1>
+
+<h3 id="1-grundlagen-der-kommunikation">1. Grundlagen der Kommunikation</h3>
+<p>Kommunikation in verteilten Systemen basiert auf Protokollschichten. Während das 7-schichtige OSI-Referenzmodell als theoretisches Modell dient, wird in der Praxis meist TCP/IP oder UDP/IP verwendet. Für verteilte Systeme ist ein angepasstes Modell oft nützlicher.</p>
+<ul>
+<li><strong>Angepasstes Referenzmodell:</strong> Eine vereinfachte Schichtung:<ol>
+<li><strong>Hardware</strong> (Physical/Link-level protocol)</li>
+<li><strong>Operating System</strong> (Host-to-host protocol, z.B. TCP/IP)</li>
+<li><strong>Middleware</strong> (Middleware protocol)</li>
+<li><strong>Application</strong> (Application protocol)</li>
+</ol>
+</li>
+<li><strong>Middleware-Protokolle:</strong> Diese Schicht stellt die eigentlichen Kommunikationsdienste für verteilte Anwendungen bereit, z.B. RPC, Authentifizierung, verteilte Sperren oder DNS.</li>
+<li><strong>Kommunikationsdienste der Middleware:</strong><ul>
+<li><strong>Persistent vs. Transient:</strong></li>
+<li><strong>Persistent:</strong> Die Nachricht wird von der Middleware gespeichert (store-and-forward), bis sie erfolgreich zugestellt wird (z.B. E-Mail).</li>
+<li><strong>Transient:</strong> Die Nachricht wird nur gespeichert, solange Sender und Empfänger aktiv sind (z.B. TCP).</li>
+<li><strong>Synchrone vs. Asynchrone Kommunikation:</strong></li>
+<li><strong>Synchron:</strong> Der Sender blockiert, bis seine Anfrage verarbeitet wurde. Dies kann an drei Punkten geschehen: bei der <em>Anforderungs-Übermittlung</em> (request submission), bei der <em>Anforderungs-Zustellung</em> (request delivery) oder nach der <em>Verarbeitung durch den Server</em>.</li>
+<li><strong>Asynchron:</strong> Der Sender blockiert nicht (oder nur sehr kurz).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="2-remote-procedure-call-rpc">2. Remote Procedure Call (RPC)</h3>
+<p>RPC ist eine Kerntechnologie, um <strong>Zugriffstransparenz</strong> zu erreichen. Die Idee ist, einen Aufruf an eine Prozedur auf einem entfernten Rechner (Server) genauso aussehen zu lassen wie einen normalen, lokalen Prozeduraufruf.</p>
+<ul>
+<li><strong>RPC-Ablauf (10 Schritte):</strong><ol>
+<li>Der Client-Prozess ruft die lokale <strong>Client-Stub</strong>-Funktion auf.</li>
+<li>Der Client-Stub "verpackt" die Parameter in eine Nachricht (<strong>Marshalling</strong>).</li>
+<li>Das Client-Betriebssystem sendet die Nachricht über das Netzwerk.</li>
+<li>Das Server-Betriebssystem empfängt die Nachricht und übergibt sie an den <strong>Server-Stub</strong>.</li>
+<li>Der Server-Stub "entpackt" die Parameter (<strong>Unmarshalling</strong>) und ruft die eigentliche, lokale Server-Prozedur auf.</li>
+<li>Die Server-Prozedur wird ausgeführt und gibt ihr Ergebnis an den Server-Stub zurück.</li>
+<li>Der Server-Stub verpackt das Ergebnis in eine Antwortnachricht (Marshalling).</li>
+<li>Das Server-Betriebssystem sendet die Antwort zurück.</li>
+<li>Das Client-Betriebssystem empfängt die Antwort und übergibt sie dem Client-Stub.</li>
+<li>Der Client-Stub entpackt das Ergebnis (Unmarshalling) und gibt es als Rückgabewert an den aufrufenden Client-Prozess zurück.</li>
+</ol>
+</li>
+<li><strong>Herausforderung: Parameterübergabe (Marshalling):</strong><ul>
+<li>Computer haben unterschiedliche Datenrepräsentationen (z.B. <strong>Little-Endian</strong> vs. <strong>Big-Endian</strong>).</li>
+<li>Marshalling wandelt daher alle Daten in ein maschinen-unabhängiges Format um, damit der Empfänger sie korrekt interpretieren kann.</li>
+</ul>
+</li>
+<li><strong>Herausforderung: Pointer / Referenzen:</strong><ul>
+<li>Speicheradressen (Pointer) haben nur lokale Bedeutung und können nicht über das Netzwerk gesendet werden.</li>
+<li><strong>Lösung 1:</strong> Das referenzierte Objekt wird kopiert (meist nur "shallow copy") und auf dem Server eine Referenz auf die Kopie verwendet. Bei Objekten nennt man dies <strong>Serialisierung</strong> und <strong>Deserialisierung</strong>.</li>
+<li><strong>Lösung 2:</strong> Es werden globale Referenzen wie URIs verwendet.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="3-rpc-implementierung-und-varianten">3. RPC Implementierung und Varianten</h3>
+<p>Um die RPC-Komplexität zu verbergen, werden Stubs meist automatisch generiert. Außerdem kann das blockierende Verhalten von RPCs angepasst werden.</p>
+<ul>
+<li><strong>Stub-Generierung:</strong><ul>
+<li>Stubs werden nicht manuell geschrieben, sondern von einem <strong>Stub-Compiler</strong> automatisch generiert.</li>
+<li>Als Eingabe dient eine <strong>Interface Definition Language (IDL)</strong>-Datei, welche die Prozeduren, Parameter und Rückgabetypen maschinenunabhängig beschreibt.</li>
+<li>Populäre IDLs sind <strong>Google Protobufs</strong> und <strong>Apache Thrift</strong>.</li>
+</ul>
+</li>
+<li><strong>Synchrone vs. Asynchrone RPCs:</strong><ul>
+<li><strong>Synchron (Standard):</strong> Der Client ruft die Prozedur auf und <strong>blockiert</strong> (wartet), bis der Server die Ausführung beendet hat und das Ergebnis (Reply) zurückschickt.</li>
+<li><strong>Asynchron (mit ACK):</strong> Der Client ruft auf und blockiert nur, bis der Server den Empfang der Anfrage bestätigt hat (<strong>Acknowledge</strong>). Der Client wartet nicht auf das Endergebnis.</li>
+<li><strong>Deferred Synchronous RPC (mit Callback):</strong> Der Client macht einen asynchronen Aufruf und übergibt einen <strong>Callback-Handler</strong>. Der Client-Stub kehrt sofort zurück. Wenn der Server später das Ergebnis hat, ruft er den Client über einen separaten RPC zurück und löst den Callback-Handler aus.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="4-nachrichtenorientierte-kommunikation">4. Nachrichtenorientierte Kommunikation</h3>
+<p>Als Alternative zu RPC (das versucht, Kommunikation zu verbergen) gibt es explizite nachrichtenorientierte Kommunikation, bei der Sender und Empfänger Nachrichten bewusst austauschen.</p>
+<ul>
+<li><strong>Sockets (z.B. TCP):</strong><ul>
+<li>Bietet <strong>transiente</strong> (nicht-persistente) und <strong>verbindungsorientierte</strong> Kommunikation.</li>
+<li>Der Server nutzt <code>socket()</code>, <code>bind()</code>, <code>listen()</code> und blockiert bei <code>accept()</code>.</li>
+<li>Der Client nutzt <code>socket()</code> und <code>connect()</code>.</li>
+<li>Sobald die Verbindung steht (Synchronisationspunkt), können beide über <code>read()</code> und <code>write()</code> kommunizieren.</li>
+</ul>
+</li>
+<li><strong>Message-Queuing (MOM - Message-Oriented Middleware):</strong><ul>
+<li>Bietet <strong>persistente</strong>, asynchrone Kommunikation über Warteschlangen (Queues).</li>
+<li>Dies ist oft die Basis für Publish-Subscribe-Systeme.</li>
+<li><strong>AMQP (Advanced Message Queuing Protocol):</strong> Ein offener Standard hierfür, der auf Sicherheit und Zuverlässigkeit ausgelegt ist (eingesetzt z.B. im Finanzwesen und Telekommunikation).</li>
+</ul>
+</li>
+<li><strong>Message Passing Interface (MPI):</strong><ul>
+<li>Eine Abstraktionsebene über Sockets, die speziell für High-Performance Computing (HPC) und wissenschaftliches Rechnen entwickelt wurde.</li>
+<li>Bietet transienten Nachrichtenaustausch mit verschiedenen Synchronisationsmodi (z.B. blockierend, asynchron).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="5-multicast-kommunikation">5. Multicast Kommunikation</h3>
+<p>Multicast ist der Prozess, Informationen an alle Mitglieder einer definierten Gruppe zu verteilen. Die Herausforderung ist, dies skalierbar (für tausende Knoten) und fehlertolerant (gegen Paketverlust und Knotenausfälle) zu gestalten.</p>
+<ul>
+<li><strong>Zentralisierter Ansatz:</strong> Ein Sender schickt die Nachricht an alle <span class="arithmatex">\(N\)</span> Empfänger. Dies ist <strong>einfach</strong>, aber <strong>nicht skalierbar</strong> und langsam.</li>
+<li><strong>Baum-basierte Protokolle:</strong><ul>
+<li>Die Knoten bilden einen <strong>Spanning Tree</strong>. Nachrichten werden entlang des Baums verteilt.</li>
+<li>Verlorene Pakete werden durch <strong>ACKs</strong> (Bestätigungen) oder <strong>NAKs</strong> (Negative Bestätigungen) "repariert".</li>
+<li><strong>RMTP (Reliable Multicast Transport Protocol):</strong> Verwendet ACKs.</li>
+<li><strong>SRM (Scalable Reliable Multicast):</strong> Verwendet NAKs, nutzt aber zufällige Verzögerungen, um "NAK-Stürme" (wenn alle gleichzeitig ein NAK senden) zu vermeiden.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="6-gossip-protokolle-epidemischer-multicast">6. Gossip Protokolle (Epidemischer Multicast)</h3>
+<p>Gossip ist eine populäre, dezentrale und sehr robuste Alternative für Multicast. Die Verbreitung von Nachrichten wird wie eine Epidemie modelliert.</p>
+<ul>
+<li><strong>Grundprinzip (Push-Gossip):</strong><ol>
+<li>Ein Knoten (der "infiziert" ist) möchte eine Nachricht verbreiten.</li>
+<li>Er wählt <strong>k zufällige</strong> Zielknoten aus und sendet ihnen die Nachricht (per UDP).</li>
+<li>Jeder Knoten, der die Nachricht neu empfängt, wiederholt diesen Vorgang in der nächsten "Runde".</li>
+</ol>
+</li>
+<li><strong>Varianten:</strong><ul>
+<li><strong>Push-Gossip (Epidemisch):</strong> Aktives Verbreiten (infizieren) von Nachrichten.</li>
+<li><strong>Pull-Gossip:</strong> Knoten fragen periodisch k zufällige Knoten, ob sie neue Nachrichten haben.</li>
+<li><strong>Hybrid:</strong> Eine Kombination aus beidem.</li>
+</ul>
+</li>
+<li><strong>Analyse &amp; Effizienz:</strong><ul>
+<li>Gossip ist <strong>leichtgewichtig</strong>, <strong>sehr fehlertolerant</strong> und <strong>verbreitet sich schnell</strong>.</li>
+<li>Mit nur <strong><span class="arithmatex">\(c \cdot log(n)\)</span></strong> Runden (sehr geringe Latenz) erreicht die Nachricht fast alle Knoten.</li>
+<li>Die Last pro Knoten ist gering (jeder sendet nur <span class="arithmatex">\(c \cdot k \cdot log(n)\)</span> Nachrichten).</li>
+</ul>
+</li>
+<li><strong>Fehlertoleranz:</strong><ul>
+<li><strong>Paketverlust:</strong> Selbst bei 50% Paketverlust funktioniert das Protokoll zuverlässig, wenn man die Anzahl der Runden verdoppelt.</li>
+<li><strong>Knotenausfall:</strong> Selbst wenn 50% der Knoten ausfallen, funktioniert das Protokoll (mit Anpassung der Runden).</li>
+</ul>
+</li>
+<li><strong>Topologie-Berücksichtigung:</strong><ul>
+<li>Naives Gossip (Auswahl <em>irgendeines</em> Knotens im Internet) kann Core-Router überlasten.</li>
+<li><strong>Lösung:</strong> Hierarchisches Gossip. Wähle zuerst ein Subnetz zufällig aus, dann einen Knoten <em>innerhalb</em> dieses Subnetzes. Dies hält die Router-Last minimal (<span class="arithmatex">\(O(1)\)</span>).</li>
+</ul>
+</li>
+<li><strong>Anwendung:</strong> Gossip wird in vielen Key-Value Stores (z.B. <strong>Cassandra</strong>), Sensornetzen und dem Network News Transport Protocol (NNTP) verwendet.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "header.autohide", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
